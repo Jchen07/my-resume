@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideStore(ROOT_REDUCERS),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), // TODO: { maxAge: 25, logOnly: !isDevMode() }
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };
