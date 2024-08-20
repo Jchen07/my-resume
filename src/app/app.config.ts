@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideStore(ROOT_REDUCERS),
-    provideStoreDevtools({ name: 'TEST' }), // TODO: { maxAge: 25, logOnly: !isDevMode() }
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), // TODO: { maxAge: 25, logOnly: !isDevMode() }
   ],
 };
