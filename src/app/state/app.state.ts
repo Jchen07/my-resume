@@ -1,11 +1,11 @@
 import { TestState } from './test/models/test.state';
 import { ActionReducerMap } from '@ngrx/store';
-import { testReducer } from './test/test.reducer';
+import { testReducers } from './test/test.reducers';
 
 export interface AppState {
   test: TestState;
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
-  test: testReducer,
+  test: testReducers,
 };

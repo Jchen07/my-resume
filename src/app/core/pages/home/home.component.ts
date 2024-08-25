@@ -1,36 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { changeSuccess, changeTitle } from '../../../state/test/test.actions';
+import { changeTitle } from '@/app/state/test/test.actions';
 import { Observable } from 'rxjs';
-import { selectTestLoading, selectTestModel } from '../../../state/test/test.selector';
+import { selectTestLoading, selectTestModel } from '@/app/state/test/test.selectors';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { AppState } from '../../../state/app.state';
-import { HomeService } from './home.service';
-import { TestModel } from '../../../state/test/models/test.model';
+import { AppState } from '@/app/state/app.state';
+import { TestModel } from '@/app/state/test/models/test.model';
 
 @Component({
   selector: 'jc-home',
   standalone: true,
   imports: [AsyncPipe, NgIf],
-  providers: [HomeService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   testModel$: Observable<TestModel> = new Observable<TestModel>();
   loading$: Observable<boolean> = new Observable<boolean>();
 
-  constructor(
-    private _store: Store<AppState>,
-    private _homeService: HomeService
-  ) {}
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
     this.loading$ = this._store.select(selectTestLoading);
     this.testModel$ = this._store.select(selectTestModel);
     this._store.dispatch(changeTitle());
-    this._homeService.testResponse().subscribe(res => {
-      this._store.dispatch(changeSuccess({ testModels: res }));
-    });
   }
 }

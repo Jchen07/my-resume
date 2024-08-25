@@ -7,7 +7,7 @@ export const initialState: TestState = {
   testModels: { title: '', backgroundColor: '' },
 };
 
-export const testReducer: ActionReducer<TestState> = createReducer(
+export const testReducers: ActionReducer<TestState> = createReducer(
   initialState,
   on(changeTitle, (state: TestState): TestState => {
     return { ...state, loading: true };
