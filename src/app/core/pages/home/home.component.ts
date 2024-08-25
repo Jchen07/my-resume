@@ -12,7 +12,6 @@ import { TestModel } from '@/app/state/test/models/test.model';
   standalone: true,
   imports: [AsyncPipe, NgIf],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
