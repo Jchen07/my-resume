@@ -7,11 +7,12 @@ import {
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { KeysEnum } from '@/app/core/shared/models/keys.enum';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-theme-button',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, TranslocoPipe],
   templateUrl: 'theme-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

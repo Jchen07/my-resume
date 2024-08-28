@@ -1,6 +1,5 @@
 @if (rendered) {
-  <button type="button" aria-label="Canviar a modo oscuro/claro">
-    <!-- TODO: Multiidioma -->
+  <button type="button" [attr.aria-label]="'header.translate-button' | transloco">
     @if (isDarkMode()) {
       <img
         (click)="setMode(MODE_ENUM.LIGHT)"
