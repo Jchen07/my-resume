@@ -1,15 +1,36 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { LanguageEnum } from '@/app/core/header/translate-button/models/language.enum';
+import { KeyValuePipe } from '@angular/common';
+import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outside.directive';
+import { EnterSpacebarDirective } from '@/app/core/shared/directives/enter-spacebar.directive';
 
 @Component({
   selector: 'jc-translate-button',
   standalone: true,
   templateUrl: 'translate-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, EnterSpacebarDirective],
 })
 export class TranslateButtonComponent {
-  changeLanguage(): void {
-    // TODO: install and set multilanguage feature
+  @ViewChild('languageMenu', { static: true }) languageMenuDialog!: ElementRef<HTMLDivElement>;
+
+  menuVisible = false;
+
+  protected readonly languages = LanguageEnum;
+
+  constructor(private _translocoService: TranslocoService) {}
+
+  changeLanguage(language: string): void {
+    this._translocoService.setActiveLang(language);
+    this.hideMenu();
+  }
+
+  openDialog(): void {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  hideMenu(): void {
+    this.menuVisible = false;
   }
 }

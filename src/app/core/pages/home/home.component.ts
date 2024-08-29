@@ -6,11 +6,12 @@ import { selectTestLoading, selectTestModel } from '@/app/state/test/test.select
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AppState } from '@/app/state/app.state';
 import { TestModel } from '@/app/state/test/models/test.model';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-home',
   standalone: true,
-  imports: [AsyncPipe, NgIf],
+  imports: [AsyncPipe, NgIf, TranslocoPipe],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

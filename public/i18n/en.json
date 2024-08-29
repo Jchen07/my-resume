@@ -1,4 +1,5 @@
 {
+  "test": "test english",
   "header": {
     "theme-button": "Switch to dark/light mode",
     "translate-button": "Change language"

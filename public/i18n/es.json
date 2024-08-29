@@ -1,4 +1,5 @@
 {
+  "test": "test español",
   "header": {
     "theme-button": "Cambiar a modo oscuro/claro",
     "translate-button": "Cambiar idioma"

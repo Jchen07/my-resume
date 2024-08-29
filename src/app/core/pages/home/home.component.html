@@ -1,11 +1,13 @@
 @if (testModel$ | async; as testModel) {
-  <section [class]="testModel.backgroundColor">
+  <section>
     {{ testModel.title }}
   </section>
 } @else {
-  <section class="bg-amber-50">Titol sense action</section>
+  <section>Titol sense action</section>
 }
 
 @if (loading$ | async) {
   <section>Cargando...</section>
 }
+
+{{ 'test' | transloco }}
