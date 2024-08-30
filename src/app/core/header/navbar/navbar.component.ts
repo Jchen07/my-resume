@@ -1,18 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 
 @Component({
   selector: 'jc-navbar',
   standalone: true,
-  imports: [TranslocoDirective],
+  imports: [TranslocoDirective, ClickEnterSpacebarDirective],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
   options: { labelkey: string; href?: string }[] = [
-    { labelkey: 'header.navbar.experience' },
-    { labelkey: 'header.navbar.projects' },
-    { labelkey: 'header.navbar.about-me' },
-    { labelkey: 'header.navbar.contact' },
+    { labelkey: 'experience' },
+    { labelkey: 'projects' },
+    { labelkey: 'about-me' },
+    { labelkey: 'contact' },
   ];
 }

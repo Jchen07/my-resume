@@ -8,5 +8,8 @@
       "about-me": "Sobre mí",
       "contact": "Contacto"
     }
+  },
+  "home": {
+    "presentation": "Presentació"
   }
 }
