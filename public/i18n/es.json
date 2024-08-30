@@ -1,7 +1,12 @@
 {
-  "test": "test español",
   "header": {
     "theme-button": "Cambiar a modo oscuro/claro",
-    "translate-button": "Cambiar idioma"
+    "translate-button": "Cambiar idioma",
+    "navbar": {
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "about-me": "Sobre mí",
+      "contact": "Contacto"
+    }
   }
 }

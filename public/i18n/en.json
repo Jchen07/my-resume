@@ -1,7 +1,12 @@
 {
-  "test": "test english",
   "header": {
     "theme-button": "Switch to dark/light mode",
-    "translate-button": "Change language"
+    "translate-button": "Change language",
+    "navbar": {
+      "experience": "Experience",
+      "projects": "Projects",
+      "about-me": "About me",
+      "contact": "Contact"
+    }
   }
 }

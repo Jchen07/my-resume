@@ -1,0 +1,10 @@
+<nav *transloco="let t" class="flex h-full w-full items-center justify-center">
+  <ul
+    class="flex cursor-pointer flex-row gap-x-6 rounded-3xl border border-neutral-800 px-4 py-1 text-sm shadow shadow-purple-300">
+    @for (option of options; track option.labelkey) {
+      <li class="hover:text-purple-700 dark:hover:text-purple-400">
+        {{ t(option.labelkey) }}
+      </li>
+    }
+  </ul>
+</nav>

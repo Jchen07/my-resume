@@ -5,14 +5,13 @@ import {
   Component,
 } from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
-import { KeysEnum } from '@/app/core/shared/models/keys.enum';
-import { NgOptimizedImage } from '@angular/common';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 
 @Component({
   selector: 'jc-theme-button',
   standalone: true,
-  imports: [NgOptimizedImage, TranslocoPipe],
+  imports: [TranslocoPipe, ClickEnterSpacebarDirective],
   templateUrl: 'theme-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -41,12 +40,6 @@ export class ThemeButtonComponent {
     } else {
       localStorage.setItem(this.THEME_STORAGE_NAME, ModeEnum.LIGHT);
       document.documentElement.classList.remove(ModeEnum.DARK);
-    }
-  }
-
-  handleKeyUpMode(event: KeyboardEvent, mode: ModeEnum): void {
-    if (event.key === KeysEnum.ENTER || event.key === KeysEnum.SPACE) {
-      this.setMode(mode);
     }
   }
 }
