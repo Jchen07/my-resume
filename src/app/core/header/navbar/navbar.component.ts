@@ -10,10 +10,11 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  // TODO: borrar ?
   options: { labelkey: string; href?: string }[] = [
     { labelkey: 'experience' },
     { labelkey: 'projects' },
     { labelkey: 'about-me' },
-    { labelkey: 'contact' },
+    { labelkey: 'contact', href: 'mailto:jchen070702@gmail.com' }, // TODO: canviar por seccion de email con opcion de copiar
   ];
 }

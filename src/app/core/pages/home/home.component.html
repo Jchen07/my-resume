@@ -10,14 +10,7 @@
 <!--  <section>Cargando...</section>-->
 <!--}-->
 
-<!--TODO: multiidioma-->
-
-<section
-  *transloco="let t; prefix: 'home'"
-  [attr.aria-label]="t('presentation')"
-  class="flex h-screen w-screen items-center justify-center">
-  <div class="h-auto w-screen md:w-1/2">
-    <h1 class="text-5xl">Hey, I'm Jie Chen</h1>
-    <h2 class="text-3xl">A full-stack developer</h2>
-  </div>
-</section>
+<main class="flex w-full flex-wrap justify-center">
+  <jc-presentation-section class="flex h-screen w-screen items-center justify-center" />
+  <jc-experience-section class="w-4/5 md:w-2/3" />
+</main>

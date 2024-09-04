@@ -10,6 +10,15 @@
     }
   },
   "home": {
-    "presentation": "Presentació"
+    "presentation": "Presentació",
+    "title": "Hey, soy Jie Chen",
+    "description": "Un desarrollador Full-Stack con +3 años de experiencia en el desarrollo de aplicaciones web empresariales en DXC Technology.",
+
+    "experience": "Experiencia",
+
+    "button-bar": {
+      "contact": "Contacto",
+      "downloadCV": "Descargar CV"
+    }
   }
 }

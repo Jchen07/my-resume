@@ -16,5 +16,4 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
-}
+export class HeaderComponent {}
