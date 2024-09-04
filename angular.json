@@ -5,10 +5,14 @@
   "projects": {
     "my-resume": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "none"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "jc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
