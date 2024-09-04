@@ -11,5 +11,5 @@ import { TranslocoDirective } from '@jsverse/transloco';
 export class ButtonsBarComponent {
   // tailwind dark: doesn't work with @apply
   buttonStyles =
-    'flex items-center gap-1.5 rounded-lg border border-gray-400 fill-neutral-800 px-2.5 py-0.5 hover:bg-neutral-900 hover:fill-neutral-200 hover:text-neutral-200 dark:fill-neutral-200 dark:hover:bg-gray-200 dark:hover:fill-neutral-800 dark:hover:text-neutral-700';
+    'flex items-center text-sm sm:text-base gap-0.5 sm:gap-1.5 rounded-lg border border-gray-400 fill-neutral-800 px-1 sm:px-2.5 py-1 sm:py-0.5 hover:bg-neutral-900 hover:fill-neutral-200 hover:text-neutral-200 dark:fill-neutral-200 dark:hover:bg-gray-200 dark:hover:fill-neutral-800 dark:hover:text-neutral-700';
 }
