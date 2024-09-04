@@ -1,0 +1,22 @@
+<div
+  class="inline-flex w-auto py-0.5 items-center justify-center gap-1 rounded-3xl text-neutral-200 px-2 dark:text-neutral-900
+  {{ backgroundColor }}">
+  @switch (name) {
+    @case (TAG_NAME.ANGULAR) {
+      <jc-angular-icon [size]="size" />
+    }
+    @case (TAG_NAME.JAVA) {
+      <jc-java-icon [size]="size" />
+    }
+    @case (TAG_NAME.SPRING_FRAMEWORK) {
+      <jc-spring-icon [size]="size" />
+    }
+    @case (TAG_NAME.TYPESCRIPT) {
+      <jc-typescript-icon [size]="size" />
+    }
+    @case (TAG_NAME.POSTGRE_SQL) {
+      <jc-postgresql-icon [size]="size" />
+    }
+  }
+  <p class="text-sm">{{ name }}</p>
+</div>
