@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(private _translocoService: TranslocoService) {
     // TODO: provar de nou si es pot fer alguna cosa al servidor perquè ja carregi el idioma que toca
     this.lang = getBrowserLang();
-    if (this.lang !== undefined) {
+    if (this.lang !== undefined && this._translocoService.getActiveLang() !== this.lang) {
       this._translocoService.setActiveLang(this.lang);
     }
   }
