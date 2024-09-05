@@ -12,5 +12,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class AppComponent {
   title = 'angular';
-  // TODO: passar corrector en json de traducció
+
+  constructor() {}
+
+  // this.lang = getBrowserLang();
 }

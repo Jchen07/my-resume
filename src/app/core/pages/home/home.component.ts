@@ -3,6 +3,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 import { ButtonsBarComponent } from '@/app/core/pages/home/presentation-section/buttons-bar/buttons-bar.component';
 import { ExperienceSectionComponent } from '@/app/core/pages/home/experience-section/experience-section.component';
 import { PresentationSectionComponent } from '@/app/core/pages/home/presentation-section/presentation-section.component';
+import { EducationSectionComponent } from '@/app/core/pages/home/education-section/education-section.component';
 
 @Component({
   selector: 'jc-home',
@@ -12,6 +13,7 @@ import { PresentationSectionComponent } from '@/app/core/pages/home/presentation
     ButtonsBarComponent,
     ExperienceSectionComponent,
     PresentationSectionComponent,
+    EducationSectionComponent,
   ],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

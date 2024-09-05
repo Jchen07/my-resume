@@ -4,13 +4,14 @@ export enum TagNameEnum {
   JAVA = 'Java',
   JAVASCRIPT = 'JavaScript',
   CSHARP = 'C#',
+  PHP = 'PHP',
 
   // Frameworks
   ANGULAR = 'Angular',
   SPRING_FRAMEWORK = 'Spring Framework',
   VUE = 'Vue',
-  TAILWIND = 'Tailwind',
 
   // DataBase
   POSTGRE_SQL = 'PostgreSQL',
+  MARIA_DB = 'MariaDB',
 }

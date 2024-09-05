@@ -10,15 +10,40 @@
     }
   },
   "home": {
-    "presentation": "Presentació",
-    "title": "Hey, soy Jie Chen",
-    "description": "Un desarrollador Full-Stack con +3 años de experiencia en el desarrollo de aplicaciones web empresariales en DXC Technology.",
+    "presentation": {
+      "title": "Presentación",
+      "name": "Hey, soy Jie Chen",
+      "description": "Un desarrollador Full-Stack con +3 años de experiencia en el desarrollo de aplicaciones web empresariales en DXC Technology.",
 
-    "experience": "Experiencia",
+      "button-bar": {
+        "contact": "Contacto",
+        "downloadCV": "Descargar CV"
+      }
+    },
 
-    "button-bar": {
-      "contact": "Contacto",
-      "downloadCV": "Descargar CV"
+    "experience":  {
+      "title": "Experiencia",
+      "first": {
+        "time": "Noviembre 2021 - Actualmente",
+        "title": "Business Applications Engineer",
+        "description": "Desarrollar back-ends escalables con Java Spring Boot y componentes front-ends dinámicos con Angular. Ocasionalmente, liderar equipos pequeños para desarrollar nuevas funciones, como soporte multilingüe, actualizar stack de front-end y brindar soporte a los miembros del equipo."
+      }
+    },
+
+    "education": {
+      "title": "Educación",
+      "first": {
+        "time": "Setiembre 2020 - Junio 2022",
+        "title": "Desarrollo de aplicaciones web",
+        "subtitle": "Ciclo formativo de grado superior",
+        "description": "En el Grado Superior de Desarrollo Web adquirí experiencia práctica en la creación y gestión de sitios web y aplicaciones dinámicas. Dominé tecnologías como HTML, CSS, JavaScript, Vue, etc., a la vez que aprendí a diseñar interfaces responsivas y fáciles de usar. Además, perfeccioné mis habilidades mediante la experiencia práctica en proyectos y prácticas en empresas."
+      },
+      "second": {
+        "time": "Setiembre 2024 - Actualmente",
+        "title": "Ingeniero Informático",
+        "subtitle": "Universidad Abierta de Cataluña (UOC)",
+        "description": "Grado en ingeniería informática"
+      }
     }
   }
 }

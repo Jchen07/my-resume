@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TagComponent } from '@/app/core/shared/components/tag/tag.component';
-import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.enum';
+import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.interface';
 
 @Component({
   selector: 'jc-timeline',
@@ -9,5 +9,5 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
   templateUrl: './timeline.component.html',
 })
 export class TimelineComponent {
-  protected readonly TAG_NAME = TagNameEnum;
+  @Input() timeLines!: TimeLine[];
 }

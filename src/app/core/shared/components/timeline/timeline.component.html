@@ -1,0 +1,32 @@
+<ol class="relative ml-4 border-s border-neutral-400 dark:border-gray-700">
+  @for (timeLine of timeLines; track timeLine.title) {
+    <li class="mb-10 ms-4">
+      <div
+        class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-neutral-500 bg-neutral-800 dark:border-gray-900 dark:bg-gray-500 dark:shadow-sm dark:shadow-purple-300"></div>
+      <div class="sm:grid sm:grid-cols-5">
+        <div class="sm:col-span-2">
+          <time class="mb-1 text-sm leading-none text-purple-700 dark:text-gray-500">
+            {{ timeLine.time }}
+          </time>
+          <h3 class="text-lg font-semibold">{{ timeLine.title }}</h3>
+
+          @if (timeLine.subtitle) {
+            <h4>{{ timeLine.subtitle }}</h4>
+          }
+
+          @if (timeLine.tags?.length) {
+            <div class="mt-1 flex flex-wrap gap-1">
+              @for (tag of timeLine.tags; track tag) {
+                <jc-tag [name]="tag" />
+              }
+            </div>
+          }
+        </div>
+        <p
+          class="mb-4 flex h-full items-center text-balance text-base text-gray-600 sm:col-span-3 dark:text-gray-400">
+          {{ timeLine.description }}
+        </p>
+      </div>
+    </li>
+  }
+</ol>
