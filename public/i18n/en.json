@@ -4,6 +4,7 @@
     "translate-button": "Change language",
     "navbar": {
       "experience": "Experience",
+      "education": "Education",
       "projects": "Projects",
       "about-me": "About me",
       "contact": "Contact"
@@ -41,7 +42,7 @@
       "second": {
         "time": "September 2024 - Present",
         "title": "Computer Engineering",
-        "subtitle": "Open University of Catalonia (UOC)",
+        "subtitle": "Open University of Catalonia",
         "description": "Bachelor’s Degree in Computer Engineering"
       }
     }

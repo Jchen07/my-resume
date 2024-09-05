@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@/app/core/header/header.component';
 import { FooterComponent } from '@/app/core/footer/footer.component';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { getBrowserLang, TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-root',
@@ -12,8 +12,13 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class AppComponent {
   title = 'angular';
+  lang: string | undefined;
 
-  constructor() {}
-
-  // this.lang = getBrowserLang();
+  constructor(private _translocoService: TranslocoService) {
+    // TODO: provar de nou si es pot fer alguna cosa al servidor perquè ja carregi el idioma que toca
+    this.lang = getBrowserLang();
+    if (this.lang !== undefined) {
+      this._translocoService.setActiveLang(this.lang);
+    }
+  }
 }

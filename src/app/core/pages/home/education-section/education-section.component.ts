@@ -25,6 +25,7 @@ export class EducationSectionComponent {
           time: educationJson.second.time,
           title: educationJson.second.title,
           subtitle: educationJson.second.subtitle,
+          icon: 'uoc_logo.webp',
           description: educationJson.second.description,
         },
         {

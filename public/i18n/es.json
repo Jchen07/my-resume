@@ -4,6 +4,7 @@
     "translate-button": "Cambiar idioma",
     "navbar": {
       "experience": "Experiencia",
+      "education": "Educación",
       "projects": "Proyectos",
       "about-me": "Sobre mí",
       "contact": "Contacto"
@@ -41,7 +42,7 @@
       "second": {
         "time": "Setiembre 2024 - Actualmente",
         "title": "Ingeniero Informático",
-        "subtitle": "Universidad Abierta de Cataluña (UOC)",
+        "subtitle": "Universidad Abierta de Cataluña",
         "description": "Grado en ingeniería informática"
       }
     }

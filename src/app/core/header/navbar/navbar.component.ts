@@ -13,6 +13,7 @@ export class NavbarComponent {
   // TODO: borrar ?
   options: { labelkey: string; href?: string }[] = [
     { labelkey: 'experience' },
+    { labelkey: 'education' },
     { labelkey: 'projects' },
     { labelkey: 'about-me' },
     { labelkey: 'contact', href: 'mailto:jchen070702@gmail.com' }, // TODO: canviar por seccion de email con opcion de copiar

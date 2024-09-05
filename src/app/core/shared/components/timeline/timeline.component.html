@@ -3,15 +3,25 @@
     <li class="mb-10 ms-4">
       <div
         class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-neutral-500 bg-neutral-800 dark:border-gray-900 dark:bg-gray-500 dark:shadow-sm dark:shadow-purple-300"></div>
-      <div class="sm:grid sm:grid-cols-5">
-        <div class="sm:col-span-2">
+      <div class="md:grid md:grid-cols-5">
+        <div class="pr-1 md:col-span-2">
           <time class="mb-1 text-sm leading-none text-purple-700 dark:text-gray-500">
             {{ timeLine.time }}
           </time>
           <h3 class="text-lg font-semibold">{{ timeLine.title }}</h3>
 
           @if (timeLine.subtitle) {
-            <h4>{{ timeLine.subtitle }}</h4>
+            <div class="flex items-center gap-2">
+              @if (timeLine.icon) {
+                <img
+                  class="dark:bg-neutral-50 dark:p-0.5"
+                  [ngSrc]="'assets/icons/' + timeLine.icon"
+                  height="18"
+                  width="24"
+                  alt="logo" />
+              }
+              <h4>{{ timeLine.subtitle }}</h4>
+            </div>
           }
 
           @if (timeLine.tags?.length) {
@@ -23,7 +33,7 @@
           }
         </div>
         <p
-          class="mb-4 flex h-full items-center text-balance text-base text-gray-600 sm:col-span-3 dark:text-gray-400">
+          class="mb-4 flex h-full items-center text-balance text-base text-gray-600 md:col-span-3 dark:text-gray-400">
           {{ timeLine.description }}
         </p>
       </div>
