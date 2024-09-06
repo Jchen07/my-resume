@@ -4,6 +4,7 @@ import { ButtonsBarComponent } from '@/app/core/pages/home/presentation-section/
 import { ExperienceSectionComponent } from '@/app/core/pages/home/experience-section/experience-section.component';
 import { PresentationSectionComponent } from '@/app/core/pages/home/presentation-section/presentation-section.component';
 import { EducationSectionComponent } from '@/app/core/pages/home/education-section/education-section.component';
+import { ProjectsSectionComponent } from '@/app/core/pages/home/projects-section/projects-section.component';
 
 @Component({
   selector: 'jc-home',
@@ -14,6 +15,7 @@ import { EducationSectionComponent } from '@/app/core/pages/home/education-secti
     ExperienceSectionComponent,
     PresentationSectionComponent,
     EducationSectionComponent,
+    ProjectsSectionComponent,
   ],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
