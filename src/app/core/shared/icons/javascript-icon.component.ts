@@ -19,5 +19,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class JavascriptIconComponent {
-  @Input() size!: string;
+  @Input({ required: true }) size!: string;
 }

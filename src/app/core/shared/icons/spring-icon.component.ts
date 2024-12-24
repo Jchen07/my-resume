@@ -18,5 +18,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class SpringIconComponent {
-  @Input() size!: string;
+  @Input({ required: true }) size!: string;
 }

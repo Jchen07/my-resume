@@ -57,5 +57,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class AngularIconComponent {
-  @Input() size!: string;
+  @Input({ required: true }) size!: string;
 }

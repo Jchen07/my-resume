@@ -25,5 +25,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class MariaDBIconComponent {
-  @Input() size!: string;
+  @Input({ required: true }) size!: string;
 }

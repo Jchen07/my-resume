@@ -30,7 +30,7 @@ import { MariaDBIconComponent } from '@/app/core/shared/icons/mariadb-icon.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent implements OnInit {
-  @Input() name!: string;
+  @Input({ required: true }) name!: string;
   @Input() size = '18';
   @Input() backgroundColor = '';
 
