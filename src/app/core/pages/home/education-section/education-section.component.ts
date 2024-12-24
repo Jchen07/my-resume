@@ -18,7 +18,7 @@ export class EducationSectionComponent {
     this.setTimeLines();
   }
 
-  private setTimeLines() {
+  private setTimeLines(): void {
     this._translocoService.selectTranslateObject('home.education').subscribe(educationJson => {
       this.timeLines = [
         {
