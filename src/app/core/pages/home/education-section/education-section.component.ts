@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { TimelineComponent } from '@/app/core/shared/components/timeline/timeline.component';
 import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.interface';
@@ -11,10 +11,13 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
   templateUrl: './education-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EducationSectionComponent {
+export class EducationSectionComponent implements OnInit {
   timeLines!: TimeLine[];
 
   constructor(private _translocoService: TranslocoService) {
+  }
+
+  ngOnInit() {
     this.setTimeLines();
   }
 
