@@ -10,6 +10,7 @@ import { PhpIconComponent } from '@/app/core/shared/icons/php-icon.component';
 import { CSharpIconComponent } from '@/app/core/shared/icons/csharp-icon.component';
 import { JavascriptIconComponent } from '@/app/core/shared/icons/javascript-icon.component';
 import { MariaDBIconComponent } from '@/app/core/shared/icons/mariadb-icon.component';
+import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-color.enum';
 
 @Component({
   selector: 'jc-tag',
@@ -30,7 +31,7 @@ import { MariaDBIconComponent } from '@/app/core/shared/icons/mariadb-icon.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent implements OnInit {
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) name!: TagNameEnum;
   @Input() size = '18';
   @Input() backgroundColor = '';
 
@@ -43,29 +44,6 @@ export class TagComponent implements OnInit {
   }
 
   getDefaultTagColor(): string {
-    switch (this.name) {
-      case TagNameEnum.ANGULAR:
-        return 'bg-fuchsia-950 dark:bg-violet-300';
-      case TagNameEnum.JAVA:
-        return 'bg-gray-700 dark:bg-orange-200';
-      case TagNameEnum.SPRING_FRAMEWORK:
-        return 'bg-teal-900 dark:bg-green-200';
-      case TagNameEnum.TYPESCRIPT:
-        return 'bg-indigo-800 dark:bg-indigo-300';
-      case TagNameEnum.POSTGRE_SQL:
-        return 'bg-blue-950 dark:bg-indigo-300';
-      case TagNameEnum.VUE:
-        return 'bg-emerald-600 dark:bg-emerald-200';
-      case TagNameEnum.PHP:
-        return 'bg-indigo-900 dark:bg-indigo-300';
-      case TagNameEnum.CSHARP:
-        return 'bg-purple-800 dark:bg-purple-300';
-      case TagNameEnum.JAVASCRIPT:
-        return 'bg-yellow-800 dark:bg-yellow-100';
-      case TagNameEnum.MARIA_DB:
-        return 'bg-orange-800 dark:bg-orange-100';
-      default:
-        return 'bg-neutral-800 dark:bg-neutral-200';
-    }
+    return tagColors[this.name] || 'bg-neutral-800 dark:bg-neutral-200';
   }
 }
