@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LanguageEnum } from '@/app/core/header/translate-button/models/language.enum';
 import { KeyValuePipe } from '@angular/common';
@@ -13,8 +13,6 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],
 })
 export class TranslateButtonComponent {
-  @ViewChild('languageMenu', { static: true }) languageMenuDialog!: ElementRef<HTMLDivElement>;
-
   menuVisible = false;
 
   protected readonly languages = LanguageEnum;
