@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-angular-icon',
@@ -10,8 +10,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 242 256"
-      [attr.width]="size"
-      [attr.height]="size">
+      [attr.width]="size()"
+      [attr.height]="size()">
       <g clip-path="url(#a)">
         <mask
           id="b"
@@ -57,5 +57,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class AngularIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

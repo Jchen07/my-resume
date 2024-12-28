@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-java-icon',
@@ -10,8 +10,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid"
       viewBox="0 0 256 346"
-      [attr.width]="size"
-      [attr.height]="size">
+      [attr.width]="size()"
+      [attr.height]="size()">
       <path
         d="M83 267s-14 8 9 11c27 3 41 2 71-3 0 0 8 5 19 9-67 29-153-2-99-17M74 230s-15 11 8 13c29 3 52 3 92-4 0 0 6 5 15 8-82 24-173 2-115-17"
         fill="#5382A1" />
@@ -31,5 +31,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class JavaIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

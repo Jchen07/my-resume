@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit, signal } from '@angular/core';
 import { AngularIconComponent } from '@/app/core/shared/icons/angular-icon.component';
 import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.enum';
 import { JavaIconComponent } from '@/app/core/shared/icons/java-icon.component';
@@ -31,19 +31,20 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent implements OnInit {
-  @Input({ required: true }) name!: TagNameEnum;
-  @Input() size = '18';
-  @Input() backgroundColor = '';
+  name = input.required<TagNameEnum>();
+
+  size = signal<string>('18');
+  backgroundColor = signal<string>('');
 
   protected readonly TAG_NAME = TagNameEnum;
 
   ngOnInit() {
     if (this.backgroundColor.length === 0) {
-      this.backgroundColor = this.getDefaultTagColor();
+      this.backgroundColor.set(this.getDefaultTagColor());
     }
   }
 
   getDefaultTagColor(): string {
-    return tagColors[this.name] || 'bg-neutral-800 dark:bg-neutral-200';
+    return tagColors[this.name()] || 'bg-neutral-800 dark:bg-neutral-200';
   }
 }

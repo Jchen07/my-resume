@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-vue-icon',
@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <svg
       viewBox="0 0 256 221"
-      [attr.width]="size"
-      [attr.height]="size"
+      [attr.width]="size()"
+      [attr.height]="size()"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid">
       <path d="M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z" fill="#41B883" />
@@ -19,5 +19,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class VueIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

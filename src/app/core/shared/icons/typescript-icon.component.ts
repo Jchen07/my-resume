@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-typescript-icon',
@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <svg
       viewBox="0 0 256 256"
-      [attr.width]="size"
-      [attr.height]="size"
+      [attr.width]="size()"
+      [attr.height]="size()"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid">
       <path
@@ -22,5 +22,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class TypescriptIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

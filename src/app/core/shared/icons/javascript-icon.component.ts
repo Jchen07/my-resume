@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-javascript-icon',
@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      [attr.width]="size"
-      [attr.height]="size"
+      [attr.width]="size()"
+      [attr.height]="size()"
       viewBox="0 0 1052 1052">
       <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
       <path
@@ -19,5 +19,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class JavascriptIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

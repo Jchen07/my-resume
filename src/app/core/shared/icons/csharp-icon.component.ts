@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-csharp-icon',
@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      [attr.width]="size"
-      [attr.height]="size"
+      [attr.width]="size()"
+      [attr.height]="size()"
       preserveAspectRatio="xMidYMid"
       viewBox="0 -1.43 255.58 290.11">
       <path
@@ -31,5 +31,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
 })
 export class CSharpIconComponent {
-  @Input({ required: true }) size!: string;
+  size = input.required<string>();
 }

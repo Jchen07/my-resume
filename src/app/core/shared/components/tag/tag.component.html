@@ -1,37 +1,37 @@
 <div
   class="inline-flex w-auto py-0.5 items-center justify-center gap-1 rounded-3xl text-neutral-200 px-2 dark:text-neutral-900
   {{ backgroundColor }}">
-  @switch (name) {
+  @switch (name()) {
     @case (TAG_NAME.ANGULAR) {
-      <jc-angular-icon [size]="size" />
+      <jc-angular-icon [size]="size()" />
     }
     @case (TAG_NAME.JAVA) {
-      <jc-java-icon [size]="size" />
+      <jc-java-icon [size]="size()" />
     }
     @case (TAG_NAME.SPRING_FRAMEWORK) {
-      <jc-spring-icon [size]="size" />
+      <jc-spring-icon [size]="size()" />
     }
     @case (TAG_NAME.TYPESCRIPT) {
-      <jc-typescript-icon [size]="size" />
+      <jc-typescript-icon [size]="size()" />
     }
     @case (TAG_NAME.POSTGRE_SQL) {
-      <jc-postgresql-icon [size]="size" />
+      <jc-postgresql-icon [size]="size()" />
     }
     @case (TAG_NAME.VUE) {
-      <jc-vue-icon [size]="size" />
+      <jc-vue-icon [size]="size()" />
     }
     @case (TAG_NAME.PHP) {
-      <jc-php-icon [size]="size" />
+      <jc-php-icon [size]="size()" />
     }
     @case (TAG_NAME.CSHARP) {
-      <jc-csharp-icon [size]="size" />
+      <jc-csharp-icon [size]="size()" />
     }
     @case (TAG_NAME.JAVASCRIPT) {
-      <jc-javascript-icon [size]="size" />
+      <jc-javascript-icon [size]="size()" />
     }
     @case (TAG_NAME.MARIA_DB) {
-      <jc-mariadb-icon [size]="size" />
+      <jc-mariadb-icon [size]="size()" />
     }
   }
-  <p class="text-sm">{{ name }}</p>
+  <p class="text-sm">{{ name() }}</p>
 </div>
