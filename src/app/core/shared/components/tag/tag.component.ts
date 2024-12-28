@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, OnInit, signal } from '@angular/core';
 import { AngularIconComponent } from '@/app/core/shared/icons/angular-icon.component';
 import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.enum';
 import { JavaIconComponent } from '@/app/core/shared/icons/java-icon.component';
@@ -30,22 +30,20 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
   templateUrl: './tag.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TagComponent implements OnInit {
+export class TagComponent {
   name = input.required<TagNameEnum>();
   size = input<string>('18');
+  backgroundColorInput = input<string>();
 
-  // TODO: hauria de ser un input opcional i en cas de no estigui cridar this.getDefaultTagColor, però no deixa per un error, i tampoc és pot fer set. canviar més tard
-  backgroundColor = signal<string>('');
+  backgroundColor = computed<string>(this._getBackgroundColor.bind(this));
 
   protected readonly TAG_NAME = TagNameEnum;
 
-  ngOnInit() {
-    if (this.backgroundColor.length === 0) {
-      this.backgroundColor.set(this.getDefaultTagColor());
-    }
+  private _getBackgroundColor(): string {
+    return this.backgroundColorInput() || this._getDefaultBackgroundColor();
   }
 
-  getDefaultTagColor(): string {
+  private _getDefaultBackgroundColor(): string {
     return tagColors[this.name()] || 'bg-neutral-800 dark:bg-neutral-200';
   }
 }
