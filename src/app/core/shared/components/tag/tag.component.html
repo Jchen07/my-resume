@@ -1,6 +1,6 @@
 <div
   class="inline-flex w-auto py-0.5 items-center justify-center gap-1 rounded-3xl text-neutral-200 px-2 dark:text-neutral-900
-  {{ backgroundColor }}">
+  {{ backgroundColor() }}">
   @switch (name()) {
     @case (TAG_NAME.ANGULAR) {
       <jc-angular-icon [size]="size()" />
