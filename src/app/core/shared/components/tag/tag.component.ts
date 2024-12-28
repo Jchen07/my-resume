@@ -32,8 +32,9 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
 })
 export class TagComponent implements OnInit {
   name = input.required<TagNameEnum>();
+  size = input<string>('18');
 
-  size = signal<string>('18');
+  // TODO: hauria de ser un input opcional i en cas de no estigui cridar this.getDefaultTagColor, però no deixa per un error, i tampoc és pot fer set. canviar més tard
   backgroundColor = signal<string>('');
 
   protected readonly TAG_NAME = TagNameEnum;
