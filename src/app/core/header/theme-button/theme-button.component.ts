@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  signal,
 } from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { TranslocoPipe } from '@jsverse/transloco';
@@ -16,15 +17,16 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeButtonComponent {
-  rendered = false;
+  rendered = signal<boolean>(false);
 
   protected readonly MODE_ENUM = ModeEnum;
 
   private readonly THEME_STORAGE_NAME: string = 'theme';
 
   constructor(private _changeDetection: ChangeDetectorRef) {
+    // TODO: change?
     afterNextRender((): void => {
-      this.rendered = true;
+      this.rendered.set(true);
       this._changeDetection.markForCheck();
     });
   }
