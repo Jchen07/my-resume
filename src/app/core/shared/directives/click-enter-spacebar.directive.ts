@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { Directive, HostListener, output } from '@angular/core';
 import { KeysEnum } from '@/app/core/shared/models/keys.enum';
 
 @Directive({
@@ -6,17 +6,17 @@ import { KeysEnum } from '@/app/core/shared/models/keys.enum';
   selector: '[jcClickEnterSpacebar]',
 })
 export class ClickEnterSpacebarDirective {
-  @Output() clickedOrEnterOrSpaceBar = new EventEmitter();
+  clickedOrEnterOrSpaceBar = output<void>();
 
   @HostListener('click', ['$event'])
-  handleClick(event: KeyboardEvent) {
-    this.clickedOrEnterOrSpaceBar.emit(event);
+  handleClick() {
+    this.clickedOrEnterOrSpaceBar.emit();
   }
 
   @HostListener('keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (event.key === KeysEnum.ENTER || event.key === KeysEnum.SPACE) {
-      this.clickedOrEnterOrSpaceBar.emit(event);
+      this.clickedOrEnterOrSpaceBar.emit();
     }
   }
 }
