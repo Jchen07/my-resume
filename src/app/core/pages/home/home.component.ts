@@ -1,26 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
-import { ButtonsBarComponent } from '@/app/core/pages/home/presentation-section/buttons-bar/buttons-bar.component';
 import { ExperienceSectionComponent } from '@/app/core/pages/home/experience-section/experience-section.component';
 import { PresentationSectionComponent } from '@/app/core/pages/home/presentation-section/presentation-section.component';
 import { EducationSectionComponent } from '@/app/core/pages/home/education-section/education-section.component';
-import { ProjectsSectionComponent } from '@/app/core/pages/home/projects-section/projects-section.component';
 
 @Component({
   selector: 'jc-home',
   standalone: true,
-  imports: [
-    TranslocoDirective,
-    ButtonsBarComponent,
-    ExperienceSectionComponent,
-    PresentationSectionComponent,
-    EducationSectionComponent,
-    ProjectsSectionComponent,
-  ],
+  imports: [ExperienceSectionComponent, PresentationSectionComponent, EducationSectionComponent],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+  // TODO: ngrx test, delete in the future
   // testModel$: Observable<TestModel> = new Observable<TestModel>();
   // loading$: Observable<boolean> = new Observable<boolean>();
   //
