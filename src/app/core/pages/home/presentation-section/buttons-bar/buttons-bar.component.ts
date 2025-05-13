@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { OpenLinkConfirmationDirective } from '@/app/core/shared/directives/open-link-confirmation.directive';
 
 @Component({
   selector: 'jc-buttons-bar',
   standalone: true,
-  imports: [TranslocoDirective],
+  imports: [TranslocoDirective, OpenLinkConfirmationDirective],
   templateUrl: './buttons-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

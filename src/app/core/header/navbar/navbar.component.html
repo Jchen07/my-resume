@@ -28,9 +28,15 @@
         tabindex="0"
         [attr.aria-label]="t(option.labelkey)"
         class="hover:text-purple-700 dark:hover:text-purple-400">
-        <a role="link" [href]="option.href">
-          {{ t(option.labelkey) }}
-        </a>
+        @if (option.extern) {
+          <a jcOpenLinkConfirmation role="link" [href]="option.href">
+            {{ t(option.labelkey) }}
+          </a>
+        } @else {
+          <a role="link" [href]="option.href">
+            {{ t(option.labelkey) }}
+          </a>
+        }
       </li>
     }
   </ul>
