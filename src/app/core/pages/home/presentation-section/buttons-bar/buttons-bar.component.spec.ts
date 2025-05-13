@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonsBarComponent } from './buttons-bar.component';
+import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 
 describe('ButtonsBarComponent', () => {
   let component: ButtonsBarComponent;
@@ -8,7 +9,7 @@ describe('ButtonsBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonsBarComponent],
+      imports: [ButtonsBarComponent, getTranslocoModule()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonsBarComponent);

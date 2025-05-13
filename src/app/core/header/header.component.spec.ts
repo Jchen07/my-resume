@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +9,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent, getTranslocoModule()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

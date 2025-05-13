@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PresentationSectionComponent } from './presentation-section.component';
+import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 
 describe('PresentationSectionComponent', () => {
   let component: PresentationSectionComponent;
@@ -8,7 +9,7 @@ describe('PresentationSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PresentationSectionComponent],
+      imports: [PresentationSectionComponent, getTranslocoModule()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PresentationSectionComponent);
