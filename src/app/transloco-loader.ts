@@ -7,6 +7,7 @@ import { environment } from '@/environments/environment';
 export class TranslocoHttpLoader implements TranslocoLoader {
   private http = inject(HttpClient);
 
+  // TODO: fer que cada desplegament recarregi tots els json
   getTranslation(lang: string) {
     return this.http.get<Translation>(`${environment.baseUrl}/i18n/${lang}.json`);
   }
