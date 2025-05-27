@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { AngularIconComponent } from '@/app/core/shared/icons/angular-icon.component';
 import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.enum';
 import { JavaIconComponent } from '@/app/core/shared/icons/java-icon.component';
@@ -32,7 +32,7 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
 })
 export class TagComponent {
   name = input.required<TagNameEnum>();
-  size = input<string>('18');
+  size = input<string>('22');
   backgroundColorInput = input<string>();
 
   backgroundColor = computed<string>(this._getBackgroundColor.bind(this));
