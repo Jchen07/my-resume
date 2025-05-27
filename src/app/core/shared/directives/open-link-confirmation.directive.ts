@@ -9,8 +9,8 @@ import { Directive } from '@angular/core';
 })
 export class OpenLinkConfirmationDirective {
   confirmOpenLink(event: MouseEvent) {
-    // TODO: transloco test
-    const wantsOpenLink  = window.confirm('Do you really want to open this link?');
+    // TODO: transloco
+    const wantsOpenLink = window.confirm('Do you really want to open this link?');
 
     if (wantsOpenLink) {
       return;
