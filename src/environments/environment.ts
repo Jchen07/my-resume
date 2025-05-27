@@ -1,4 +1,4 @@
 export const environment = {
-  baseUrl: 'http://localhost:4202', // TODO: add production route
+  baseUrl: `${window.location.origin}/my-resume`,
   production: true,
 };

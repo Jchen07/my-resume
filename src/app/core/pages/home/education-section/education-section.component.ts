@@ -14,8 +14,7 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
 export class EducationSectionComponent implements OnInit {
   timeLines!: TimeLine[];
 
-  constructor(private _translocoService: TranslocoService) {
-  }
+  constructor(private _translocoService: TranslocoService) {}
 
   ngOnInit() {
     this.setTimeLines();
