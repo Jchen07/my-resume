@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@/app/core/header/header.component';
 import { FooterComponent } from '@/app/core/footer/footer.component';
-import { getBrowserLang, TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { getBrowserLang, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, TranslocoDirective],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
