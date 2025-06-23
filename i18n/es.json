@@ -3,6 +3,7 @@
     "theme-button": "Cambiar a modo oscuro/claro",
     "translate-button": "Cambiar idioma",
     "navbar": {
+      "home": "Inicio",
       "experience": "Experiencia",
       "education": "Educación",
       "projects": "Proyectos",
