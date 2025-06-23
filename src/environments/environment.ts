@@ -1,4 +1,7 @@
+const url = '/my-resume';
+
 export const environment = {
-  baseUrl: `${window.location.origin}/my-resume`,
+  baseHref: url,
+  baseUrl: `${window.location.origin}${url}`,
   production: true,
 };
