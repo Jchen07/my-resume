@@ -14,9 +14,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore(ROOT_REDUCERS),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(ROOT_EFFECTS),
+    provideStore(ROOT_REDUCERS), // TODO: learning purposes
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), // TODO: learning purposes
+    provideEffects(ROOT_EFFECTS), // TODO: learning purposes
     provideHttpClient(withFetch()),
     provideTransloco({
       config: {
