@@ -1,7 +1,9 @@
 <h2 class="mb-6 text-xl font-bold dark:text-gray-100">Authenticate to access all resources</h2>
 <form (ngSubmit)="onSubmit()" class="flex items-end gap-8">
   <p class="flex-1">
-    <label for="email" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">E-Mail</label>
+    <label for="email" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+      E-Mail
+    </label>
     <input
       id="email"
       type="email"
@@ -11,7 +13,9 @@
   </p>
 
   <p class="flex-1">
-    <label for="passowrd" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">Password</label>
+    <label for="passowrd" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+      Password
+    </label>
     <input
       id="passowrd"
       type="password"
@@ -30,5 +34,7 @@
 </form>
 
 @if (isAdmin()) {
-  <p class="mt-4 font-semibold text-green-700 dark:text-green-400">Only admins should see this paragraph</p>
+  <p class="mt-4 font-semibold text-green-700 dark:text-green-400">
+    Only admins should see this paragraph
+  </p>
 }
