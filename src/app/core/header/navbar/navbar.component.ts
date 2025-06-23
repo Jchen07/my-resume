@@ -10,12 +10,12 @@ import { OpenLinkConfirmationDirective } from '@/app/core/shared/directives/open
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  // TODO: urls?
   options: { labelkey: string; href?: string; extern?: boolean }[] = [
-    { labelkey: 'experience' },
-    { labelkey: 'education' },
-    { labelkey: 'projects' },
-    { labelkey: 'about-me' },
+    { labelkey: 'home', href: '/home#home' },
+    { labelkey: 'experience', href: '/home#experience' },
+    { labelkey: 'education', href: '/home#education' },
+    // { labelkey: 'projects' },
+    // { labelkey: 'about-me' },
     { labelkey: 'contact', href: 'mailto:jchen070702@gmail.com', extern: true }, // TODO: canviar per un pagina de contacte amb opció de copiar email
   ];
 }

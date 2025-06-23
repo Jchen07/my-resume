@@ -29,7 +29,7 @@
         [attr.aria-label]="t(option.labelkey)"
         class="hover:text-purple-700 dark:hover:text-purple-400">
         @if (option.extern) {
-          <a jcOpenLinkConfirmation role="link" [href]="option.href">
+          <a jcOpenLinkConfirmation role="link" [href]="option.href" rel="noopener noreferrer">
             {{ t(option.labelkey) }}
           </a>
         } @else {
