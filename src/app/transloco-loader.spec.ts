@@ -3,6 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { provideHttpClient } from '@angular/common/http';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { environment } from '@/environments/environment';
+import { BUILD_TIMESTAMP } from '@/build-info';
 
 describe('TranslocoHttpLoader', () => {
   let loader: TranslocoHttpLoader;
@@ -30,7 +31,7 @@ describe('TranslocoHttpLoader', () => {
     loader.getTranslation(lang).subscribe(res => {
       expect(res).toEqual(mockTranslation);
     });
-    const req = httpMock.expectOne(`${environment.baseUrl}/i18n/${lang}.json`);
+    const req = httpMock.expectOne(`${environment.baseUrl}/i18n/${lang}.json?v=${BUILD_TIMESTAMP}`);
     expect(req.request.method).toBe('GET');
     req.flush(mockTranslation);
   });
