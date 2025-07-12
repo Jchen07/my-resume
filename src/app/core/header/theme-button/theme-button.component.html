@@ -1,5 +1,9 @@
 @if (rendered()) {
-  <button type="button" tabindex="-1" [attr.aria-label]="'header.translate-button' | transloco">
+  <button
+    type="button"
+    class="cursor-pointer"
+    tabindex="-1"
+    [attr.aria-label]="'header.translate-button' | transloco">
     @if (isDarkMode()) {
       <svg
         jcClickEnterSpacebar

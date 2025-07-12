@@ -1,5 +1,6 @@
 <button
   type="button"
+  class="cursor-pointer"
   [attr.aria-label]="'header.translate-button' | transloco"
   (click)="openDialog()">
   <svg
@@ -20,7 +21,7 @@
     <ul>
       @for (language of languages | keyvalue; track language.key) {
         <li
-          class="flex w-20 items-center justify-start rounded p-1 text-neutral-200 hover:bg-neutral-700"
+          class="flex w-20 cursor-pointer items-center justify-start rounded p-1 text-neutral-200 hover:bg-neutral-700"
           tabindex="0"
           jcClickEnterSpacebar
           (clickedOrEnterOrSpaceBar)="changeLanguage(language.key)">

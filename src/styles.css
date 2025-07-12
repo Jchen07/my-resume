@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: 'Suse';
   src: url('../public/assets/fonts/SUSE-Regular.ttf') format('truetype');
