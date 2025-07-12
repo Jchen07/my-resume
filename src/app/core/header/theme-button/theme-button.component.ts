@@ -1,4 +1,11 @@
-import { afterNextRender, ChangeDetectionStrategy, ChangeDetectorRef, Component, signal, inject } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  signal,
+  inject,
+} from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
