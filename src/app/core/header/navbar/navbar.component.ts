@@ -19,7 +19,7 @@ export class NavbarComponent {
     { labelkey: 'education', href: `${environment.baseHref}/home#education` },
     // { labelkey: 'projects' },
     // { labelkey: 'about-me' },
-    { labelkey: 'contact', href: `mailto:${NavbarComponent.mail}`, extern: true }, // TODO: canviar per un pagina de contacte amb opció de copiar email
+    { labelkey: 'contact', href: `mailto:${NavbarComponent.mail}`, extern: true },
   ];
 
   copyEmailToClipboard() {
