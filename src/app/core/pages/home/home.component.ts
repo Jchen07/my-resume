@@ -5,7 +5,6 @@ import { EducationSectionComponent } from '@/app/core/pages/home/education-secti
 
 @Component({
   selector: 'jc-home',
-  standalone: true,
   imports: [ExperienceSectionComponent, PresentationSectionComponent, EducationSectionComponent],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

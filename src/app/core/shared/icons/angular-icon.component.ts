@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'jc-angular-icon',
-  standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `

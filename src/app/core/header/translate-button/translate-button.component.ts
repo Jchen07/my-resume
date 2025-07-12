@@ -7,7 +7,6 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
 
 @Component({
   selector: 'jc-translate-button',
-  standalone: true,
   templateUrl: 'translate-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],

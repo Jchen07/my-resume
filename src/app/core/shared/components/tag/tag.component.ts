@@ -14,7 +14,6 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
 
 @Component({
   selector: 'jc-tag',
-  standalone: true,
   imports: [
     AngularIconComponent,
     JavaIconComponent,

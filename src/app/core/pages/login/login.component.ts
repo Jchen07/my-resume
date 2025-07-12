@@ -5,7 +5,6 @@ import { Permission } from '@/app/core/pages/login/auth/auth.model';
 
 @Component({
   selector: 'jc-login',
-  standalone: true,
   imports: [FormsModule],
   templateUrl: './login.component.html',
   host: {

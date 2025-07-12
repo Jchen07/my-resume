@@ -3,7 +3,6 @@ import { translate } from '@jsverse/transloco';
 
 @Directive({
   selector: 'a[jcOpenLinkConfirmation]',
-  standalone: true,
   host: {
     '(click)': 'confirmOpenLink($event)',
   },

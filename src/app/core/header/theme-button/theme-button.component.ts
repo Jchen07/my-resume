@@ -11,7 +11,6 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
 
 @Component({
   selector: 'jc-theme-button',
-  standalone: true,
   imports: [TranslocoPipe, ClickEnterSpacebarDirective],
   templateUrl: 'theme-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

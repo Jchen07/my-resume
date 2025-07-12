@@ -4,7 +4,6 @@ import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-presentation-section',
-  standalone: true,
   imports: [ButtonsBarComponent, TranslocoDirective],
   templateUrl: './presentation-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

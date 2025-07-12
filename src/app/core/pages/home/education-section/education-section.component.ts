@@ -7,7 +7,6 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
 
 @Component({
   selector: 'jc-education-section',
-  standalone: true,
   imports: [TranslocoDirective, TimelineComponent],
   templateUrl: './education-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

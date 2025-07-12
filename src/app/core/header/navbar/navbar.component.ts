@@ -5,7 +5,6 @@ import { environment } from '@/environments/environment';
 
 @Component({
   selector: 'jc-navbar',
-  standalone: true,
   imports: [TranslocoDirective, OpenLinkConfirmationDirective],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

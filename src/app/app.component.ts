@@ -6,7 +6,6 @@ import { getBrowserLang, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'jc-root',
-  standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
 })

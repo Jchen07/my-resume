@@ -1,7 +1,6 @@
 import { Directive, ElementRef, HostListener, output } from '@angular/core';
 
 @Directive({
-  standalone: true,
   selector: '[jcClickOutside]',
 })
 export class ClickOutsideDirective {

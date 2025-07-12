@@ -7,7 +7,6 @@ import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.
 
 @Component({
   selector: 'jc-experience-section',
-  standalone: true,
   imports: [TranslocoDirective, TimelineComponent],
   templateUrl: './experience-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
