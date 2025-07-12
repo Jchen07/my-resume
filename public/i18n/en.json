@@ -8,7 +8,8 @@
       "education": "Education",
       "projects": "Projects",
       "about-me": "About me",
-      "contact": "Contact"
+      "contact": "Contact",
+      "copyEmailToClipboard": "Copy email to clipboard"
     }
   },
   "home": {
