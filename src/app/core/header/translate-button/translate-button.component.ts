@@ -12,14 +12,14 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],
 })
 export class TranslateButtonComponent {
-  private _translocoService = inject(TranslocoService);
-
   menuVisible = signal<boolean>(false);
 
   protected readonly languages = LanguageEnum;
 
+  private translocoService = inject(TranslocoService);
+
   changeLanguage(language: string): void {
-    this._translocoService.setActiveLang(language);
+    this.translocoService.setActiveLang(language);
     this.hideMenu();
   }
 

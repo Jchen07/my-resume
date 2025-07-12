@@ -34,15 +34,15 @@ export class TagComponent {
   size = input<string>('22');
   backgroundColorInput = input<string>();
 
-  backgroundColor = computed<string>(this._getBackgroundColor.bind(this));
+  backgroundColor = computed<string>(this.getBackgroundColor.bind(this));
 
   protected readonly TAG_NAME = TagNameEnum;
 
-  private _getBackgroundColor(): string {
-    return this.backgroundColorInput() || this._getDefaultBackgroundColor();
+  private getBackgroundColor(): string {
+    return this.backgroundColorInput() || this.getDefaultBackgroundColor();
   }
 
-  private _getDefaultBackgroundColor(): string {
+  private getDefaultBackgroundColor(): string {
     return tagColors[this.name()] || 'bg-neutral-800 dark:bg-neutral-200';
   }
 }

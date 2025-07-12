@@ -12,20 +12,19 @@ import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSectionComponent implements OnInit {
-  private _translocoService = inject(TranslocoService);
-
   timeLines!: TimeLine[];
 
-  private readonly _destroyRef = inject(DestroyRef);
+  private translocoService = inject(TranslocoService);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.setTimeLines();
   }
 
   setTimeLines(): void {
-    this._translocoService
+    this.translocoService
       .selectTranslateObject('home.experience.first')
-      .pipe(takeUntilDestroyed(this._destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(firstJson => {
         this.timeLines = [
           {

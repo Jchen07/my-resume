@@ -10,7 +10,7 @@ import { getBrowserLang, TranslocoService } from '@jsverse/transloco';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  private _translocoService = inject(TranslocoService);
+  private translocoService = inject(TranslocoService);
 
   title = 'angular';
   lang: string | undefined;
@@ -20,8 +20,8 @@ export class AppComponent {
     // TODO: provar de nou si es pot fer alguna cosa al servidor perquè ja carregi el idioma que toca (millora seo i en cas de internet lent no es vegi idioma anterior)
     // TODO: en cas d'haver canviat idioma guadar-lo per la següent
     this.lang = getBrowserLang();
-    if (this.lang !== undefined && this._translocoService.getActiveLang() !== this.lang) {
-      this._translocoService.setActiveLang(this.lang);
+    if (this.lang !== undefined && this.translocoService.getActiveLang() !== this.lang) {
+      this.translocoService.setActiveLang(this.lang);
     }
   }
 }

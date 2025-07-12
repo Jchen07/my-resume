@@ -12,20 +12,20 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationSectionComponent implements OnInit {
-  private _translocoService = inject(TranslocoService);
-
   timeLines!: TimeLine[];
 
-  private readonly _destroyRef = inject(DestroyRef);
+  private translocoService = inject(TranslocoService);
+
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.setTimeLines();
   }
 
   private setTimeLines(): void {
-    this._translocoService
+    this.translocoService
       .selectTranslateObject('home.education')
-      .pipe(takeUntilDestroyed(this._destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(educationJson => {
         this.timeLines = [
           {
