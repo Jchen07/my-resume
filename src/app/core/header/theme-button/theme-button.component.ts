@@ -1,10 +1,4 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  signal,
-} from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, ChangeDetectorRef, Component, signal, inject } from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
@@ -16,13 +10,15 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeButtonComponent {
+  private _changeDetection = inject(ChangeDetectorRef);
+
   rendered = signal<boolean>(false);
 
   protected readonly MODE_ENUM = ModeEnum;
 
   private readonly THEME_STORAGE_NAME: string = 'theme';
 
-  constructor(private _changeDetection: ChangeDetectorRef) {
+  constructor() {
     // TODO: delete?, ssr problem, right now it's not necessary
     afterNextRender((): void => {
       this.rendered.set(true);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LanguageEnum } from '@/app/core/header/translate-button/models/language.enum';
 import { KeyValuePipe } from '@angular/common';
@@ -12,11 +12,11 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
   imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],
 })
 export class TranslateButtonComponent {
+  private _translocoService = inject(TranslocoService);
+
   menuVisible = signal<boolean>(false);
 
   protected readonly languages = LanguageEnum;
-
-  constructor(private _translocoService: TranslocoService) {}
 
   changeLanguage(language: string): void {
     this._translocoService.setActiveLang(language);
