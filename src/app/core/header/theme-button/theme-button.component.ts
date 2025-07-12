@@ -24,7 +24,7 @@ export class ThemeButtonComponent {
   private readonly THEME_STORAGE_NAME: string = 'theme';
 
   constructor(private _changeDetection: ChangeDetectorRef) {
-    // TODO: change?
+    // TODO: delete?, ssr problem, right now it's not necessary
     afterNextRender((): void => {
       this.rendered.set(true);
       this._changeDetection.markForCheck();
