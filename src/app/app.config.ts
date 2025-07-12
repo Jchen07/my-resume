@@ -7,7 +7,7 @@ import { ROOT_REDUCERS } from './state/app.state';
 import { provideEffects } from '@ngrx/effects';
 import { ROOT_EFFECTS } from '@/app/state/app.effects';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { TranslocoHttpLoader } from './transloco-loader';
+import { TranslocoHttpLoader } from './transloco-loader/transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
 
 export const appConfig: ApplicationConfig = {
