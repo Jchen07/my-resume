@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
+
 
 export const routes: Routes = [
   {
@@ -17,6 +17,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    component: PageNotFoundComponent,
+    loadComponent: () => import('./core/pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent),
   },
 ];
