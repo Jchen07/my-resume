@@ -9,5 +9,5 @@ import { NgOptimizedImage } from '@angular/common';
   templateUrl: './timeline.component.html',
 })
 export class TimelineComponent {
-  protected readonly timeLines = input.required<TimeLine[]>();
+  readonly timeLines = input.required<TimeLine[]>();
 }

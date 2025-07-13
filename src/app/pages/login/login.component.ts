@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '@/app/core/pages/login/auth/auth.service';
-import { Permission } from '@/app/core/pages/login/auth/auth.model';
+import { AuthService } from './auth/auth.service';
+import { Permission } from './auth/auth.model';
 
 @Component({
   selector: 'jc-login',

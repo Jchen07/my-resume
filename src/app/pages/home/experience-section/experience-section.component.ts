@@ -12,7 +12,7 @@ import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSectionComponent implements OnInit {
-  private timeLines!: TimeLine[];
+  protected timeLines!: TimeLine[];
 
   private readonly translocoService = inject(TranslocoService);
   private readonly destroyRef = inject(DestroyRef);
