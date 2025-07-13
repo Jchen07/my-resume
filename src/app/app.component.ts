@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@/app/core/header/header.component';
 import { FooterComponent } from '@/app/core/footer/footer.component';
@@ -11,6 +11,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
   selector: 'jc-root',
   imports: [RouterOutlet, HeaderComponent, FooterComponent, FontAwesomeModule],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   title = 'angular';

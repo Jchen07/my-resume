@@ -24,7 +24,7 @@ export class TranslateButtonComponent {
   }
 
   openDialog(): void {
-    this.menuVisible.set(!this.menuVisible());
+    this.menuVisible.update(visible => !visible);
   }
 
   hideMenu(): void {
