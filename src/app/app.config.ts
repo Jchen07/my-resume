@@ -26,6 +26,6 @@ export const appConfig: ApplicationConfig = {
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
-    }),
+    }), // TODO: lazy loading translations?
   ],
 };
