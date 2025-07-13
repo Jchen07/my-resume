@@ -5,7 +5,7 @@ import { KeysEnum } from '@/app/core/shared/models/keys.enum';
   selector: '[jcClickEnterSpacebar]',
 })
 export class ClickEnterSpacebarDirective {
-  clickedOrEnterOrSpaceBar = output<void>();
+  readonly clickedOrEnterOrSpaceBar = output<void>();
 
   @HostListener('click', ['$event'])
   handleClick() {

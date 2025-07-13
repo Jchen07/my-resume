@@ -17,5 +17,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
 })
 export class SpringIconComponent {
-  size = input.required<string>();
+  readonly size = input.required<string>();
 }

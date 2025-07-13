@@ -19,8 +19,7 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
 export class ThemeButtonComponent {
   private static readonly THEME_STORAGE_NAME: string = 'theme';
 
-  rendered = signal<boolean>(false);
-
+  protected rendered = signal<boolean>(false);
   protected readonly MODE_ENUM = ModeEnum;
 
   private changeDetection = inject(ChangeDetectorRef);

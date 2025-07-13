@@ -30,5 +30,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
 })
 export class CSharpIconComponent {
-  size = input.required<string>();
+  readonly size = input.required<string>();
 }

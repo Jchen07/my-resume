@@ -12,10 +12,10 @@ import { Permission } from '@/app/core/pages/login/auth/auth.model';
   },
 })
 export class LoginComponent {
-  email = signal<string>('');
-  password = signal<string>('');
+  protected email = signal<string>('');
+  protected password = signal<string>('');
 
-  isAdmin = computed(() => this.authService.activePermission() === Permission.ADMIN);
+  protected isAdmin = computed(() => this.authService.activePermission() === Permission.ADMIN);
 
   private authService: AuthService = inject(AuthService);
 

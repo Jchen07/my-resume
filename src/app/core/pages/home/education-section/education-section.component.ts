@@ -12,10 +12,9 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationSectionComponent implements OnInit {
-  timeLines!: TimeLine[];
+  protected timeLines!: TimeLine[];
 
-  private translocoService = inject(TranslocoService);
-
+  private readonly translocoService = inject(TranslocoService);
   private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {

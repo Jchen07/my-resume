@@ -21,5 +21,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
 })
 export class TypescriptIconComponent {
-  size = input.required<string>();
+  readonly size = input.required<string>();
 }

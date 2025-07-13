@@ -12,9 +12,9 @@ import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSectionComponent implements OnInit {
-  timeLines!: TimeLine[];
+  private timeLines!: TimeLine[];
 
-  private translocoService = inject(TranslocoService);
+  private readonly translocoService = inject(TranslocoService);
   private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
