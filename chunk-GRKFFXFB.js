@@ -1,0 +1,1 @@
+import{Hb as o,Ib as a,Tb as i,jb as n}from"./chunk-ZK5WRZSH.js";var d=(()=>{class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["jc-page-not-found"]],decls:2,vars:0,template:function(t,m){t&1&&(o(0,"p"),i(1,"Page not found"),a())},encapsulation:2,changeDetection:0})}return e})();export{d as PageNotFoundComponent};
