@@ -1,16 +1,15 @@
 import { Directive } from '@angular/core';
+import { translate } from '@jsverse/transloco';
 
 @Directive({
   selector: 'a[jcOpenLinkConfirmation]',
-  standalone: true,
   host: {
     '(click)': 'confirmOpenLink($event)',
   },
 })
 export class OpenLinkConfirmationDirective {
   confirmOpenLink(event: MouseEvent) {
-    // TODO: transloco
-    const wantsOpenLink = window.confirm('Do you really want to open this link?');
+    const wantsOpenLink = window.confirm(translate('open-link-confirmation.message'));
 
     if (wantsOpenLink) {
       return;

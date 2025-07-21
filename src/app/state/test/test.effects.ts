@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { HomeService } from '@/app/core/pages/home/home.service';
+import { HomeService } from '../../pages/home/home.service';
 import { catchError, EMPTY, map, mergeMap } from 'rxjs';
 import { TestModel } from '@/app/state/test/models/test.model';
 import { TestComponentActionsType } from '@/app/state/test/test.actions';

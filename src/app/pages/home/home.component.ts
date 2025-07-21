@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ExperienceSectionComponent } from '@/app/core/pages/home/experience-section/experience-section.component';
-import { PresentationSectionComponent } from '@/app/core/pages/home/presentation-section/presentation-section.component';
-import { EducationSectionComponent } from '@/app/core/pages/home/education-section/education-section.component';
+import { ExperienceSectionComponent } from './experience-section/experience-section.component';
+import { PresentationSectionComponent } from './presentation-section/presentation-section.component';
+import { EducationSectionComponent } from './education-section/education-section.component';
 
 @Component({
   selector: 'jc-home',
-  standalone: true,
   imports: [ExperienceSectionComponent, PresentationSectionComponent, EducationSectionComponent],
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

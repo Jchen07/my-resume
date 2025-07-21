@@ -8,7 +8,8 @@
       "education": "Education",
       "projects": "Projects",
       "about-me": "About me",
-      "contact": "Contact"
+      "contact": "Contact",
+      "copyEmailToClipboard": "Copy email to clipboard"
     }
   },
   "home": {
@@ -31,7 +32,6 @@
         "description": "Develop scalable back-ends with Java Spring Boot and dynamic front-end components using Angular. Occasionally lead small teams to develop new features, such as multilingual support, update front-end stack, and provide support to team members."
       }
     },
-
     "education": {
       "title": "Education",
       "first": {
@@ -47,5 +47,8 @@
         "description": "Bachelor’s Degree in Computer Engineering"
       }
     }
+  },
+  "open-link-confirmation": {
+    "message": "Do you really want to open this link?"
   }
 }

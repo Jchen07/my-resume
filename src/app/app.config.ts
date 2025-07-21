@@ -7,16 +7,16 @@ import { ROOT_REDUCERS } from './state/app.state';
 import { provideEffects } from '@ngrx/effects';
 import { ROOT_EFFECTS } from '@/app/state/app.effects';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { TranslocoHttpLoader } from './transloco-loader';
+import { TranslocoHttpLoader } from './transloco-loader/transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore(ROOT_REDUCERS),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(ROOT_EFFECTS),
+    provideStore(ROOT_REDUCERS), // TODO: learning purposes
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), // TODO: learning purposes
+    provideEffects(ROOT_EFFECTS), // TODO: learning purposes
     provideHttpClient(withFetch()),
     provideTransloco({
       config: {
@@ -26,6 +26,6 @@ export const appConfig: ApplicationConfig = {
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
-    }),
+    }), // TODO: lazy loading translations?
   ],
 };

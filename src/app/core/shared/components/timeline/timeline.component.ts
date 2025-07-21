@@ -5,10 +5,9 @@ import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'jc-timeline',
-  standalone: true,
   imports: [TagComponent, NgOptimizedImage],
   templateUrl: './timeline.component.html',
 })
 export class TimelineComponent {
-  timeLines = input.required<TimeLine[]>();
+  readonly timeLines = input.required<TimeLine[]>();
 }

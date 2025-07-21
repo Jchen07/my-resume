@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'jc-page-not-found',
-  standalone: true,
+  selector: 'jc-projects-section',
   imports: [],
-  templateUrl: './page-not-found.component.html',
+  templateUrl: './projects-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageNotFoundComponent {}
+export class ProjectsSectionComponent {}

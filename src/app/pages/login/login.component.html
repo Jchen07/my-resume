@@ -1,0 +1,40 @@
+<h2 class="mb-6 text-xl font-bold dark:text-gray-100">Authenticate to access all resources</h2>
+<form (ngSubmit)="onSubmit()" class="flex items-end gap-8">
+  <p class="flex-1">
+    <label for="email" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+      E-Mail
+    </label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
+  </p>
+
+  <p class="flex-1">
+    <label for="passowrd" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+      Password
+    </label>
+    <input
+      id="passowrd"
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
+  </p>
+
+  <p class="flex-0">
+    <button
+      type="submit"
+      class="cursor-pointer rounded border-none bg-blue-700 px-6 py-1.5 font-medium text-white transition-all duration-300 hover:bg-purple-700 hover:shadow-lg dark:bg-blue-900 dark:text-gray-100 dark:hover:bg-purple-900 dark:hover:shadow-purple-900">
+      Login
+    </button>
+  </p>
+</form>
+
+@if (isAdmin()) {
+  <p class="mt-4 font-semibold text-green-700 dark:text-green-400">
+    Only admins should see this paragraph
+  </p>
+}

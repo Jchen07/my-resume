@@ -7,26 +7,24 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
 
 @Component({
   selector: 'jc-education-section',
-  standalone: true,
   imports: [TranslocoDirective, TimelineComponent],
   templateUrl: './education-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationSectionComponent implements OnInit {
-  timeLines!: TimeLine[];
+  protected timeLines!: TimeLine[];
 
-  private readonly _destroyRef = inject(DestroyRef);
-
-  constructor(private _translocoService: TranslocoService) {}
+  private readonly translocoService = inject(TranslocoService);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.setTimeLines();
   }
 
   private setTimeLines(): void {
-    this._translocoService
+    this.translocoService
       .selectTranslateObject('home.education')
-      .pipe(takeUntilDestroyed(this._destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(educationJson => {
         this.timeLines = [
           {

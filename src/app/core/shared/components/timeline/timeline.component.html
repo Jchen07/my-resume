@@ -1,6 +1,6 @@
 <ol class="relative ml-4 border-s border-neutral-400 dark:border-gray-700">
   @for (timeLine of timeLines(); track timeLine.title) {
-    <li class="mb-10 ms-4">
+    <li class="ms-4 mb-10">
       <div
         class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-neutral-500 bg-neutral-800 dark:border-gray-900 dark:bg-gray-500 dark:shadow-sm dark:shadow-purple-300"></div>
       <div class="md:grid md:grid-cols-5">
@@ -33,7 +33,7 @@
           }
         </div>
         <p
-          class="mb-4 flex h-full items-center text-balance text-base text-gray-600 md:col-span-3 dark:text-gray-400">
+          class="mb-4 flex h-full items-center text-base text-gray-600 md:col-span-3 dark:text-gray-400">
           {{ timeLine.description }}
         </p>
       </div>

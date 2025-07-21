@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LanguageEnum } from '@/app/core/header/translate-button/models/language.enum';
 import { KeyValuePipe } from '@angular/common';
@@ -7,7 +7,6 @@ import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-
 
 @Component({
   selector: 'jc-translate-button',
-  standalone: true,
   templateUrl: 'translate-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],
@@ -17,15 +16,15 @@ export class TranslateButtonComponent {
 
   protected readonly languages = LanguageEnum;
 
-  constructor(private _translocoService: TranslocoService) {}
+  private translocoService = inject(TranslocoService);
 
   changeLanguage(language: string): void {
-    this._translocoService.setActiveLang(language);
+    this.translocoService.setActiveLang(language);
     this.hideMenu();
   }
 
   openDialog(): void {
-    this.menuVisible.set(!this.menuVisible());
+    this.menuVisible.update(visible => !visible);
   }
 
   hideMenu(): void {

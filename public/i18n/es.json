@@ -8,7 +8,8 @@
       "education": "Educación",
       "projects": "Proyectos",
       "about-me": "Sobre mí",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "copyEmailToClipboard": "Copiar correo al portapapeles"
     }
   },
   "home": {
@@ -31,7 +32,6 @@
         "description": "Desarrollar back-ends escalables con Java Spring Boot y componentes front-ends dinámicos con Angular. Ocasionalmente, liderar equipos pequeños para desarrollar nuevas funciones, como soporte multilingüe, actualizar stack de front-end y brindar soporte a los miembros del equipo."
       }
     },
-
     "education": {
       "title": "Educación",
       "first": {
@@ -47,5 +47,8 @@
         "description": "Grado en ingeniería informática"
       }
     }
+  },
+  "open-link-confirmation": {
+    "message": "¿Realmente quieres abrir este enlace?"
   }
 }

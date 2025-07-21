@@ -1,11 +1,10 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '@/app/core/pages/login/auth/auth.service';
-import { Permission } from '@/app/core/pages/login/auth/auth.model';
+import { AuthService } from './auth/auth.service';
+import { Permission } from './auth/auth.model';
 
 @Component({
   selector: 'jc-login',
-  standalone: true,
   imports: [FormsModule],
   templateUrl: './login.component.html',
   host: {
@@ -13,10 +12,10 @@ import { Permission } from '@/app/core/pages/login/auth/auth.model';
   },
 })
 export class LoginComponent {
-  email = signal<string>('');
-  password = signal<string>('');
+  protected email = signal<string>('');
+  protected password = signal<string>('');
 
-  isAdmin = computed(() => this.authService.activePermission() === Permission.ADMIN);
+  protected isAdmin = computed(() => this.authService.activePermission() === Permission.ADMIN);
 
   private authService: AuthService = inject(AuthService);
 

@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* tailwindcss configurations */
+@import "tailwindcss" source("../src");
+@custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
   font-family: 'Suse';

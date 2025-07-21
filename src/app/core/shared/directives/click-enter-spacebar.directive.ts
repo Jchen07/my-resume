@@ -2,11 +2,10 @@ import { Directive, HostListener, output } from '@angular/core';
 import { KeysEnum } from '@/app/core/shared/models/keys.enum';
 
 @Directive({
-  standalone: true,
   selector: '[jcClickEnterSpacebar]',
 })
 export class ClickEnterSpacebarDirective {
-  clickedOrEnterOrSpaceBar = output<void>();
+  readonly clickedOrEnterOrSpaceBar = output<void>();
 
   @HostListener('click', ['$event'])
   handleClick() {

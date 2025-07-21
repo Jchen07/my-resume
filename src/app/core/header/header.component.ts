@@ -5,7 +5,6 @@ import { NavbarComponent } from '@/app/core/header/navbar/navbar.component';
 
 @Component({
   selector: 'jc-header',
-  standalone: true,
   imports: [ThemeButtonComponent, TranslateButtonComponent, NavbarComponent],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

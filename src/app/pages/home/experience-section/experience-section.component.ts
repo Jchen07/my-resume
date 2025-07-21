@@ -7,26 +7,24 @@ import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.
 
 @Component({
   selector: 'jc-experience-section',
-  standalone: true,
   imports: [TranslocoDirective, TimelineComponent],
   templateUrl: './experience-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSectionComponent implements OnInit {
-  timeLines!: TimeLine[];
+  protected timeLines!: TimeLine[];
 
-  private readonly _destroyRef = inject(DestroyRef);
-
-  constructor(private _translocoService: TranslocoService) {}
+  private readonly translocoService = inject(TranslocoService);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.setTimeLines();
   }
 
   setTimeLines(): void {
-    this._translocoService
+    this.translocoService
       .selectTranslateObject('home.experience.first')
-      .pipe(takeUntilDestroyed(this._destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(firstJson => {
         this.timeLines = [
           {
