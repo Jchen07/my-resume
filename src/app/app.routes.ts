@@ -10,6 +10,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
   },
   {
+    path: 'resource-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/resource-demo/resource-demo.component').then(m => m.ResourceDemoComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

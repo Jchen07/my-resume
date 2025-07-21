@@ -1,0 +1,32 @@
+<div class="mx-auto max-w-2xl px-4 py-8">
+  <h1 class="mt-20 mb-6 text-3xl font-bold text-gray-800 dark:text-gray-100">Http Resource Demo</h1>
+  <input
+    type="text"
+    [(ngModel)]="personId"
+    placeholder="Enter ID"
+    class="mb-4 w-full rounded border border-gray-400 bg-gray-100 p-2 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100" />
+
+  @if (personResource.hasValue()) {
+    <div class="mt-6 rounded bg-white p-4 shadow dark:bg-gray-900">
+      <h2 class="mb-2 text-xl font-semibold text-blue-700 dark:text-blue-400">Star Wars Person</h2>
+      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">
+        {{ personResource.value() | json }}
+      </pre>
+    </div>
+  }
+
+  <h1 class="mt-20 mb-6 text-3xl font-bold text-gray-800 dark:text-gray-100">Resource Demo</h1>
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Enter text"
+    class="mb-4 w-full rounded border border-gray-400 bg-gray-100 p-2 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100" />
+  @if (textResource.hasValue()) {
+    <div class="mt-6 rounded bg-white p-4 shadow dark:bg-gray-900">
+      <h2 class="mb-2 text-xl font-semibold text-blue-700 dark:text-blue-400">Test Resource</h2>
+      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">
+        {{ textResource.value() | json }} 
+      </pre>
+    </div>
+  }
+</div>
