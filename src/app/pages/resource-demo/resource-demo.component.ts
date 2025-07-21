@@ -9,17 +9,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './resource-demo.component.html',
 })
 export class ResourceDemoComponent {
-  test = signal('Google');
-  testResource = resource({
-    params: () => this.test(),
-    loader: async ({ params, abortSignal }) => {
-      const res: Response = await fetch(`https://api.github.com/orgs/${params}`, {
+  searchText = signal('Google');
+  textResource = resource({
+    params: () => ({ text: this.searchText() }),
+    loader: async ({ params, previous, abortSignal }) => {
+      console.log(previous);
+      const res: Response = await fetch(`https://api.github.com/orgs/${params.text}`, {
         signal: abortSignal,
       });
       return res.json();
     },
   });
 
-  id = signal(1);
-  swPersonResource = httpResource(() => `https://swapi.info/api/people/${this.id()}`);
+  personId = signal(1);
+  personResource = httpResource(() => `https://swapi.info/api/people/${this.personId()}`);
 }
