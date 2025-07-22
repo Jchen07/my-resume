@@ -9,9 +9,9 @@
   @if (personResource.hasValue()) {
     <div class="mt-6 rounded bg-white p-4 shadow dark:bg-gray-900">
       <h2 class="mb-2 text-xl font-semibold text-blue-700 dark:text-blue-400">Star Wars Person</h2>
-      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">
-        {{ personResource.value() | json }}
-      </pre>
+      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">{{
+        personResource.value() | json
+      }}</pre>
     </div>
   }
 
@@ -24,9 +24,9 @@
   @if (textResource.hasValue()) {
     <div class="mt-6 rounded bg-white p-4 shadow dark:bg-gray-900">
       <h2 class="mb-2 text-xl font-semibold text-blue-700 dark:text-blue-400">Test Resource</h2>
-      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">
-        {{ textResource.value() | json }} 
-      </pre>
+      <pre class="overflow-x-auto rounded bg-gray-100 p-2 text-sm dark:bg-gray-800">{{
+        textResource.value() | json
+      }}</pre>
     </div>
   }
 </div>
