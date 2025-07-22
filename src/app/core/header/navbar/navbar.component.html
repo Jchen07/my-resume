@@ -2,10 +2,11 @@
   *transloco="let t; prefix: 'header.navbar'"
   class="flex h-full w-full items-center justify-center">
   <ul
-    class="flex cursor-pointer flex-row gap-x-6 rounded-3xl border border-neutral-800 px-4 py-1 text-sm shadow shadow-purple-300 backdrop-blur-lg"
+    class="flex flex-row gap-x-6 rounded-3xl border border-neutral-800 px-4 py-1 text-sm shadow shadow-purple-300 backdrop-blur-lg"
     style="background-color: rgba(190, 166, 255, 0.15)">
     <li>
       <a
+        class="cursor-pointer"
         target="_blank"
         role="link"
         rel="noopener noreferrer"
@@ -22,16 +23,22 @@
         [attr.aria-label]="t(option.labelkey)"
         class="hover:text-purple-700 dark:hover:text-purple-400">
         @if (option.extern) {
-          <a jcOpenLinkConfirmation role="link" [href]="option.href" rel="noopener noreferrer">
+          <a
+            jcOpenLinkConfirmation
+            role="link"
+            class="cursor-pointer"
+            rel="noopener noreferrer"
+            [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
           <fa-icon
+            class="cursor-pointer"
             [icon]="['fas', 'copy']"
             [title]="t('copyEmailToClipboard')"
-            (click)="copyEmailToClipboard()"
-            [attr.aria-label]="t('copyEmailToClipboard')" />
+            [attr.aria-label]="t('copyEmailToClipboard')"
+            (click)="copyEmailToClipboard()" />
         } @else {
-          <a role="link" [href]="option.href">
+          <a role="link" class="cursor-pointer" [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
         }
