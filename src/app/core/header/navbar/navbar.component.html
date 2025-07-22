@@ -18,27 +18,27 @@
       </a>
     </li>
     @for (option of options; track option.labelkey) {
-      <li
-        tabindex="0"
-        [attr.aria-label]="t(option.labelkey)"
-        class="hover:text-purple-700 dark:hover:text-purple-400">
+      <li tabindex="0" [attr.aria-label]="t(option.labelkey)">
         @if (option.extern) {
           <a
             jcOpenLinkConfirmation
+            class="cursor-pointer hover:text-purple-700 dark:hover:text-purple-400"
             role="link"
-            class="cursor-pointer"
             rel="noopener noreferrer"
             [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
           <fa-icon
-            class="cursor-pointer"
+            class="cursor-pointer hover:text-purple-700 dark:hover:text-purple-400"
             [icon]="['fas', 'copy']"
             [title]="t('copyEmailToClipboard')"
             [attr.aria-label]="t('copyEmailToClipboard')"
             (click)="copyEmailToClipboard()" />
         } @else {
-          <a role="link" class="cursor-pointer" [href]="option.href">
+          <a
+            role="link"
+            class="cursor-pointer hover:text-purple-700 dark:hover:text-purple-400"
+            [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
         }
