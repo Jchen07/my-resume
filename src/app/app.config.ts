@@ -8,7 +8,7 @@ import { provideEffects } from '@ngrx/effects';
 import { ROOT_EFFECTS } from '@/app/state/app.effects';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideTransloco } from '@jsverse/transloco';
-import { translocoConfig } from './transloco-loader/transloco-config';
+import { translocoConfig } from './transloco/transloco-config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
