@@ -5,7 +5,8 @@ import { FooterComponent } from '@/app/core/footer/footer.component';
 import { getBrowserLang, TranslocoService } from '@jsverse/transloco';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'jc-root',
@@ -36,6 +37,6 @@ export class AppComponent {
   }
 
   private addIconLibrary() {
-    this.faIconLibrary.addIcons(faCopy, faGithub);
+    this.faIconLibrary.addIcons(faCopy, faGithub, faLinkedin, faEnvelope);
   }
 }
