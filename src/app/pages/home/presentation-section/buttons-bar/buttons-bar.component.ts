@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoPipe } from '@jsverse/transloco';
 import { OpenLinkConfirmationDirective } from '@/app/core/shared/directives/open-link-confirmation.directive';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { GlobalConstants } from '@/app/core/shared/constants/global.constants';
 
 @Component({
   selector: 'jc-buttons-bar',
-  imports: [TranslocoDirective, OpenLinkConfirmationDirective, FaIconComponent],
+  imports: [TranslocoDirective, TranslocoPipe, OpenLinkConfirmationDirective, FaIconComponent],
   templateUrl: './buttons-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

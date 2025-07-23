@@ -37,7 +37,10 @@
       {{ t('contact') }}
     </a>
 
-    <button [class]="buttonStyles + ' cursor-pointer'" (click)="copyEmail()">
+    <button
+      [attr.aria-label]="'header.navbar.copyEmailToClipboard' | transloco"
+      class="{{ buttonStyles }} cursor-pointer"
+      (click)="copyEmail()">
       <fa-icon size="1x" [icon]="['fas', 'copy']" />
     </button>
   </div>
