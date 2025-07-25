@@ -32,6 +32,7 @@ export class EducationSectionComponent implements OnInit {
             title: educationJson.second.title,
             subtitle: educationJson.second.subtitle,
             icon: 'uoc_logo.webp',
+            link: 'https://www.uoc.edu/',
             description: educationJson.second.description,
           },
           {

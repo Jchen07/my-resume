@@ -38,6 +38,7 @@ export class ExperienceSectionComponent implements OnInit {
             ],
             title: firstJson.title,
             icon: 'dxc_logo.svg',
+            link: 'https://dxc.com/',
             subtitle: 'DXC Technology',
             description: firstJson.description,
           },

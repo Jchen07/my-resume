@@ -14,7 +14,7 @@
         href="https://github.com/Jchen07">
         <fa-icon
           [icon]="['fab', 'github']"
-          class="fa-lg fill-neutral-800 transition duration-300 ease-in-out select-none hover:scale-110 dark:fill-neutral-200" />
+          class="fa-lg fill-neutral-800 transition select-none hover:scale-110 dark:fill-neutral-200" />
       </a>
     </li>
     @for (option of options; track option.labelkey) {
@@ -29,16 +29,13 @@
             {{ t(option.labelkey) }}
           </a>
           <fa-icon
-            class="cursor-pointer hover:text-purple-700 dark:hover:text-purple-400"
+            class="cursor-pointer transition hover:text-purple-700 dark:hover:text-purple-400"
             [icon]="['fas', 'copy']"
             [title]="t('copyEmailToClipboard')"
             [attr.aria-label]="t('copyEmailToClipboard')"
             (click)="copyEmailToClipboard()" />
         } @else {
-          <a
-            role="link"
-            class="cursor-pointer hover:text-purple-700 dark:hover:text-purple-400"
-            [href]="option.href">
+          <a role="link" class="cursor-pointer" [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
         }
