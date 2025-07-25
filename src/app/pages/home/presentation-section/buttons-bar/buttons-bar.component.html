@@ -1,7 +1,6 @@
 <div class="flex w-full gap-2.5 pt-5" *transloco="let t; prefix: 'home.presentation.button-bar'">
   <a
-    class="{{ basicButtonStyles }}
-      border border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus:ring-blue-500"
+    [class]="basicButtonStyles + ' ' + primaryButtonStyles"
     role="link"
     href="https://www.linkedin.com/in/jc-jie-chen"
     target="_blank"
@@ -11,7 +10,8 @@
   </a>
 
   <a
-    [class]="basicButtonStyles + ' ' + basicButtonColors"
+    jcOpenLinkConfirmation
+    [class]="basicButtonStyles + ' ' + secondaryButtonStyles"
     href="assets/pdf/CV_Jie_Chen.pdf"
     download
     type="application/pdf"
@@ -31,7 +31,7 @@
   <div class="flex gap-0.5">
     <a
       jcOpenLinkConfirmation
-      [class]="basicButtonStyles + ' ' + basicButtonColors"
+      [class]="basicButtonStyles + ' ' + secondaryButtonStyles"
       role="link"
       href="mailto:jchen070702@gmail.com">
       <fa-icon size="1x" [icon]="['far', 'envelope']" />
@@ -40,7 +40,7 @@
 
     <button
       [attr.aria-label]="'header.navbar.copyEmailToClipboard' | transloco"
-      [class]="basicButtonStyles + ' ' + basicButtonColors"
+      [class]="basicButtonStyles + ' ' + secondaryButtonStyles"
       (click)="copyEmail()">
       <fa-icon size="1x" [icon]="['fas', 'copy']" />
     </button>
