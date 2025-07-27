@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList } from '@angular/core';
+import { Component, contentChildren } from '@angular/core';
 import { Pane } from '../pane/pane';
 
 @Component({
@@ -9,7 +9,7 @@ import { Pane } from '../pane/pane';
       <div class="mb-4 rounded-md border-l-4 border-blue-500 bg-blue-50 p-3 dark:bg-blue-900/20">
         <h3 class="mb-2 text-sm font-semibold text-blue-800 dark:text-blue-200">Top Level Panes</h3>
         <p class="text-sm text-blue-700 dark:text-blue-300">
-          {{ serializedPanes || 'No panes found' }}
+          {{ serializedPanes() || 'No panes found' }}
         </p>
       </div>
       <div class="rounded-md border-l-4 border-green-500 bg-green-50 p-3 dark:bg-green-900/20">
@@ -17,7 +17,7 @@ import { Pane } from '../pane/pane';
           Nested Panes (All Levels)
         </h3>
         <p class="text-sm text-green-700 dark:text-green-300">
-          {{ serializedNestedPanes || 'No nested panes found' }}
+          {{ serializedNestedPanes() || 'No nested panes found' }}
         </p>
       </div>
 
@@ -34,13 +34,18 @@ import { Pane } from '../pane/pane';
   `,
 })
 export class Tab {
-  @ContentChildren(Pane) topLevelPanes!: QueryList<Pane>;
-  @ContentChildren(Pane, { descendants: true }) arbitraryNestedPanes!: QueryList<Pane>;
+  topLevelPanes = contentChildren<Pane>(Pane);
+  arbitraryNestedPanes = contentChildren<Pane>(Pane, { descendants: true });
 
-  get serializedPanes(): string {
-    return this.topLevelPanes ? this.topLevelPanes.map(p => p.id()).join(', ') : '';
+  serializedPanes(): string {
+    return this.topLevelPanes()
+      .map(p => p.id())
+      .join(', ');
   }
-  get serializedNestedPanes(): string {
-    return this.arbitraryNestedPanes ? this.arbitraryNestedPanes.map(p => p.id()).join(', ') : '';
+
+  serializedNestedPanes(): string {
+    return this.arbitraryNestedPanes()
+      .map(p => p.id())
+      .join(', ');
   }
 }
