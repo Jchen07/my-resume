@@ -15,6 +15,13 @@ export const routes: Routes = [
       import('./pages/resource-demo/resource-demo.component').then(m => m.ResourceDemoComponent),
   },
   {
+    path: 'content-child-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/content-child-demo/content-child-demo.component').then(
+        m => m.ContentChildDemo
+      ),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
