@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Pane } from './pane/pane';
 import { Tab } from './tab/tab';
+import { Pane } from './pane/pane';
 
 @Component({
   selector: 'jc-content-child-demo',
