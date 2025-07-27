@@ -11,7 +11,20 @@
           <h3 class="text-lg font-semibold">{{ timeLine.title }}</h3>
 
           @if (timeLine.subtitle) {
-            <div class="flex items-center gap-2">
+            @if (timeLine.link) {
+              <a
+                jcOpenLinkConfirmation
+                [attr.href]="timeLine.link"
+                target="_blank"
+                class="flex items-center gap-2">
+                <ng-container [ngTemplateOutlet]="subtitleContent" />
+              </a>
+            } @else {
+              <div class="flex items-center gap-2">
+                <ng-container [ngTemplateOutlet]="subtitleContent" />
+              </div>
+            }
+            <ng-template #subtitleContent>
               @if (timeLine.icon) {
                 <img
                   class="object-contain dark:bg-neutral-50 dark:p-0.5"
@@ -21,7 +34,7 @@
                   alt="logo" />
               }
               <h4>{{ timeLine.subtitle }}</h4>
-            </div>
+            </ng-template>
           }
 
           @if (timeLine.tags?.length) {
