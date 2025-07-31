@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, input } from '@angular/core';
 import { translate } from '@jsverse/transloco';
 
 @Directive({
@@ -8,8 +8,18 @@ import { translate } from '@jsverse/transloco';
   },
 })
 export class OpenLinkConfirmationDirective {
+  readonly downloadMessage = input<boolean>(false);
+
   confirmOpenLink(event: MouseEvent) {
-    const wantsOpenLink = window.confirm(translate('open-link-confirmation.message'));
+    const adress: string = (event.target as HTMLAnchorElement).href;
+    let wantsOpenLink;
+    if (this.downloadMessage()) {
+      wantsOpenLink = window.confirm(translate('open-link-confirmation.download-message'));
+    } else {
+      wantsOpenLink = window.confirm(
+        translate('open-link-confirmation.message') + '\n' + (adress ?? '')
+      );
+    }
 
     if (wantsOpenLink) {
       return;

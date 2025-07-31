@@ -49,6 +49,7 @@
     }
   },
   "open-link-confirmation": {
-    "message": "Do you really want to open this link?"
+    "message": "You are about to open an external link. Would you like to continue?",
+    "download-message": "Do you want to download this file?"
   }
 }

@@ -1,5 +1,6 @@
 <div class="flex w-full gap-2.5 pt-5" *transloco="let t; prefix: 'home.presentation.button-bar'">
   <a
+    jcOpenLinkConfirmation
     [class]="basicButtonStyles + ' ' + primaryButtonStyles"
     role="link"
     href="https://www.linkedin.com/in/jc-jie-chen"
@@ -11,6 +12,7 @@
 
   <a
     jcOpenLinkConfirmation
+    [downloadMessage]="true"
     [class]="basicButtonStyles + ' ' + secondaryButtonStyles"
     href="assets/pdf/CV_Jie_Chen.pdf"
     download
