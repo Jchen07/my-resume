@@ -11,7 +11,8 @@ export class OpenLinkConfirmationDirective {
   readonly downloadMessage = input<boolean>(false);
 
   confirmOpenLink(event: MouseEvent) {
-    const adress: string = (event.target as HTMLAnchorElement).href;
+    const adress: string = (event.currentTarget as HTMLAnchorElement).href;
+
     let wantsOpenLink;
     if (this.downloadMessage()) {
       wantsOpenLink = window.confirm(translate('open-link-confirmation.download-message'));
