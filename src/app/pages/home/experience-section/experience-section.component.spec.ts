@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExperienceSectionComponent } from './experience-section.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('ExperienceSectionComponent', () => {
   let component: ExperienceSectionComponent;
@@ -10,11 +11,12 @@ describe('ExperienceSectionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ExperienceSectionComponent, getTranslocoModule()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ExperienceSectionComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

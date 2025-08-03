@@ -5,6 +5,7 @@ import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outsid
 import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 import { TranslocoService } from '@jsverse/transloco';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('TranslateButtonComponent', () => {
   let component: TranslateButtonComponent;
@@ -20,12 +21,13 @@ describe('TranslateButtonComponent', () => {
         ClickEnterSpacebarDirective,
         getTranslocoModule(),
       ],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TranslateButtonComponent);
     component = fixture.componentInstance;
     translocoService = TestBed.inject(TranslocoService);
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   afterEach(() => {

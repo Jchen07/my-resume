@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { environment } from '@/environments/environment';
 import { BUILD_TIMESTAMP } from '@/build-info';
 import { TranslocoHttpLoader } from './transloco-loader';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('TranslocoHttpLoader', () => {
   let loader: TranslocoHttpLoader;
@@ -11,7 +12,12 @@ describe('TranslocoHttpLoader', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TranslocoHttpLoader, provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        TranslocoHttpLoader,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+      ],
     });
     loader = TestBed.inject(TranslocoHttpLoader);
     httpMock = TestBed.inject(HttpTestingController);

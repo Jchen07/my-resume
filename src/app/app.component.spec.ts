@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, getTranslocoModule()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 

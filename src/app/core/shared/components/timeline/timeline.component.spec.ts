@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimelineComponent } from './timeline.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('TimelineComponent', () => {
   let component: TimelineComponent;
@@ -10,6 +11,7 @@ describe('TimelineComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TimelineComponent, getTranslocoModule()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TimelineComponent);
@@ -18,7 +20,7 @@ describe('TimelineComponent', () => {
     fixture.componentRef.setInput('timeLines', null);
 
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {
