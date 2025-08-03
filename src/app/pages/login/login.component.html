@@ -38,3 +38,17 @@
     Only admins should see this paragraph
   </p>
 }
+
+<ng-template [jcAuth]="Permission.ADMIN" let-variable let-test="test">
+  <p class="mt-4 font-semibold text-red-700 dark:text-red-400">
+    Only admins should see this paragraph with auth directive
+  </p>
+  <p
+    class="mt-2 rounded-lg border border-blue-200 bg-blue-50 p-3 text-blue-800 dark:border-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
+    {{ variable }} {{ test }}
+  </p>
+</ng-template>
+
+<p *jcAuth="Permission.GUEST" class="mt-4 font-semibold text-orange-700 dark:text-orange-400">
+  Right now you are a guest, so you should see this paragraph with sintax sugar *jcAuth
+</p>
