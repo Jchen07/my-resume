@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -9,7 +10,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent, getTranslocoModule()],
+      imports: [HomeComponent, getTranslocoModule(), FontAwesomeTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
