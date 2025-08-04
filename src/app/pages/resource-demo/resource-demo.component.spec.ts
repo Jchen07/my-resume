@@ -40,9 +40,7 @@ describe('ResourceDemoComponent', () => {
 
     fixture.changeDetectorRef.detectChanges();
 
-    // console.log('before whenStable');
     // await fixture.whenStable();
-    // console.log('after whenStable');
   });
 
   //   afterEach(() => {
@@ -51,7 +49,6 @@ describe('ResourceDemoComponent', () => {
   //   });
 
   it('should create', () => {
-    console.log('detectChanges');
     const request = httpMock.expectOne('https://swapi.info/api/people/1');
     request.flush({ name: 'Luke Skywalker' });
 

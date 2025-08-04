@@ -23,4 +23,9 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a navbar element', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('nav')).toBeTruthy();
+  });
 });

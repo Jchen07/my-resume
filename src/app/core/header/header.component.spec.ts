@@ -23,4 +23,9 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a header element', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('header')).toBeTruthy();
+  });
 });

@@ -17,9 +17,25 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular' title`, () => {
+  it(`should have the 'my-resume' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular');
+    expect(app.title).toEqual('my-resume');
+  });
+
+  it('should lang be defined', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.lang).toBeTruthy();
+  });
+
+  it('should contain header, footer and router-outlet', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.nativeElement as HTMLElement;
+    await fixture.whenStable();
+
+    expect(compiled.querySelector('jc-header')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+    expect(compiled.querySelector('jc-footer')).toBeTruthy();
   });
 });
