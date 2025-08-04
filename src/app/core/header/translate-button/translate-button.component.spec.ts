@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateButtonComponent } from './translate-button.component';
-import { KeyValuePipe } from '@angular/common';
-import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outside.directive';
-import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 import { TranslocoService } from '@jsverse/transloco';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 import { provideZonelessChangeDetection } from '@angular/core';
@@ -14,13 +11,7 @@ describe('TranslateButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        TranslateButtonComponent,
-        KeyValuePipe,
-        ClickOutsideDirective,
-        ClickEnterSpacebarDirective,
-        getTranslocoModule(),
-      ],
+      imports: [TranslateButtonComponent, getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
@@ -56,8 +47,16 @@ describe('TranslateButtonComponent', () => {
   it('should call setActiveLang and hideMenu when changeLanguage is called', () => {
     spyOn(component, 'hideMenu').and.stub();
     spyOn(translocoService, 'setActiveLang').and.stub();
+
     component.changeLanguage('en');
+
     expect(translocoService.setActiveLang).toHaveBeenCalledWith('en');
     expect(component.hideMenu).toHaveBeenCalled();
+  });
+
+  // just a test to try spyOn with throwError
+  it('should throw an error', () => {
+    spyOn(translocoService, 'setActiveLang').and.throwError('Test error');
+    expect(() => component.changeLanguage('en')).toThrowError('Test error');
   });
 });
