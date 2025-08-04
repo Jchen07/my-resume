@@ -7,6 +7,7 @@
     @if (isDarkMode()) {
       <svg
         jcClickEnterSpacebar
+        id="light-mode-icon"
         (clickedOrEnterOrSpaceBar)="setMode(MODE_ENUM.LIGHT)"
         tabindex="0"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +21,7 @@
     } @else {
       <svg
         jcClickEnterSpacebar
+        id="dark-mode-icon"
         (clickedOrEnterOrSpaceBar)="setMode(MODE_ENUM.DARK)"
         tabindex="0"
         xmlns="http://www.w3.org/2000/svg"

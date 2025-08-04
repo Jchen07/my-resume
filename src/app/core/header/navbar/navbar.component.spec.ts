@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { GlobalConstants } from '../../shared/constants/global.constants';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -27,5 +28,14 @@ describe('NavbarComponent', () => {
   it('should have a navbar element', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('nav')).toBeTruthy();
+  });
+
+  it('should copy the email to clipboard', () => {
+    const component = new NavbarComponent();
+    const spy = spyOn(navigator.clipboard, 'writeText').and.stub();
+
+    component.copyEmailToClipboard();
+
+    expect(spy).toHaveBeenCalledWith(GlobalConstants.email);
   });
 });
