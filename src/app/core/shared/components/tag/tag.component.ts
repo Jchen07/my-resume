@@ -30,16 +30,18 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent {
+  static readonly DEFAULT_BACKGROUND_COLOR = 'bg-neutral-800 dark:bg-neutral-200';
+
   readonly name = input.required<TagNameEnum>();
   readonly size = input<string>('22');
   readonly backgroundColorInput = input<string>();
 
   protected readonly backgroundColor = computed<string>(
-    () => this.backgroundColorInput() || this.getDefaultBackgroundColor()
+    () => this.backgroundColorInput() || this.getBackgroundColor()
   );
   protected readonly TAG_NAME = TagNameEnum;
 
-  private getDefaultBackgroundColor(): string {
-    return tagColors[this.name()] || 'bg-neutral-800 dark:bg-neutral-200';
+  private getBackgroundColor(): string {
+    return tagColors[this.name()] || TagComponent.DEFAULT_BACKGROUND_COLOR;
   }
 }
