@@ -2,7 +2,10 @@ import { Pipe } from '@angular/core';
 import { PipeTransform } from '@angular/core';
 
 // TODO: This pipe is just to see how isolated tests works in Angular
-@Pipe({ name: 'reverse' })
+@Pipe({
+  name: 'reverse',
+  pure: true,
+})
 export class ReversePipe implements PipeTransform {
   transform(value: string): string {
     if (!value) {

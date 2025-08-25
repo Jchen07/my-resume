@@ -27,6 +27,10 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'contact', // TODO: This page is for learning purposes.
+    loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('./pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent),
