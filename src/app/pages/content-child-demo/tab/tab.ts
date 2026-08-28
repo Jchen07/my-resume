@@ -41,7 +41,7 @@ import { Pane } from '../pane/pane';
           Rendered Content:
         </h3>
         <div class="space-y-4">
-          <ng-content></ng-content>
+          <ng-content />
         </div>
       </div>
     </div>

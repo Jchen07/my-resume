@@ -7,7 +7,7 @@ import { KeysEnum } from '@/app/core/shared/models/keys.enum';
 export class ClickEnterSpacebarDirective {
   readonly clickedOrEnterOrSpaceBar = output<void>();
 
-  @HostListener('click', ['$event'])
+  @HostListener('click')
   handleClick() {
     this.clickedOrEnterOrSpaceBar.emit();
   }

@@ -8,7 +8,7 @@ import { Component, input } from '@angular/core';
       <h3 class="mb-2 text-lg font-semibold text-gray-700">Pane Component</h3>
       <p class="mb-3 text-sm text-gray-500">This is pane with ID: {{ id() }}</p>
       <div class="border-t border-gray-200 pt-3">
-        <ng-content></ng-content>
+        <ng-content />
       </div>
     </div>
   `,
