@@ -31,11 +31,13 @@ describe('NavbarComponent', () => {
   });
 
   it('should copy the email to clipboard', () => {
+    // jsdom does not implement navigator.clipboard, so provide a stub to spy on.
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
     const component = new NavbarComponent();
-    const spy = spyOn(navigator.clipboard, 'writeText').and.stub();
 
     component.copyEmailToClipboard();
 
-    expect(spy).toHaveBeenCalledWith(GlobalConstants.email);
+    expect(writeText).toHaveBeenCalledWith(GlobalConstants.email);
   });
 });

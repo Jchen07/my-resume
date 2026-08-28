@@ -9,7 +9,7 @@ describe('TheemButtonComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ThemeButtonComponent, getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
-    }).compileComponents;
+    }).compileComponents();
   });
 
   afterEach(() => {
@@ -27,7 +27,7 @@ describe('TheemButtonComponent', () => {
     const fixture = TestBed.createComponent(ThemeButtonComponent);
     const component = fixture.componentInstance;
     component.setMode(ModeEnum.DARK);
-    expect(document.documentElement.classList.contains('dark')).toBeTrue();
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
     expect(localStorage.getItem(ThemeButtonComponent.THEME_STORAGE_NAME)).toBe('dark');
   });
 
@@ -39,7 +39,7 @@ describe('TheemButtonComponent', () => {
     component.setMode(ModeEnum.LIGHT);
 
     expect(localStorage.getItem(ThemeButtonComponent.THEME_STORAGE_NAME)).toBe('light');
-    expect(document.documentElement.classList.contains('dark')).toBeFalse();
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
   });
 
   it('should display the light/dark icons correctly', async () => {

@@ -27,7 +27,7 @@ the Transloco loader fetches translations from that origin.
 | Deploy to GitHub Pages | `pnpm deploy` |
 
 Run one spec: `pnpm test -- --include=src/app/path/to/thing.component.spec.ts` (or temporarily
-mark it with `fdescribe` / `fit`).
+mark it with `describe.only` / `it.only`).
 
 `prebuild` runs `node ./generate-build-info.js`, regenerating `src/build-info.ts` with a fresh
 ISO `BUILD_TIMESTAMP` that cache-busts the i18n JSON fetch. It fires automatically before
@@ -121,11 +121,15 @@ lists.
 
 ## Testing
 
-- Karma + Jasmine, headless Chrome; config is inline in `angular.json` (no `karma.conf.js`).
+- **Vitest** (`@angular/build:unit-test` builder, `runner: vitest`, jsdom environment). Globals
+  (`describe`/`it`/`expect`/`vi`) are on via `tsconfig.spec.json` `types: ["vitest/globals"]`.
+  No `karma.conf.js`, no `vitest.config.ts` — the CLI builds the Vitest config from
+  `angular.json` (the `test` target's `buildTarget` points at the `testing` build config). Runs
+  zoneless-only; there is no `fakeAsync`/`tick` — use `await fixture.whenStable()`.
 - Each component has a co-located `*.spec.ts` whose baseline is a `should create` check.
-- Specs provide `provideZonelessChangeDetection()` and use `await fixture.whenStable()` (not
-  `detectChanges()` + `tick()`). Specs that render translated content import
-  `getTranslocoModule()`; specs using FontAwesome import `FontAwesomeTestingModule`. Pure logic
-  is sometimes tested by instantiating the class directly, without TestBed.
-- Known pre-existing failure: `ContactComponent › should create` (`NG0908: requires Zone.js`)
-  fails on a clean checkout — not caused by unrelated changes.
+- Specs provide `provideZonelessChangeDetection()` and use `await fixture.whenStable()`. Specs
+  that render translated content import `getTranslocoModule()`; specs using FontAwesome import
+  `FontAwesomeTestingModule`. Pure logic is sometimes tested by instantiating the class
+  directly, without TestBed.
+- jsdom lacks some browser APIs (e.g. `navigator.clipboard`) — stub them in the spec before
+  spying (`Object.defineProperty(navigator, 'clipboard', …)`).

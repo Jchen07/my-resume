@@ -22,8 +22,7 @@ describe('TranslateButtonComponent', () => {
   });
 
   afterEach(() => {
-    // Reset all Jasmine spies after each test to avoid side effects
-    jasmine.getEnv().allowRespy(true);
+    vi.restoreAllMocks();
   });
 
   it('should create', () => {
@@ -31,22 +30,22 @@ describe('TranslateButtonComponent', () => {
   });
 
   it('should toggle menuVisible when openDialog is called', () => {
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
     component.openDialog();
-    expect(component.menuVisible()).toBeTrue();
+    expect(component.menuVisible()).toBe(true);
     component.openDialog();
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
   });
 
   it('should hide menu when hideMenu is called', () => {
     component.menuVisible.set(true);
     component.hideMenu();
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
   });
 
   it('should call setActiveLang and hideMenu when changeLanguage is called', () => {
-    spyOn(component, 'hideMenu').and.stub();
-    spyOn(translocoService, 'setActiveLang').and.stub();
+    vi.spyOn(component, 'hideMenu').mockReturnValue(undefined);
+    vi.spyOn(translocoService, 'setActiveLang').mockReturnValue(translocoService);
 
     component.changeLanguage('en');
 
@@ -56,7 +55,9 @@ describe('TranslateButtonComponent', () => {
 
   // just a test to try spyOn with throwError
   it('should throw an error', () => {
-    spyOn(translocoService, 'setActiveLang').and.throwError('Test error');
+    vi.spyOn(translocoService, 'setActiveLang').mockImplementation(() => {
+      throw new Error('Test error');
+    });
     expect(() => component.changeLanguage('en')).toThrowError('Test error');
   });
 });
