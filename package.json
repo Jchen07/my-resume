@@ -1,6 +1,7 @@
 {
   "name": "my-resume",
   "version": "0.0.0",
+  "packageManager": "pnpm@11.21.0",
   "scripts": {
     "ng": "ng",
     "deploy": "npm run prebuild && ng deploy --base-href=/my-resume/",
