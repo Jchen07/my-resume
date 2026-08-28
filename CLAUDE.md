@@ -99,25 +99,25 @@ lists.
 
 ## i18n (Transloco)
 
-- Languages: `es` (default), `en`, `zh-CN`. The language list is duplicated in **three files that
-  must stay in sync**: `src/app/transloco/transloco-config.ts` (runtime), `transloco.config.ts`
-  (root, for the keys-manager CLI), and
-  `src/app/core/shared/functions/transloco-testing.function.ts` (tests).
-- Translation JSON lives in **`public/i18n/`** (not `src/assets/` — the `rootTranslationsPath` in
-  `transloco.config.ts` is stale). `TranslocoHttpLoader` fetches
+- Languages: `es` (default), `en`, `zh-CN`. The list lives once in
+  `src/app/core/shared/constants/languages.constants.ts` (`AVAILABLE_LANGS`, `DEFAULT_LANG`,
+  `LANGUAGES`), imported by `transloco/transloco-config.ts` (runtime) and
+  `core/shared/functions/transloco-testing.function.ts` (tests). The root `transloco.config.ts`
+  (keys-manager CLI) imports `AVAILABLE_LANGS` via a relative path — it can't use the `@/` alias.
+- Translation JSON lives in **`public/i18n/`**. `TranslocoHttpLoader` fetches
   `${environment.baseUrl}/i18n/<lang>.json?v=<BUILD_TIMESTAMP>`.
-- The language-switcher menu is driven by the `LANGUAGES` map in
-  `core/header/translate-button/models/language.enum.ts` (key = Transloco lang code, value =
-  display label).
-- `AppComponent` keeps `<html lang>` in sync with the active language and picks the initial
-  language from the browser (`zh` → `zh-CN`, and only languages present in
-  `getAvailableLangs()`). The choice is **not persisted** across reloads.
-- Résumé section components combine translated prose
-  (`translocoService.selectTranslateObject('home.experience')`, keyed `first` / `second`) with
-  structured data (company/school name, logo, link, tech tags) hard-coded in the component `.ts`.
-- Tech-tag chips: to add one, extend `TagNameEnum`, add a color entry in
-  `default-tag-color.enum.ts` (its `Record<TagNameEnum, …>` type forces this), add a `@case` in
-  `tag.component.html`, and register the icon component in `tag.component.ts`.
+- The language-switcher menu is driven by the `LANGUAGES` map (code → display label) in
+  `languages.constants.ts`.
+- `AppComponent` keeps `<html lang>` in sync with the active language (via an `effect` over
+  `toSignal(langChanges$)`) and persists the choice to `localStorage['lang']`. Initial language:
+  stored value, else browser (`zh` → `zh-CN`), restricted to `getAvailableLangs()`.
+- Résumé section components (`experience-section`, `education-section`) build their `timeLines`
+  with a `computed` over `toSignal(translocoService.selectTranslateObject('home.experience'))`
+  (keyed `first` / `second`), merged with structured data (company/school name, logo, link, tech
+  tags) hard-coded in the component `.ts`.
+- Tech-tag chips: to add one, extend `TagNameEnum`, add a color entry in `default-tag-color.ts`
+  (its `Record<TagNameEnum, …>` type forces this), add a `@case` in `tag.component.html`, and
+  register the icon component in `tag.component.ts`.
 
 ## Testing
 

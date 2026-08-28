@@ -17,16 +17,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'my-resume' title`, () => {
+  it('should sync <html lang> with the active language', async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-resume');
-  });
+    await fixture.whenStable();
 
-  it('should lang be defined', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.lang).toBeTruthy();
+    expect(document.documentElement.lang).toBeTruthy();
   });
 
   it('should contain header, footer and router-outlet', async () => {

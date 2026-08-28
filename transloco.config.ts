@@ -1,8 +1,9 @@
 import { TranslocoGlobalConfig } from '@jsverse/transloco-utils';
+import { AVAILABLE_LANGS } from './src/app/core/shared/constants/languages.constants';
 
 const config: TranslocoGlobalConfig = {
-  rootTranslationsPath: 'src/assets/i18n/',
-  langs: ['es', 'en', 'zh-CN'],
+  rootTranslationsPath: 'public/i18n/',
+  langs: [...AVAILABLE_LANGS],
   keysManager: {},
 };
 

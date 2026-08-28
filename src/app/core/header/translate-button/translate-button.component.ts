@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LANGUAGES } from '@/app/core/header/translate-button/models/language.enum';
+import { LANGUAGES } from '@/app/core/shared/constants/languages.constants';
 import { KeyValuePipe } from '@angular/common';
 import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outside.directive';
 import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
