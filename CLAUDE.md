@@ -53,9 +53,12 @@ lists.
   `@custom-variant dark` in `styles.css`), toggled and persisted to `localStorage['theme']` by
   `ThemeButtonComponent`; an inline script in `index.html` applies it before first paint.
 - **Transloco** for i18n (see the i18n section).
-- **NgRx** store/effects/devtools are wired in `app.config.ts` and `src/app/state/`, but flagged
-  "learning purposes" — only a dummy `test` slice exists. Real features do not use NgRx; do not
-  extend it without checking with the owner.
+- **NgRx** (`app.config.ts` + `src/app/state/`) is flagged "learning purposes" — only a dummy
+  `test` slice exists, no résumé feature uses it. It holds the same state two ways for
+  comparison: the classic Store as a `createFeature()` (`test/test.feature.ts` — reducer +
+  auto-generated selectors) plus a functional effect, and a `@ngrx/signals` **SignalStore**
+  (`test-signal/test-signal.store.ts` — `withState`/`withComputed`/`withMethods` + `rxMethod`).
+  The `/state-demo` route renders both. Don't extend NgRx without checking with the owner.
 - FontAwesome icons are registered in `AppComponent`; tech/brand logos are hand-written
   inline-SVG components in `src/app/core/shared/icons/`.
 - `@angular/ssr` is installed and mentioned in TODOs, but **SSR is not set up** (no server entry

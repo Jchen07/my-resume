@@ -9,16 +9,4 @@ import { EducationSectionComponent } from './education-section/education-section
   templateUrl: './home.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
-  // TODO: ngrx test, delete in the future
-  // testModel$: Observable<TestModel> = new Observable<TestModel>();
-  // loading$: Observable<boolean> = new Observable<boolean>();
-  //
-  // constructor(private _store: Store<AppState>) {}
-  //
-  // ngOnInit() {
-  //   this.loading$ = this._store.select(selectTestLoading);
-  //   this.testModel$ = this._store.select(selectTestModel);
-  //   this._store.dispatch(changeTitle());
-  // }
-}
+export class HomeComponent {}
