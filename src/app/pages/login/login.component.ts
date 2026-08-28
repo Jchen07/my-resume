@@ -1,4 +1,12 @@
-import { afterNextRender, Component, computed, DestroyRef, inject, viewChild } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  computed,
+  DestroyRef,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
 import { Permission } from './auth/auth.model';
@@ -10,6 +18,7 @@ import { debounceTime } from 'rxjs';
   selector: 'jc-login',
   imports: [FormsModule, AuthDirective],
   templateUrl: './login.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'flex items-center justify-center flex-col h-screen w-screen',
   },

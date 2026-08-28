@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'jc-pane',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="my-2 rounded-lg border-2 border-gray-200 bg-gray-50 p-4">
       <h3 class="mb-2 text-lg font-semibold text-gray-700">Pane Component</h3>

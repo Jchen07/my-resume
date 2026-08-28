@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TagComponent } from '@/app/core/shared/components/tag/tag.component';
 import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.interface';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
@@ -7,6 +7,7 @@ import { OpenLinkConfirmationDirective } from '../../directives/open-link-confir
 @Component({
   selector: 'jc-timeline',
   imports: [TagComponent, NgOptimizedImage, NgTemplateOutlet, OpenLinkConfirmationDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './timeline.component.html',
 })
 export class TimelineComponent {

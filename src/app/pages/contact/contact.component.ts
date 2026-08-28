@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -28,6 +28,7 @@ function emailIsUnique(control: AbstractControl): Observable<ValidationErrors | 
   selector: 'jc-contact',
   imports: [ReactiveFormsModule],
   templateUrl: './contact.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'flex items-center justify-center flex-col h-screen w-screen',
   },
