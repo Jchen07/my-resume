@@ -1,4 +1,4 @@
-import { Component, resource, signal } from '@angular/core';
+import { Component, resource, signal, ChangeDetectionStrategy } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import { httpResource } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'jc-resource-demo',
   imports: [JsonPipe, FormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './resource-demo.component.html',
 })
 export class ResourceDemoComponent {

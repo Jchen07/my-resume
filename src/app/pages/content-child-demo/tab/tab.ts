@@ -1,8 +1,9 @@
-import { Component, contentChild, contentChildren } from '@angular/core';
+import { Component, contentChild, contentChildren, ChangeDetectionStrategy } from '@angular/core';
 import { Pane } from '../pane/pane';
 
 @Component({
   selector: 'jc-tab',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div
       class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
@@ -41,7 +42,7 @@ import { Pane } from '../pane/pane';
           Rendered Content:
         </h3>
         <div class="space-y-4">
-          <ng-content></ng-content>
+          <ng-content />
         </div>
       </div>
     </div>

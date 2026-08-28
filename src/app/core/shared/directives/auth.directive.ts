@@ -11,15 +11,21 @@ export class AuthDirective {
   private readonly template = inject(TemplateRef);
   private readonly viewContainer = inject(ViewContainerRef);
 
+  private hasView = false;
+
   constructor() {
     effect(() => {
-      if (this.authService.activePermission() === this.userType()) {
+      const shouldRender = this.authService.activePermission() === this.userType();
+
+      if (shouldRender && !this.hasView) {
         this.viewContainer.createEmbeddedView(this.template, {
           $implicit: 'let variable',
           test: 'test',
         });
-      } else {
+        this.hasView = true;
+      } else if (!shouldRender && this.hasView) {
         this.viewContainer.clear();
+        this.hasView = false;
       }
     });
   }

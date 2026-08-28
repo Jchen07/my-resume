@@ -1,11 +1,4 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  signal,
-  inject,
-} from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
@@ -25,13 +18,11 @@ export class ThemeButtonComponent {
     document.documentElement.classList.contains('dark')
   );
 
-  private changeDetection = inject(ChangeDetectorRef);
-
   constructor() {
-    // TODO: delete?, ssr problem, right now it's not necessary
+    // Swap the loading spinner for the real toggle once the browser has painted.
+    // The signal write schedules change detection on its own under zoneless CD.
     afterNextRender((): void => {
       this.rendered.set(true);
-      this.changeDetection.markForCheck();
     });
   }
 

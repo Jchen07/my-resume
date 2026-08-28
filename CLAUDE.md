@@ -6,8 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal resume / portfolio SPA (`my-resume`), deployed to GitHub Pages under the `/my-resume/`
 base href. The routed **`home`** page is the actual résumé; the `login`, `contact`,
-`resource-demo`, and `content-child-demo` routes are Angular learning experiments (labelled as
-such in `app.routes.ts`) and are not part of the résumé.
+`resource-demo`, `content-child-demo`, and `aria-demo` routes are Angular learning experiments
+(labelled as such in `app.routes.ts`) and are not part of the résumé. `contact` and `login` use
+**Signal Forms** (`@angular/forms/signals` — `form()`, `FormField`, `required`/`email`/
+`minLength`/`validate`/`validateAsync`, `submit()`); `aria-demo` uses `@angular/aria` (headless
+Listbox); `resource-demo` uses `resource()` / `httpResource()`.
 
 ## Commands
 
@@ -27,7 +30,7 @@ the Transloco loader fetches translations from that origin.
 | Deploy to GitHub Pages | `pnpm deploy` |
 
 Run one spec: `pnpm test -- --include=src/app/path/to/thing.component.spec.ts` (or temporarily
-mark it with `fdescribe` / `fit`).
+mark it with `describe.only` / `it.only`).
 
 `prebuild` runs `node ./generate-build-info.js`, regenerating `src/build-info.ts` with a fresh
 ISO `BUILD_TIMESTAMP` that cache-busts the i18n JSON fetch. It fires automatically before
@@ -50,9 +53,12 @@ lists.
   `@custom-variant dark` in `styles.css`), toggled and persisted to `localStorage['theme']` by
   `ThemeButtonComponent`; an inline script in `index.html` applies it before first paint.
 - **Transloco** for i18n (see the i18n section).
-- **NgRx** store/effects/devtools are wired in `app.config.ts` and `src/app/state/`, but flagged
-  "learning purposes" — only a dummy `test` slice exists. Real features do not use NgRx; do not
-  extend it without checking with the owner.
+- **NgRx** (`app.config.ts` + `src/app/state/`) is flagged "learning purposes" — only a dummy
+  `test` slice exists, no résumé feature uses it. It holds the same state two ways for
+  comparison: the classic Store as a `createFeature()` (`test/test.feature.ts` — reducer +
+  auto-generated selectors) plus a functional effect, and a `@ngrx/signals` **SignalStore**
+  (`test-signal/test-signal.store.ts` — `withState`/`withComputed`/`withMethods` + `rxMethod`).
+  The `/state-demo` route renders both. Don't extend NgRx without checking with the owner.
 - FontAwesome icons are registered in `AppComponent`; tech/brand logos are hand-written
   inline-SVG components in `src/app/core/shared/icons/`.
 - `@angular/ssr` is installed and mentioned in TODOs, but **SSR is not set up** (no server entry
@@ -99,33 +105,37 @@ lists.
 
 ## i18n (Transloco)
 
-- Languages: `es` (default), `en`, `zh-CN`. The language list is duplicated in **three files that
-  must stay in sync**: `src/app/transloco/transloco-config.ts` (runtime), `transloco.config.ts`
-  (root, for the keys-manager CLI), and
-  `src/app/core/shared/functions/transloco-testing.function.ts` (tests).
-- Translation JSON lives in **`public/i18n/`** (not `src/assets/` — the `rootTranslationsPath` in
-  `transloco.config.ts` is stale). `TranslocoHttpLoader` fetches
+- Languages: `es` (default), `en`, `zh-CN`. The list lives once in
+  `src/app/core/shared/constants/languages.constants.ts` (`AVAILABLE_LANGS`, `DEFAULT_LANG`,
+  `LANGUAGES`), imported by `transloco/transloco-config.ts` (runtime) and
+  `core/shared/functions/transloco-testing.function.ts` (tests). The root `transloco.config.ts`
+  (keys-manager CLI) imports `AVAILABLE_LANGS` via a relative path — it can't use the `@/` alias.
+- Translation JSON lives in **`public/i18n/`**. `TranslocoHttpLoader` fetches
   `${environment.baseUrl}/i18n/<lang>.json?v=<BUILD_TIMESTAMP>`.
-- The language-switcher menu is driven by the `LANGUAGES` map in
-  `core/header/translate-button/models/language.enum.ts` (key = Transloco lang code, value =
-  display label).
-- `AppComponent` keeps `<html lang>` in sync with the active language and picks the initial
-  language from the browser (`zh` → `zh-CN`, and only languages present in
-  `getAvailableLangs()`). The choice is **not persisted** across reloads.
-- Résumé section components combine translated prose
-  (`translocoService.selectTranslateObject('home.experience')`, keyed `first` / `second`) with
-  structured data (company/school name, logo, link, tech tags) hard-coded in the component `.ts`.
-- Tech-tag chips: to add one, extend `TagNameEnum`, add a color entry in
-  `default-tag-color.enum.ts` (its `Record<TagNameEnum, …>` type forces this), add a `@case` in
-  `tag.component.html`, and register the icon component in `tag.component.ts`.
+- The language-switcher menu is driven by the `LANGUAGES` map (code → display label) in
+  `languages.constants.ts`.
+- `AppComponent` keeps `<html lang>` in sync with the active language (via an `effect` over
+  `toSignal(langChanges$)`) and persists the choice to `localStorage['lang']`. Initial language:
+  stored value, else browser (`zh` → `zh-CN`), restricted to `getAvailableLangs()`.
+- Résumé section components (`experience-section`, `education-section`) build their `timeLines`
+  with a `computed` over `toSignal(translocoService.selectTranslateObject('home.experience'))`
+  (keyed `first` / `second`), merged with structured data (company/school name, logo, link, tech
+  tags) hard-coded in the component `.ts`.
+- Tech-tag chips: to add one, extend `TagNameEnum`, add a color entry in `default-tag-color.ts`
+  (its `Record<TagNameEnum, …>` type forces this), add a `@case` in `tag.component.html`, and
+  register the icon component in `tag.component.ts`.
 
 ## Testing
 
-- Karma + Jasmine, headless Chrome; config is inline in `angular.json` (no `karma.conf.js`).
+- **Vitest** (`@angular/build:unit-test` builder, `runner: vitest`, jsdom environment). Globals
+  (`describe`/`it`/`expect`/`vi`) are on via `tsconfig.spec.json` `types: ["vitest/globals"]`.
+  No `karma.conf.js`, no `vitest.config.ts` — the CLI builds the Vitest config from
+  `angular.json` (the `test` target's `buildTarget` points at the `testing` build config). Runs
+  zoneless-only; there is no `fakeAsync`/`tick` — use `await fixture.whenStable()`.
 - Each component has a co-located `*.spec.ts` whose baseline is a `should create` check.
-- Specs provide `provideZonelessChangeDetection()` and use `await fixture.whenStable()` (not
-  `detectChanges()` + `tick()`). Specs that render translated content import
-  `getTranslocoModule()`; specs using FontAwesome import `FontAwesomeTestingModule`. Pure logic
-  is sometimes tested by instantiating the class directly, without TestBed.
-- Known pre-existing failure: `ContactComponent › should create` (`NG0908: requires Zone.js`)
-  fails on a clean checkout — not caused by unrelated changes.
+- Specs provide `provideZonelessChangeDetection()` and use `await fixture.whenStable()`. Specs
+  that render translated content import `getTranslocoModule()`; specs using FontAwesome import
+  `FontAwesomeTestingModule`. Pure logic is sometimes tested by instantiating the class
+  directly, without TestBed.
+- jsdom lacks some browser APIs (e.g. `navigator.clipboard`) — stub them in the spec before
+  spying (`Object.defineProperty(navigator, 'clipboard', …)`).
