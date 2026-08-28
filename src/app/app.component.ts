@@ -9,6 +9,10 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import {
+  readLocalStorage,
+  writeLocalStorage,
+} from '@/app/core/shared/functions/local-storage.function';
 
 @Component({
   selector: 'jc-root',
@@ -38,7 +42,7 @@ export class AppComponent {
         return;
       }
       this.document.documentElement.lang = lang;
-      localStorage.setItem(AppComponent.LANG_STORAGE_KEY, lang);
+      writeLocalStorage(AppComponent.LANG_STORAGE_KEY, lang);
     });
   }
 
@@ -46,7 +50,7 @@ export class AppComponent {
     const availableLangs = this.translocoService.getAvailableLangs() as string[];
     const browserLang = getBrowserLang();
     const normalizedBrowserLang = browserLang === 'zh' ? 'zh-CN' : browserLang;
-    const stored = localStorage.getItem(AppComponent.LANG_STORAGE_KEY);
+    const stored = readLocalStorage(AppComponent.LANG_STORAGE_KEY);
 
     const preferred = [stored, normalizedBrowserLang].find(
       lang => lang != null && availableLangs.includes(lang)

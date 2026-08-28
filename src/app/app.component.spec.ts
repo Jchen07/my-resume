@@ -2,9 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    // document.documentElement is a process-wide global; clear it so the assertion below
+    // reflects what AppComponent's effect actually did, not a leftover value.
+    document.documentElement.lang = '';
+
     await TestBed.configureTestingModule({
       imports: [AppComponent, getTranslocoModule()],
       providers: [provideZonelessChangeDetection()],
@@ -21,7 +26,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     await fixture.whenStable();
 
-    expect(document.documentElement.lang).toBeTruthy();
+    const activeLang = TestBed.inject(TranslocoService).getActiveLang();
+    expect(document.documentElement.lang).toBe(activeLang);
   });
 
   it('should contain header, footer and router-outlet', async () => {

@@ -1,8 +1,7 @@
 /**
- * Single source of truth for the languages the app ships.
- *
- * Kept in sync manually with the root `transloco.config.ts` (keys-manager CLI), which cannot
- * import from `src/` through the `@/` path alias.
+ * Single source of truth for the languages the app ships. Imported by the runtime Transloco
+ * config, the testing helper, and the root `transloco.config.ts` (keys-manager CLI) — the last
+ * via a relative path, since that file lives outside `src/` and can't use the `@/` alias.
  */
 export const AVAILABLE_LANGS = ['es', 'en', 'zh-CN'] as const;
 

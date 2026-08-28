@@ -10,6 +10,10 @@ import { email, form, FormField, minLength, required, submit } from '@angular/fo
 import { AuthService } from './auth/auth.service';
 import { Permission } from './auth/auth.model';
 import { AuthDirective } from '@/app/core/shared/directives/auth.directive';
+import {
+  readLocalStorage,
+  writeLocalStorage,
+} from '@/app/core/shared/functions/local-storage.function';
 
 interface LoginModel {
   email: string;
@@ -40,6 +44,8 @@ export class LoginComponent {
     password: '',
   });
 
+  private readonly rememberedEmail = computed(() => this.model().email);
+
   protected readonly loginForm = form(this.model, path => {
     required(path.email, { message: 'Email is required.' });
     email(path.email, { message: 'Enter a valid email address.' });
@@ -48,9 +54,9 @@ export class LoginComponent {
   });
 
   constructor() {
-    // Remember the email across visits.
+    // Remember the email across visits (only re-runs when the email itself changes).
     effect(() => {
-      localStorage.setItem(LoginComponent.emailStorageKey, JSON.stringify(this.model().email));
+      writeLocalStorage(LoginComponent.emailStorageKey, JSON.stringify(this.rememberedEmail()));
     });
   }
 
@@ -68,7 +74,7 @@ export class LoginComponent {
   }
 
   private readStoredEmail(): string {
-    const raw = localStorage.getItem(LoginComponent.emailStorageKey);
+    const raw = readLocalStorage(LoginComponent.emailStorageKey);
     if (!raw) {
       return '';
     }

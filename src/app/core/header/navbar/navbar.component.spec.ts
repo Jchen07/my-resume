@@ -31,13 +31,23 @@ describe('NavbarComponent', () => {
   });
 
   it('should copy the email to clipboard', () => {
-    // jsdom does not implement navigator.clipboard, so provide a stub to spy on.
+    // jsdom does not implement navigator.clipboard, so provide a stub to spy on and
+    // restore whatever was there afterwards so later specs are unaffected.
+    const originalDescriptor = Object.getOwnPropertyDescriptor(navigator, 'clipboard');
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
-    const component = new NavbarComponent();
 
-    component.copyEmailToClipboard();
+    try {
+      const component = new NavbarComponent();
+      component.copyEmailToClipboard();
 
-    expect(writeText).toHaveBeenCalledWith(GlobalConstants.email);
+      expect(writeText).toHaveBeenCalledWith(GlobalConstants.email);
+    } finally {
+      if (originalDescriptor) {
+        Object.defineProperty(navigator, 'clipboard', originalDescriptor);
+      } else {
+        delete (navigator as { clipboard?: unknown }).clipboard;
+      }
+    }
   });
 });
