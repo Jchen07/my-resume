@@ -4,7 +4,7 @@ import { TranslocoOptions } from '@jsverse/transloco';
 
 export const translocoConfig: TranslocoOptions = {
   config: {
-    availableLangs: ['es', 'en'],
+    availableLangs: ['es', 'en', 'zh-CN'],
     defaultLang: 'es',
     reRenderOnLangChange: true,
     prodMode: !isDevMode(),

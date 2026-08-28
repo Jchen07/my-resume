@@ -10,7 +10,8 @@
 }
 
 html {
-  font-family: 'Suse', sans-serif;
+  font-family: 'Suse', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC',
+    sans-serif;
   font-weight: 400;
 }
 

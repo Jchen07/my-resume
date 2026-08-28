@@ -1,4 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@/app/core/header/header.component';
 import { FooterComponent } from '@/app/core/footer/footer.component';
@@ -20,9 +22,11 @@ export class AppComponent {
 
   private translocoService = inject(TranslocoService);
   private faIconLibrary = inject(FaIconLibrary);
+  private document = inject(DOCUMENT);
 
   constructor() {
     this.translateSetUp();
+    this.syncHtmlLang();
     this.addIconLibrary();
   }
 
@@ -30,10 +34,22 @@ export class AppComponent {
     // TODO: https://github.com/Jchen07/my-resume/commit/8a1ab33a917b37d52f3e6fc78b333caf0d1904d3 SSR commit
     // TODO: provar de nou si es pot fer alguna cosa al servidor perquè ja carregi el idioma que toca (millora seo i en cas de internet lent no es vegi idioma anterior)
     // TODO: en cas d'haver canviat idioma guadar-lo per la següent
-    this.lang = getBrowserLang();
-    if (this.lang !== undefined && this.translocoService.getActiveLang() !== this.lang) {
+    const browserLang = getBrowserLang();
+    this.lang = browserLang === 'zh' ? 'zh-CN' : browserLang;
+    const availableLangs = this.translocoService.getAvailableLangs() as string[];
+    if (
+      this.lang !== undefined &&
+      availableLangs.includes(this.lang) &&
+      this.translocoService.getActiveLang() !== this.lang
+    ) {
       this.translocoService.setActiveLang(this.lang);
     }
+  }
+
+  private syncHtmlLang() {
+    this.translocoService.langChanges$
+      .pipe(takeUntilDestroyed())
+      .subscribe(lang => (this.document.documentElement.lang = lang));
   }
 
   private addIconLibrary() {

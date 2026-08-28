@@ -1,0 +1,55 @@
+{
+  "header": {
+    "theme-button": "切换深色/浅色模式",
+    "translate-button": "切换语言",
+    "navbar": {
+      "home": "首页",
+      "experience": "工作经历",
+      "education": "教育背景",
+      "projects": "项目",
+      "about-me": "关于我",
+      "contact": "联系方式",
+      "copyEmailToClipboard": "复制邮箱地址"
+    }
+  },
+  "home": {
+    "presentation": {
+      "title": "简介",
+      "name": "嗨，我是陈杰",
+      "description": "一名全栈开发工程师，拥有 3 年以上在 DXC Technology 从事企业级 Web 应用开发的经验。",
+
+      "button-bar": {
+        "contact": "联系我",
+        "downloadCV": "下载简历"
+      }
+    },
+
+    "experience":  {
+      "title": "工作经历",
+      "first": {
+        "time": "2021 年 11 月 - 至今",
+        "title": "企业应用工程师",
+        "description": "使用 Java Spring Boot 开发可扩展的后端，并使用 Angular 构建动态前端组件。偶尔带领小型团队开发新功能，例如多语言支持、升级前端技术栈，并为团队成员提供支持。"
+      }
+    },
+    "education": {
+      "title": "教育背景",
+      "first": {
+        "time": "2020 年 9 月 - 2022 年 6 月",
+        "title": "Web 应用开发",
+        "subtitle": "高级技师文凭",
+        "description": "在 Web 开发高级职业培训中，我获得了创建和管理动态网站与应用的实践经验，熟练掌握了 HTML、CSS、JavaScript、Vue 等技术，同时学习了如何设计响应式、易用的界面。我还通过项目实践和企业实习进一步提升了技能。"
+      },
+      "second": {
+        "time": "2024 年 9 月 - 至今",
+        "title": "计算机工程",
+        "subtitle": "加泰罗尼亚开放大学",
+        "description": "计算机工程学士学位"
+      }
+    }
+  },
+  "open-link-confirmation": {
+    "message": "您即将打开一个外部链接，是否继续？",
+    "download-message": "您想下载此文件吗？"
+  }
+}
