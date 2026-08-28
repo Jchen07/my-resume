@@ -19,4 +19,5 @@ export const tagColors: Record<TagNameEnum, string> = {
     'bg-gray-300 shadow-sm shadow-yellow-100 dark:shadow-none dark:bg-yellow-100',
   [TagNameEnum.MARIA_DB]:
     'bg-gray-300 shadow-sm shadow-orange-100 dark:shadow-none dark:bg-orange-100',
+  [TagNameEnum.ORACLE]: 'bg-gray-300 shadow-sm shadow-red-300 dark:shadow-none dark:bg-red-300',
 };

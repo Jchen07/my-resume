@@ -14,4 +14,5 @@ export enum TagNameEnum {
   // DataBase
   POSTGRE_SQL = 'PostgreSQL',
   MARIA_DB = 'MariaDB',
+  ORACLE = 'Oracle',
 }

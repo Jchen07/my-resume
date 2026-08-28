@@ -23,12 +23,26 @@ export class ExperienceSectionComponent implements OnInit {
 
   setTimeLines(): void {
     this.translocoService
-      .selectTranslateObject('home.experience.first')
+      .selectTranslateObject('home.experience')
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(firstJson => {
+      .subscribe(experienceJson => {
         this.timeLines = [
           {
-            time: firstJson.time,
+            time: experienceJson.second.time,
+            tags: [
+              TagNameEnum.ANGULAR,
+              TagNameEnum.JAVA,
+              TagNameEnum.SPRING_FRAMEWORK,
+              TagNameEnum.TYPESCRIPT,
+              TagNameEnum.ORACLE,
+            ],
+            title: experienceJson.second.title,
+            link: 'https://www.minsait.com/',
+            subtitle: 'Indra (Minsait)',
+            description: experienceJson.second.description,
+          },
+          {
+            time: experienceJson.first.time,
             tags: [
               TagNameEnum.ANGULAR,
               TagNameEnum.JAVA,
@@ -36,11 +50,11 @@ export class ExperienceSectionComponent implements OnInit {
               TagNameEnum.TYPESCRIPT,
               TagNameEnum.POSTGRE_SQL,
             ],
-            title: firstJson.title,
+            title: experienceJson.first.title,
             icon: 'dxc_logo.svg',
             link: 'https://dxc.com/',
             subtitle: 'DXC Technology',
-            description: firstJson.description,
+            description: experienceJson.first.description,
           },
         ];
       });
