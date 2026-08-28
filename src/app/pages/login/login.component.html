@@ -1,5 +1,5 @@
 <h2 class="mb-6 text-xl font-bold dark:text-gray-100">Authenticate to access all resources</h2>
-<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="flex items-end gap-8">
+<form novalidate (submit)="$event.preventDefault(); onSubmit()" class="flex items-end gap-8">
   <p class="flex-1">
     <label for="email" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
       E-Mail
@@ -7,25 +7,18 @@
     <input
       id="email"
       type="email"
-      name="email"
-      ngModel
-      required
-      #email="ngModel"
+      [formField]="loginForm.email"
       class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
   </p>
 
   <p class="flex-1">
-    <label for="passowrd" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+    <label for="password" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
       Password
     </label>
     <input
-      id="passowrd"
+      id="password"
       type="password"
-      name="password"
-      ngModel
-      required
-      #password="ngModel"
-      minlength="2"
+      [formField]="loginForm.password"
       class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
   </p>
 
@@ -39,14 +32,15 @@
 </form>
 
 <ng-container>
-  @if (email.invalid && email.touched) {
-    <p class="mt-1 text-xs text-red-600 dark:text-red-400">Please enter a valid email address.</p>
+  @if (loginForm.email().touched()) {
+    @for (error of loginForm.email().errors(); track error.kind) {
+      <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ error.message }}</p>
+    }
   }
-
-  @if (password.invalid && password.touched) {
-    <p class="mt-1 text-xs text-red-600 dark:text-red-400">
-      Please enter a valid password (min. 2 characters).
-    </p>
+  @if (loginForm.password().touched()) {
+    @for (error of loginForm.password().errors(); track error.kind) {
+      <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ error.message }}</p>
+    }
   }
 </ng-container>
 

@@ -6,8 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal resume / portfolio SPA (`my-resume`), deployed to GitHub Pages under the `/my-resume/`
 base href. The routed **`home`** page is the actual résumé; the `login`, `contact`,
-`resource-demo`, and `content-child-demo` routes are Angular learning experiments (labelled as
-such in `app.routes.ts`) and are not part of the résumé.
+`resource-demo`, `content-child-demo`, and `aria-demo` routes are Angular learning experiments
+(labelled as such in `app.routes.ts`) and are not part of the résumé. `contact` and `login` use
+**Signal Forms** (`@angular/forms/signals` — `form()`, `FormField`, `required`/`email`/
+`minLength`/`validate`/`validateAsync`, `submit()`); `aria-demo` uses `@angular/aria` (headless
+Listbox); `resource-demo` uses `resource()` / `httpResource()`.
 
 ## Commands
 

@@ -1,22 +1,24 @@
 import {
-  afterNextRender,
+  ChangeDetectionStrategy,
   Component,
   computed,
-  DestroyRef,
+  effect,
   inject,
-  viewChild,
-  ChangeDetectionStrategy,
+  signal,
 } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { email, form, FormField, minLength, required, submit } from '@angular/forms/signals';
 import { AuthService } from './auth/auth.service';
 import { Permission } from './auth/auth.model';
 import { AuthDirective } from '@/app/core/shared/directives/auth.directive';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime } from 'rxjs';
+
+interface LoginModel {
+  email: string;
+  password: string;
+}
 
 @Component({
   selector: 'jc-login',
-  imports: [FormsModule, AuthDirective],
+  imports: [FormField, AuthDirective],
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
@@ -24,44 +26,57 @@ import { debounceTime } from 'rxjs';
   },
 })
 export class LoginComponent {
-  private static readonly emailLocalStorageKey = 'login-email';
+  private static readonly emailStorageKey = 'login-email';
 
-  protected isAdmin = computed(() => this.authService.activePermission() === Permission.ADMIN);
+  private readonly authService = inject(AuthService);
+
   protected readonly Permission = Permission;
+  protected readonly isAdmin = computed(
+    () => this.authService.activePermission() === Permission.ADMIN
+  );
 
-  private form = viewChild<NgForm>('form');
-  private authService: AuthService = inject(AuthService);
-  private destroyRef = inject(DestroyRef);
+  protected readonly model = signal<LoginModel>({
+    email: this.readStoredEmail(),
+    password: '',
+  });
+
+  protected readonly loginForm = form(this.model, path => {
+    required(path.email, { message: 'Email is required.' });
+    email(path.email, { message: 'Enter a valid email address.' });
+    required(path.password, { message: 'Password is required.' });
+    minLength(path.password, 2, { message: 'Password must be at least 2 characters.' });
+  });
 
   constructor() {
-    afterNextRender(() => {
-      const savedEmail = window.localStorage.getItem(LoginComponent.emailLocalStorageKey);
-      if (savedEmail) {
-        const email = JSON.parse(savedEmail);
-        // workaound to template driven form not being ready yet
-        setTimeout(() => {
-          this.form()?.form.patchValue({ email });
-        }, 1);
-      }
-
-      this.form()
-        ?.valueChanges?.pipe(takeUntilDestroyed(this.destroyRef), debounceTime(500))
-        .subscribe(value => {
-          window.localStorage.setItem(
-            LoginComponent.emailLocalStorageKey,
-            JSON.stringify(value.email)
-          );
-        });
+    // Remember the email across visits.
+    effect(() => {
+      localStorage.setItem(LoginComponent.emailStorageKey, JSON.stringify(this.model().email));
     });
   }
 
-  onSubmit(form: NgForm): void {
-    if (form.invalid) {
-      alert('Form is invalid');
-      return;
-    }
+  protected async onSubmit(): Promise<void> {
+    const ok = await submit(this.loginForm, async submitted => {
+      const { email: enteredEmail, password } = submitted().value();
+      this.authService.authenticate(enteredEmail, password);
+      return undefined;
+    });
 
-    this.authService.authenticate(form.value.email, form.value.password);
-    form.resetForm();
+    if (ok) {
+      this.model.update(value => ({ ...value, password: '' }));
+      this.loginForm().reset();
+    }
+  }
+
+  private readStoredEmail(): string {
+    const raw = localStorage.getItem(LoginComponent.emailStorageKey);
+    if (!raw) {
+      return '';
+    }
+    try {
+      const parsed: unknown = JSON.parse(raw);
+      return typeof parsed === 'string' ? parsed : '';
+    } catch {
+      return '';
+    }
   }
 }

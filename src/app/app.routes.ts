@@ -31,6 +31,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
   },
   {
+    path: 'aria-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/aria-demo/aria-demo.component').then(m => m.AriaDemoComponent),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('./pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent),

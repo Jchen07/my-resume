@@ -21,4 +21,14 @@ describe('ContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be invalid while empty and reject the forbidden name', async () => {
+    expect(component['contactForm']().valid()).toBe(false);
+
+    component['model'].set({ name: 'Jie', email: 'a@b.com', message: 'a valid message' });
+    await fixture.whenStable();
+
+    const nameErrors = component['contactForm'].name().errors();
+    expect(nameErrors.some(error => error.kind === 'forbiddenName')).toBe(true);
+  });
 });
