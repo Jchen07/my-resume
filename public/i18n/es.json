@@ -53,6 +53,68 @@
       }
     }
   },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Desarrollador Full-Stack",
+    "present": "Actualidad",
+    "location": "Barcelona, España",
+    "contact": {
+      "email": "Correo:",
+      "phone": "Teléfono:",
+      "location": "Ubicación:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Perfil profesional",
+      "experience": "Experiencia",
+      "skills": "Competencias",
+      "education": "Educación",
+      "languages": "Idiomas"
+    },
+    "summary": "Desarrollador Full-Stack con 5 años de experiencia en aplicaciones web empresariales en DXC Technology e Indra (Minsait). Lideré equipos pequeños para entregar funcionalidades como el soporte multilingüe y modernizar el stack de front-end. Trabajo en toda la pila: back-ends escalables con Java y Spring Boot, y front-ends dinámicos y reutilizables con Angular y TypeScript.",
+    "experience": {
+      "dxc": {
+        "bullets": [
+          "Lideré equipos pequeños para desarrollar nuevas funcionalidades, como el soporte multilingüe.",
+          "Actualicé todo el stack de front-end a las últimas tecnologías.",
+          "Contribuí a la estimación de tareas y tuve un papel clave en la selección de tecnologías y librerías.",
+          "Colaboré estrechamente con diseñadores y analistas para convertir los requisitos de negocio en soluciones técnicas sólidas.",
+          "Desarrollé y mantuve funcionalidades de back-end escalables con Java Spring Boot y componentes de front-end dinámicos y reutilizables con Angular.",
+          "Di soporte y mentoría a nuevos miembros del equipo, ayudándoles a integrarse."
+        ]
+      },
+      "indra": {
+        "bullets": [
+          "Contribuyo a una plataforma de seguros de Mapfre basada en una arquitectura de micro-frontend y microservicios.",
+          "Desarrollo micro-frontends con Angular y servicios con Java Spring Boot dentro de un equipo distribuido."
+        ]
+      }
+    },
+    "skillGroups": {
+      "languages": "Lenguajes de programación",
+      "frameworks": "Frameworks",
+      "databases": "Bases de datos",
+      "tools": "Herramientas",
+      "testing": "Testing",
+      "methods": "Prácticas"
+    },
+    "languageNames": {
+      "es": "Español",
+      "ca": "Catalán",
+      "en": "Inglés",
+      "zh": "Chino"
+    },
+    "languageLevels": {
+      "native": "Nativo",
+      "bilingual": "Bilingüe",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Avanzado"
+    }
+  },
   "open-link-confirmation": {
     "message": "Estás a punto de abrir un enlace externo. ¿Te gustaría continuar?",
     "download-message": "¿Quieres descargar este archivo?"

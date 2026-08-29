@@ -37,6 +37,17 @@ cache-busts the i18n JSON fetch. It runs on `postinstall`, `pretest`, and `prebu
 file always exists after `pnpm install`. **`src/build-info.ts` is generated and gitignored** —
 never hand-edit or commit it.
 
+`pnpm generate:cv` (`scripts/generate-cv-pdf.mts`, run via `tsx`, also chained into `deploy` —
+**not** `prebuild`) renders `scripts/cv-template/` to `public/assets/pdf/CV_Jie_Chen_<lang>.pdf`,
+one per Transloco language, with headless Google Chrome via `playwright-core` (uses the
+installed Chrome; warns + exits 0 if absent). Those PDFs **are committed**; regenerate and
+commit them when résumé data changes. The "Download CV" button
+(`buttons-bar.component.ts`) picks the file for the active language. Résumé data has one source
+of truth: `src/app/core/shared/data/profile.data.ts` (`PROFILE` — structured, Angular-free,
+relative imports only so the Node script can load it) for facts, and `cv.*` + `home.*` keys in
+`public/i18n/*.json` for prose. `experience-section` / `education-section` read `PROFILE` too,
+so the site and the PDF can't drift.
+
 There are two skills in `.claude/skills/`: **`verify`** (the full lint + build + Vitest +
 browser smoke-test checklist, with the Node-24 setup) and **`angular-upgrade`** (the stepwise
 major-version bump process). Use them.

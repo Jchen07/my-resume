@@ -53,6 +53,68 @@
       }
     }
   },
+  "cv": {
+    "title": "简历 — 陈杰",
+    "displayName": "陈杰",
+    "headline": "全栈开发工程师",
+    "present": "至今",
+    "location": "西班牙，巴塞罗那",
+    "contact": {
+      "email": "邮箱：",
+      "phone": "电话：",
+      "location": "所在地：",
+      "linkedin": "领英：",
+      "github": "GitHub："
+    },
+    "sections": {
+      "summary": "个人简介",
+      "experience": "工作经历",
+      "skills": "专业技能",
+      "education": "教育背景",
+      "languages": "语言能力"
+    },
+    "summary": "全栈开发工程师，拥有 5 年在 DXC Technology 和 Indra（Minsait）从事企业级 Web 应用开发的经验。曾带领小型团队交付多语言支持等功能，并推动前端技术栈现代化。具备全栈能力：使用 Java 与 Spring Boot 构建可扩展后端，使用 Angular 与 TypeScript 构建动态、可复用的前端组件。",
+    "experience": {
+      "dxc": {
+        "bullets": [
+          "带领小型团队开发多语言支持等新功能。",
+          "将整个前端技术栈升级到最新版本。",
+          "参与工作量评估，并在技术与库的选型中发挥关键作用。",
+          "与设计师和分析师密切协作，将业务需求转化为稳健的技术方案。",
+          "使用 Java Spring Boot 开发并维护可扩展的后端功能，使用 Angular 构建动态、可复用的前端组件。",
+          "为新团队成员提供支持与指导，帮助他们融入团队。"
+        ]
+      },
+      "indra": {
+        "bullets": [
+          "参与 Mapfre 保险平台的开发，该平台采用微前端与微服务架构。",
+          "在分布式团队中使用 Angular 开发微前端，并使用 Java Spring Boot 开发服务。"
+        ]
+      }
+    },
+    "skillGroups": {
+      "languages": "编程语言",
+      "frameworks": "框架",
+      "databases": "数据库",
+      "tools": "工具",
+      "testing": "测试",
+      "methods": "实践"
+    },
+    "languageNames": {
+      "es": "西班牙语",
+      "ca": "加泰罗尼亚语",
+      "en": "英语",
+      "zh": "中文"
+    },
+    "languageLevels": {
+      "native": "母语",
+      "bilingual": "双语",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "熟练"
+    }
+  },
   "open-link-confirmation": {
     "message": "您即将打开一个外部链接，是否继续？",
     "download-message": "您想下载此文件吗？"

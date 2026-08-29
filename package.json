@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "postinstall": "node ./generate-build-info.js",
-    "deploy": "npm run prebuild && ng deploy --base-href=/my-resume/",
+    "deploy": "npm run prebuild && pnpm generate:cv && ng deploy --base-href=/my-resume/",
+    "generate:cv": "tsx scripts/generate-cv-pdf.mts",
     "prebuild": "node ./generate-build-info.js",
     "prestart": "node ./generate-build-info.js",
     "start": "ng serve --port 4202",
@@ -52,10 +53,13 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "jsdom": "^30.0.1",
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.62.1",
     "postcss": "^8.5.3",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
+    "tsx": "^4.23.12",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.68.0",
     "vitest": "^4.0.8"
