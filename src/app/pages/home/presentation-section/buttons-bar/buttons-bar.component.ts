@@ -22,13 +22,12 @@ export class ButtonsBarComponent {
   protected readonly cvHref = computed(() => `assets/pdf/CV_Jie_Chen_${this.activeLang()}.pdf`);
   protected readonly cvDownloadName = computed(() => `CV_Jie_Chen_${this.activeLang()}.pdf`);
 
-  // tailwind dark: doesn't work with @apply
   protected basicButtonStyles =
-    'flex items-center text-sm sm:text-base gap-0.5 sm:gap-1.5 rounded-lg  fill-neutral-800 px-1 sm:px-2.5 py-1 sm:py-0.5 cursor-pointer';
+    'inline-flex items-center gap-2 rounded border fill-current px-3 py-2 font-mono text-[12.5px] transition cursor-pointer';
   protected primaryButtonStyles =
-    'transition border border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700 focus:ring-blue-500';
-  protected secondaryButtonStyles = `transition border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-400
-  dark:bg-neutral-100 dark:hover:bg-neutral-200`;
+    'border-term-primary-border bg-term-primary-bg text-term-primary-fg hover:border-term-accent';
+  protected secondaryButtonStyles =
+    'border-term-border bg-term-panel text-term-fg hover:border-term-faint';
 
   protected copyEmail() {
     navigator.clipboard.writeText(GlobalConstants.email);

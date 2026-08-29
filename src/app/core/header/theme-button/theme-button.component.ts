@@ -1,11 +1,10 @@
 import { afterNextRender, ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ModeEnum } from '@/app/core/header/models/mode.enum';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 
 @Component({
   selector: 'jc-theme-button',
-  imports: [TranslocoPipe, ClickEnterSpacebarDirective],
+  imports: [TranslocoPipe],
   templateUrl: 'theme-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -13,7 +12,6 @@ export class ThemeButtonComponent {
   public static readonly THEME_STORAGE_NAME: string = 'theme';
 
   protected rendered = signal<boolean>(false);
-  protected readonly MODE_ENUM = ModeEnum;
   protected readonly isDarkMode = signal<boolean>(
     document.documentElement.classList.contains('dark')
   );
@@ -24,6 +22,10 @@ export class ThemeButtonComponent {
     afterNextRender((): void => {
       this.rendered.set(true);
     });
+  }
+
+  toggle(): void {
+    this.setMode(this.isDarkMode() ? ModeEnum.LIGHT : ModeEnum.DARK);
   }
 
   setMode(mode: ModeEnum): void {
