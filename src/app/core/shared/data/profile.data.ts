@@ -24,7 +24,7 @@ export const PROFILE: Profile = {
       id: 'indra',
       company: 'Indra (Minsait)',
       companyUrl: 'https://www.minsait.com/',
-      dates: { start: '2025-01', end: null },
+      dates: { start: '2025-08', end: null },
       tags: [
         TagNameEnum.ANGULAR,
         TagNameEnum.JAVA,
@@ -38,7 +38,7 @@ export const PROFILE: Profile = {
       company: 'DXC Technology',
       companyUrl: 'https://dxc.com/',
       logo: 'dxc_logo.svg',
-      dates: { start: '2021-01', end: '2025-01' },
+      dates: { start: '2021-11', end: '2025-08' },
       tags: [
         TagNameEnum.ANGULAR,
         TagNameEnum.JAVA,
