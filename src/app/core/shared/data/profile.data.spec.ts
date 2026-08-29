@@ -1,3 +1,4 @@
+import ca from '../../../../../public/i18n/ca.json';
 import en from '../../../../../public/i18n/en.json';
 import es from '../../../../../public/i18n/es.json';
 import zhCN from '../../../../../public/i18n/zh-CN.json';
@@ -28,7 +29,7 @@ interface I18nDoc {
   };
 }
 
-const I18N: Record<string, I18nDoc> = { es, en, 'zh-CN': zhCN };
+const I18N: Record<string, I18nDoc> = { es, ca, en, 'zh-CN': zhCN };
 
 function monthValue(value: string): number {
   const [year, month] = value.split('-').map(Number);

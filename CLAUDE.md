@@ -121,7 +121,7 @@ lists.
 
 ## i18n (Transloco)
 
-- Languages: `es` (default), `en`, `zh-CN`. The list lives once in
+- Languages: `es` (default), `ca`, `en`, `zh-CN`. The list lives once in
   `src/app/core/shared/constants/languages.constants.ts` (`AVAILABLE_LANGS`, `DEFAULT_LANG`,
   `LANGUAGES`), imported by `transloco/transloco-config.ts` (runtime) and
   `core/shared/functions/transloco-testing.function.ts` (tests). The root `transloco.config.ts`
