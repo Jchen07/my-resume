@@ -1,0 +1,22 @@
+/*
+ * Scoped config for the build-time Node scripts (run with `tsx`, not the Angular build).
+ * Kept separate from the app tsconfigs: Node globals, ESM `node:` builtins, and `.mts`
+ * import specifiers, none of which belong in the browser code. The editor picks this up
+ * automatically for files under `scripts/` (nearest tsconfig wins).
+ */
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["**/*.mts", "**/*.ts"]
+}

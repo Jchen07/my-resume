@@ -14,8 +14,8 @@
     jcOpenLinkConfirmation
     [downloadMessage]="true"
     [class]="basicButtonStyles + ' ' + secondaryButtonStyles"
-    href="assets/pdf/CV_Jie_Chen.pdf"
-    download
+    [href]="cvHref()"
+    [attr.download]="cvDownloadName()"
     type="application/pdf"
     rel="noopener noreferrer">
     <svg

@@ -28,5 +28,14 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  /*
+   * Lets the editor's TS language server route each file to the right leaf config:
+   * `*.spec.ts` -> tsconfig.spec.json (which adds `vitest/globals`, so describe/it/expect/
+   * beforeEach resolve), everything else -> tsconfig.app.json. `ng build` / `ng test` still
+   * invoke the leaf configs directly and are unaffected.
+   */
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.spec.json" }],
+  /* Node build scripts have their own config (scripts/tsconfig.json). */
+  "exclude": ["scripts", "dist", "out-tsc"]
 }

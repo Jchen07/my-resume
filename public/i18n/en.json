@@ -53,6 +53,68 @@
       }
     }
   },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Full-Stack Developer",
+    "present": "Present",
+    "location": "Barcelona, Spain",
+    "contact": {
+      "email": "Email:",
+      "phone": "Phone:",
+      "location": "Location:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Professional Summary",
+      "experience": "Experience",
+      "skills": "Skills",
+      "education": "Education",
+      "languages": "Languages"
+    },
+    "summary": "Full-Stack Developer with 5 years of experience building enterprise web applications at DXC Technology and Indra (Minsait). Led small teams to deliver features like multilingual support and to modernize front-end stacks. Works across the stack: scalable back-ends with Java and Spring Boot, dynamic reusable front-ends with Angular and TypeScript.",
+    "experience": {
+      "dxc": {
+        "bullets": [
+          "Led small teams to develop new features, such as multilingual support.",
+          "Upgraded the entire front-end stack to the latest technologies.",
+          "Contributed to task estimation and played a key role in selecting technologies and libraries.",
+          "Worked closely with designers and analysts to turn business requirements into robust technical solutions.",
+          "Built and maintained scalable back-end features with Java Spring Boot and dynamic, reusable front-end components with Angular.",
+          "Supported and mentored new team members, helping them integrate into the team."
+        ]
+      },
+      "indra": {
+        "bullets": [
+          "Contributing to a Mapfre insurance platform built on a micro-frontend and micro-services architecture.",
+          "Developing Angular micro-frontends and Java Spring Boot services as part of a distributed team."
+        ]
+      }
+    },
+    "skillGroups": {
+      "languages": "Programming languages",
+      "frameworks": "Frameworks",
+      "databases": "Databases",
+      "tools": "Tools",
+      "testing": "Testing",
+      "methods": "Practices"
+    },
+    "languageNames": {
+      "es": "Spanish",
+      "ca": "Catalan",
+      "en": "English",
+      "zh": "Chinese"
+    },
+    "languageLevels": {
+      "native": "Native",
+      "bilingual": "Bilingual",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Advanced"
+    }
+  },
   "open-link-confirmation": {
     "message": "You are about to open an external link. Would you like to continue?",
     "download-message": "Do you want to download this file?"

@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { TimelineComponent } from '@/app/core/shared/components/timeline/timeline.component';
-import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.enum';
 import { TimeLine } from '@/app/core/shared/components/timeline/models/timeline.interface';
+import { PROFILE } from '@/app/core/shared/data/profile.data';
 
 @Component({
   selector: 'jc-experience-section',
@@ -24,36 +24,18 @@ export class ExperienceSectionComponent {
       return [];
     }
 
-    return [
-      {
-        time: experienceJson.second.time,
-        tags: [
-          TagNameEnum.ANGULAR,
-          TagNameEnum.JAVA,
-          TagNameEnum.SPRING_FRAMEWORK,
-          TagNameEnum.TYPESCRIPT,
-          TagNameEnum.ORACLE,
-        ],
-        title: experienceJson.second.title,
-        link: 'https://www.minsait.com/',
-        subtitle: 'Indra (Minsait)',
-        description: experienceJson.second.description,
-      },
-      {
-        time: experienceJson.first.time,
-        tags: [
-          TagNameEnum.ANGULAR,
-          TagNameEnum.JAVA,
-          TagNameEnum.SPRING_FRAMEWORK,
-          TagNameEnum.TYPESCRIPT,
-          TagNameEnum.POSTGRE_SQL,
-        ],
-        title: experienceJson.first.title,
-        icon: 'dxc_logo.svg',
-        link: 'https://dxc.com/',
-        subtitle: 'DXC Technology',
-        description: experienceJson.first.description,
-      },
-    ];
+    // Structured facts come from PROFILE; localized prose stays in the i18n JSON, keyed
+    // first (oldest) / second (most recent) as before.
+    const proseBySlot = { indra: experienceJson.second, dxc: experienceJson.first } as const;
+
+    return PROFILE.experience.map(fact => ({
+      time: proseBySlot[fact.id].time,
+      tags: fact.tags,
+      title: proseBySlot[fact.id].title,
+      icon: fact.logo,
+      link: fact.companyUrl,
+      subtitle: fact.company,
+      description: proseBySlot[fact.id].description,
+    }));
   });
 }
