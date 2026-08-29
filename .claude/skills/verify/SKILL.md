@@ -46,7 +46,7 @@ start the dev server (`pnpm start`, port **4202**) and check:
 - **`/home`** — presentation section renders; scroll down: experience + education timelines
   render with company/school names, logos, and tech-tag chips (these are built with
   `toSignal` + `computed` over Transloco — a blank section means the signal wiring broke).
-- **Language switcher** (top-right) — switch `es` / `en` / `zh-CN`: prose + `<html lang>`
+- **Language switcher** (top-right) — switch `es` / `ca` / `en` / `zh-CN`: prose + `<html lang>`
   update, and the choice **persists across reload** (`localStorage['lang']`). The "Download CV"
   link's `href` also retargets to `assets/pdf/CV_Jie_Chen_<lang>.pdf`.
 - **Dark-mode toggle** — flips and persists (`localStorage['theme']`).
@@ -64,7 +64,7 @@ start the dev server (`pnpm start`, port **4202**) and check:
 
 ## CV PDF (only when the résumé data or `scripts/cv-template/` changed)
 
-`pnpm generate:cv` re-renders `public/assets/pdf/CV_Jie_Chen_{es,en,zh-CN}.pdf` via headless
+`pnpm generate:cv` re-renders `public/assets/pdf/CV_Jie_Chen_{es,ca,en,zh-CN}.pdf` via headless
 Google Chrome (`playwright-core`, no browser download; needs Chrome installed or
 `pnpm exec playwright install chromium`). `pnpm build` / `pnpm test` do **not** run it — commit
 the refreshed PDFs by hand. Verify each output (needs `poppler` — `brew install poppler`):

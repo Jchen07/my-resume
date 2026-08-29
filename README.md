@@ -54,7 +54,7 @@ refreshed PDFs when the résumé data changes.
 - TypeScript 6, strict, `strictTemplates`
 - Tailwind CSS v4 via `@tailwindcss/postcss`; single global `src/styles.css`; dark mode via the
   `.dark` class on `<html>`
-- i18n: [Transloco](https://jsverse.gitbook.io/transloco/) — `es` (default), `en`, `zh-CN`;
+- i18n: [Transloco](https://jsverse.gitbook.io/transloco/) — `es` (default), `ca`, `en`, `zh-CN`;
   translation JSON in `public/i18n/`
 - State: NgRx `@ngrx/store` + `@ngrx/effects` and `@ngrx/signals` (learning scaffold only — no
   résumé feature depends on it)
