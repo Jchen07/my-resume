@@ -26,31 +26,39 @@
 
     "experience":  {
       "title": "Experience",
-      "first": {
-        "time": "2021 - 2025",
-        "title": "Business Applications Engineer",
-        "description": "Led small teams to build new features such as multilingual support and migrated the entire front-end stack to the latest technologies. Developed and maintained scalable back-ends with Java Spring Boot and reusable front-end components with Angular. Helped define task estimates, select technologies and libraries, and onboard new team members."
-      },
-      "second": {
-        "time": "2025 - Present",
-        "title": "Software Engineer 3",
-        "description": "Contributing to a Mapfre insurance project built on a micro-frontend and micro-services architecture."
-      }
+      "roles": [
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 - Present",
+          "title": "Software Engineer 3",
+          "description": "Contributing to a Mapfre insurance project built on a micro-frontend and micro-services architecture."
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "Business Applications Engineer",
+          "description": "Led small teams to build new features such as multilingual support and migrated the entire front-end stack to the latest technologies. Developed and maintained scalable back-ends with Java Spring Boot and reusable front-end components with Angular. Helped define task estimates, select technologies and libraries, and onboard new team members."
+        }
+      ]
     },
     "education": {
       "title": "Education",
-      "first": {
-        "time": "2020 - 2022",
-        "title": "Development of web applications",
-        "subtitle": "Advanced Technician Diploma",
-        "description": "In the Higher Vocational Training in Web Development, I gained hands-on experience in creating and managing dynamic websites and applications. I mastered technologies like HTML, CSS, JavaScript, Vue, etc. while also learning to design responsive, user-friendly interfaces. I further enhanced my skills through practical experience in projects and internships."
-      },
-      "second": {
-        "time": "2024 - Present",
-        "title": "Computer Engineering",
-        "subtitle": "Open University of Catalonia",
-        "description": "Bachelor’s Degree in Computer Engineering"
-      }
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 - Present",
+          "title": "Computer Engineering",
+          "subtitle": "Open University of Catalonia",
+          "description": "Bachelor’s Degree in Computer Engineering"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Development of web applications",
+          "subtitle": "Advanced Technician Diploma",
+          "description": "In the Higher Vocational Training in Web Development, I gained hands-on experience in creating and managing dynamic websites and applications. I mastered technologies like HTML, CSS, JavaScript, Vue, etc. while also learning to design responsive, user-friendly interfaces. I further enhanced my skills through practical experience in projects and internships."
+        }
+      ]
     }
   },
   "cv": {
@@ -74,8 +82,16 @@
       "languages": "Languages"
     },
     "summary": "Full-Stack Developer with 5 years of experience building enterprise web applications at DXC Technology and Indra (Minsait). Led small teams to deliver features like multilingual support and to modernize front-end stacks. Works across the stack: scalable back-ends with Java and Spring Boot, dynamic reusable front-ends with Angular and TypeScript.",
-    "experience": {
-      "dxc": {
+    "experience": [
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "Contributing to a Mapfre insurance platform built on a micro-frontend and micro-services architecture.",
+          "Developing Angular micro-frontends and Java Spring Boot services as part of a distributed team."
+        ]
+      },
+      {
+        "company": "DXC Technology",
         "bullets": [
           "Led small teams to develop new features, such as multilingual support.",
           "Upgraded the entire front-end stack to the latest technologies.",
@@ -84,14 +100,8 @@
           "Built and maintained scalable back-end features with Java Spring Boot and dynamic, reusable front-end components with Angular.",
           "Supported and mentored new team members, helping them integrate into the team."
         ]
-      },
-      "indra": {
-        "bullets": [
-          "Contributing to a Mapfre insurance platform built on a micro-frontend and micro-services architecture.",
-          "Developing Angular micro-frontends and Java Spring Boot services as part of a distributed team."
-        ]
       }
-    },
+    ],
     "skillGroups": {
       "languages": "Programming languages",
       "frameworks": "Frameworks",

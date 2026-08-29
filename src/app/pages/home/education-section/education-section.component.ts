@@ -24,18 +24,23 @@ export class EducationSectionComponent {
       return [];
     }
 
-    // Structured facts come from PROFILE; localized prose (incl. the subtitle) stays in the
-    // i18n JSON, keyed first (oldest) / second (most recent) as before.
-    const proseBySlot = { uoc: educationJson.second, 'grado-daw': educationJson.first } as const;
+    // Structured facts come from PROFILE; localized prose (incl. the subtitle) comes from the
+    // matching entry in home.education.entries[] (same reverse-chronological order).
+    const entries = educationJson.entries as {
+      time: string;
+      title: string;
+      subtitle: string;
+      description: string;
+    }[];
 
-    return PROFILE.education.map(fact => ({
-      time: proseBySlot[fact.id].time,
+    return PROFILE.education.map((fact, i) => ({
+      time: entries[i].time,
       tags: fact.tags,
-      title: proseBySlot[fact.id].title,
-      subtitle: proseBySlot[fact.id].subtitle,
+      title: entries[i].title,
+      subtitle: entries[i].subtitle,
       icon: fact.logo,
       link: fact.institutionUrl,
-      description: proseBySlot[fact.id].description,
+      description: entries[i].description,
     }));
   });
 }

@@ -22,8 +22,8 @@ const NOTO_SC_700 = fontDataUri('NotoSansSC-700.woff2');
  */
 export interface CvI18n {
   home: {
-    experience: Record<'first' | 'second', { title: string }>;
-    education: Record<'first' | 'second', { title: string; subtitle: string; description: string }>;
+    experience: { roles: { time: string; title: string; description: string }[] };
+    education: { entries: { time: string; title: string; subtitle: string; description: string }[] };
   };
   cv: {
     title: string;
@@ -34,15 +34,12 @@ export interface CvI18n {
     contact: Record<'email' | 'phone' | 'location' | 'linkedin' | 'github', string>;
     sections: Record<'summary' | 'experience' | 'skills' | 'education' | 'languages', string>;
     summary: string;
-    experience: Record<'dxc' | 'indra', { bullets: string[] }>;
+    experience: { bullets: string[] }[];
     skillGroups: Record<string, string>;
     languageNames: Record<string, string>;
     languageLevels: Record<string, string>;
   };
 }
-
-const EXPERIENCE_SLOT = { indra: 'second', dxc: 'first' } as const;
-const EDUCATION_SLOT = { uoc: 'second', 'grado-daw': 'first' } as const;
 
 function esc(value: string): string {
   return value
@@ -61,11 +58,9 @@ function contactRow(label: string, value: string): string {
 
 function experienceEntry(profile: Profile, i18n: CvI18n, lang: AppLang): string {
   return profile.experience
-    .map(fact => {
-      const prose = i18n.home.experience[EXPERIENCE_SLOT[fact.id]];
-      const bullets = i18n.cv.experience[fact.id].bullets
-        .map(b => `<li>${esc(b)}</li>`)
-        .join('');
+    .map((fact, i) => {
+      const prose = i18n.home.experience.roles[i];
+      const bullets = i18n.cv.experience[i].bullets.map(b => `<li>${esc(b)}</li>`).join('');
       const dates = formatDateRange(fact.dates, lang, i18n.cv.present);
       return `
         <article class="entry">
@@ -79,8 +74,8 @@ function experienceEntry(profile: Profile, i18n: CvI18n, lang: AppLang): string 
 
 function educationEntry(profile: Profile, i18n: CvI18n, lang: AppLang): string {
   return profile.education
-    .map(fact => {
-      const prose = i18n.home.education[EDUCATION_SLOT[fact.id]];
+    .map((fact, i) => {
+      const prose = i18n.home.education.entries[i];
       const dates = formatDateRange(fact.dates, lang, i18n.cv.present);
       return `
         <article class="entry">

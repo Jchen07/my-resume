@@ -19,9 +19,10 @@ export const PROFILE: Profile = {
     githubUrl: 'https://github.com/Jchen07',
   },
 
+  // Reverse-chronological. Each entry lines up by index with `home.experience.roles[]` and
+  // `cv.experience[]` in the i18n JSON (anchored on `company` — see profile.data.spec.ts).
   experience: [
     {
-      id: 'indra',
       company: 'Indra (Minsait)',
       companyUrl: 'https://www.minsait.com/',
       dates: { start: '2025-08', end: null },
@@ -34,7 +35,6 @@ export const PROFILE: Profile = {
       ],
     },
     {
-      id: 'dxc',
       company: 'DXC Technology',
       companyUrl: 'https://dxc.com/',
       logo: 'dxc_logo.svg',
@@ -49,16 +49,15 @@ export const PROFILE: Profile = {
     },
   ],
 
+  // Reverse-chronological. Aligns by index with `home.education.entries[]` (anchor: `institution`).
   education: [
     {
-      id: 'uoc',
       institution: 'Open University of Catalonia (UOC)',
       institutionUrl: 'https://www.uoc.edu/',
       logo: 'uoc_logo.webp',
       dates: { start: '2024-09', end: null },
     },
     {
-      id: 'grado-daw',
       institution: 'Institut Montilivi',
       dates: { start: '2020-09', end: '2022-06' },
       tags: [

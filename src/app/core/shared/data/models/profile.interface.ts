@@ -20,11 +20,7 @@ export interface ContactChannel {
   githubUrl: string;
 }
 
-export type ExperienceId = 'dxc' | 'indra';
-
 export interface ExperienceFact {
-  /** Maps to `home.experience.{first,second}` and `cv.experience.<id>` i18n keys. */
-  id: ExperienceId;
   company: string;
   companyUrl: string;
   /** File name under `public/assets/icons/`, consumed by the on-site timeline. */
@@ -33,11 +29,7 @@ export interface ExperienceFact {
   tags: TagNameEnum[];
 }
 
-export type EducationId = 'uoc' | 'grado-daw';
-
 export interface EducationFact {
-  /** Maps to `home.education.{first,second}` and `cv.education.<id>` i18n keys. */
-  id: EducationId;
   institution: string;
   institutionUrl?: string;
   logo?: string;
@@ -63,9 +55,13 @@ export interface SpokenLanguage {
 
 export interface Profile {
   contact: ContactChannel;
-  /** Reverse-chronological; index order is render order. */
+  /**
+   * Reverse-chronological; index order is render order AND must line up 1:1 with
+   * `home.experience.roles[]` / `cv.experience[]` in every `public/i18n/*.json`.
+   * `profile.data.spec.ts` enforces the alignment via the `company` anchor.
+   */
   experience: ExperienceFact[];
-  /** Reverse-chronological; index order is render order. */
+  /** Reverse-chronological; aligns 1:1 with `home.education.entries[]` (anchored on `institution`). */
   education: EducationFact[];
   skills: SkillGroup[];
   languages: SpokenLanguage[];

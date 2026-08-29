@@ -29,11 +29,19 @@ function loadI18n(lang: AppLang): CvI18n {
 
   const missing: string[] = [];
   if (!json.cv?.summary) missing.push('cv.summary');
-  for (const fact of PROFILE.experience) {
-    if (!json.cv?.experience?.[fact.id]?.bullets?.length) {
-      missing.push(`cv.experience.${fact.id}.bullets`);
-    }
+
+  const roles = json.home?.experience?.roles;
+  const entries = json.home?.education?.entries;
+  if (!Array.isArray(roles) || roles.length !== PROFILE.experience.length) {
+    missing.push(`home.experience.roles (expected ${PROFILE.experience.length})`);
   }
+  if (!Array.isArray(entries) || entries.length !== PROFILE.education.length) {
+    missing.push(`home.education.entries (expected ${PROFILE.education.length})`);
+  }
+  PROFILE.experience.forEach((_, i) => {
+    if (!json.cv?.experience?.[i]?.bullets?.length) missing.push(`cv.experience[${i}].bullets`);
+  });
+
   if (missing.length > 0) {
     throw new Error(`${lang}.json is missing required CV keys: ${missing.join(', ')}`);
   }

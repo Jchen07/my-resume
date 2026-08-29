@@ -26,31 +26,39 @@
 
     "experience":  {
       "title": "工作经历",
-      "first": {
-        "time": "2021 - 2025",
-        "title": "企业应用工程师",
-        "description": "带领小型团队开发多语言支持等新功能，并将整个前端技术栈升级到最新版本。使用 Java Spring Boot 开发并维护可扩展的后端，使用 Angular 构建可复用的前端组件。参与工作量评估、技术与库的选型，并协助新成员融入团队。"
-      },
-      "second": {
-        "time": "2025 年至今",
-        "title": "软件工程师 3",
-        "description": "参与 Mapfre 保险项目的开发，采用微前端与微服务架构。"
-      }
+      "roles": [
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 年至今",
+          "title": "软件工程师 3",
+          "description": "参与 Mapfre 保险项目的开发，采用微前端与微服务架构。"
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "企业应用工程师",
+          "description": "带领小型团队开发多语言支持等新功能，并将整个前端技术栈升级到最新版本。使用 Java Spring Boot 开发并维护可扩展的后端，使用 Angular 构建可复用的前端组件。参与工作量评估、技术与库的选型，并协助新成员融入团队。"
+        }
+      ]
     },
     "education": {
       "title": "教育背景",
-      "first": {
-        "time": "2020 - 2022",
-        "title": "Web 应用开发",
-        "subtitle": "高级技师文凭",
-        "description": "在 Web 开发高级职业培训中，我获得了创建和管理动态网站与应用的实践经验，熟练掌握了 HTML、CSS、JavaScript、Vue 等技术，同时学习了如何设计响应式、易用的界面。我还通过项目实践和企业实习进一步提升了技能。"
-      },
-      "second": {
-        "time": "2024 年至今",
-        "title": "计算机工程",
-        "subtitle": "加泰罗尼亚开放大学",
-        "description": "计算机工程学士学位"
-      }
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 年至今",
+          "title": "计算机工程",
+          "subtitle": "加泰罗尼亚开放大学",
+          "description": "计算机工程学士学位"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Web 应用开发",
+          "subtitle": "高级技师文凭",
+          "description": "在 Web 开发高级职业培训中，我获得了创建和管理动态网站与应用的实践经验，熟练掌握了 HTML、CSS、JavaScript、Vue 等技术，同时学习了如何设计响应式、易用的界面。我还通过项目实践和企业实习进一步提升了技能。"
+        }
+      ]
     }
   },
   "cv": {
@@ -74,8 +82,16 @@
       "languages": "语言能力"
     },
     "summary": "全栈开发工程师，拥有 5 年在 DXC Technology 和 Indra（Minsait）从事企业级 Web 应用开发的经验。曾带领小型团队交付多语言支持等功能，并推动前端技术栈现代化。具备全栈能力：使用 Java 与 Spring Boot 构建可扩展后端，使用 Angular 与 TypeScript 构建动态、可复用的前端组件。",
-    "experience": {
-      "dxc": {
+    "experience": [
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "参与 Mapfre 保险平台的开发，该平台采用微前端与微服务架构。",
+          "在分布式团队中使用 Angular 开发微前端，并使用 Java Spring Boot 开发服务。"
+        ]
+      },
+      {
+        "company": "DXC Technology",
         "bullets": [
           "带领小型团队开发多语言支持等新功能。",
           "将整个前端技术栈升级到最新版本。",
@@ -84,14 +100,8 @@
           "使用 Java Spring Boot 开发并维护可扩展的后端功能，使用 Angular 构建动态、可复用的前端组件。",
           "为新团队成员提供支持与指导，帮助他们融入团队。"
         ]
-      },
-      "indra": {
-        "bullets": [
-          "参与 Mapfre 保险平台的开发，该平台采用微前端与微服务架构。",
-          "在分布式团队中使用 Angular 开发微前端，并使用 Java Spring Boot 开发服务。"
-        ]
       }
-    },
+    ],
     "skillGroups": {
       "languages": "编程语言",
       "frameworks": "框架",
