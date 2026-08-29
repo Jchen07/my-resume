@@ -40,7 +40,7 @@ describe('ExperienceSectionComponent', () => {
     expect(logos.some(img => img.getAttribute('src')?.includes('dxc_logo'))).toBe(true);
   });
 
-  it('keeps the localized prose keyed first/second when the language changes', async () => {
+  it('keeps each role paired with its localized prose when the language changes', async () => {
     const transloco = TestBed.inject(TranslocoService);
 
     transloco.setActiveLang('en');

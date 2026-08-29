@@ -24,18 +24,18 @@ export class ExperienceSectionComponent {
       return [];
     }
 
-    // Structured facts come from PROFILE; localized prose stays in the i18n JSON, keyed
-    // first (oldest) / second (most recent) as before.
-    const proseBySlot = { indra: experienceJson.second, dxc: experienceJson.first } as const;
+    // Structured facts come from PROFILE; localized prose comes from the matching entry in
+    // home.experience.roles[] (same reverse-chronological order).
+    const roles = experienceJson.roles as { time: string; title: string; description: string }[];
 
-    return PROFILE.experience.map(fact => ({
-      time: proseBySlot[fact.id].time,
+    return PROFILE.experience.map((fact, i) => ({
+      time: roles[i].time,
       tags: fact.tags,
-      title: proseBySlot[fact.id].title,
+      title: roles[i].title,
       icon: fact.logo,
       link: fact.companyUrl,
       subtitle: fact.company,
-      description: proseBySlot[fact.id].description,
+      description: roles[i].description,
     }));
   });
 }

@@ -38,7 +38,7 @@ describe('EducationSectionComponent', () => {
     expect(logos.some(img => img.getAttribute('src')?.includes('uoc_logo'))).toBe(true);
   });
 
-  it('shows the localized subtitle keyed first/second when the language changes', async () => {
+  it('shows the localized subtitle for each entry when the language changes', async () => {
     const transloco = TestBed.inject(TranslocoService);
 
     transloco.setActiveLang('en');

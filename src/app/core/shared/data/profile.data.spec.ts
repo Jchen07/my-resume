@@ -5,16 +5,23 @@ import { GlobalConstants } from '../constants/global.constants';
 import { formatDateRange } from './format-date.function';
 import { PROFILE } from './profile.data';
 
-interface ProseSlot {
+interface Role {
+  company: string;
   title: string;
+  description: string;
+}
+interface EducationEntry {
+  institution: string;
+  title: string;
+  description: string;
 }
 interface I18nDoc {
   home: {
-    experience: Record<'first' | 'second', ProseSlot>;
-    education: Record<'first' | 'second', ProseSlot>;
+    experience: { roles: Role[] };
+    education: { entries: EducationEntry[] };
   };
   cv: {
-    experience: Record<'dxc' | 'indra', { bullets: string[] }>;
+    experience: { company: string; bullets: string[] }[];
     languageNames: Record<'es' | 'ca' | 'en' | 'zh', string>;
     languageLevels: Record<string, string>;
     skillGroups: Record<string, string>;
@@ -56,31 +63,44 @@ describe('PROFILE', () => {
     }
   });
 
-  it('maps every experience/education id to prose present in all three languages', () => {
-    const expBySlot = { indra: 'second', dxc: 'first' } as const;
-    const eduBySlot = { uoc: 'second', 'grado-daw': 'first' } as const;
-
+  it('keeps the i18n experience/education order aligned with PROFILE in every language', () => {
     for (const [lang, dict] of Object.entries(I18N)) {
-      for (const fact of PROFILE.experience) {
-        const slot = dict.home.experience[expBySlot[fact.id]];
-        expect(slot?.title, `${lang} home.experience.${expBySlot[fact.id]}`).toBeTruthy();
-      }
-      for (const fact of PROFILE.education) {
-        const slot = dict.home.education[eduBySlot[fact.id]];
-        expect(slot?.title, `${lang} home.education.${eduBySlot[fact.id]}`).toBeTruthy();
-      }
+      const roles = dict.home.experience.roles;
+      const entries = dict.home.education.entries;
+
+      expect(roles.length, `${lang} home.experience.roles length`).toBe(PROFILE.experience.length);
+      expect(dict.cv.experience.length, `${lang} cv.experience length`).toBe(
+        PROFILE.experience.length
+      );
+      expect(entries.length, `${lang} home.education.entries length`).toBe(
+        PROFILE.education.length
+      );
+
+      PROFILE.experience.forEach((fact, i) => {
+        expect(roles[i]?.company, `${lang} home.experience.roles[${i}].company`).toBe(fact.company);
+        expect(dict.cv.experience[i]?.company, `${lang} cv.experience[${i}].company`).toBe(
+          fact.company
+        );
+        expect(roles[i]?.title, `${lang} home.experience.roles[${i}].title`).toBeTruthy();
+      });
+
+      PROFILE.education.forEach((fact, i) => {
+        expect(entries[i]?.institution, `${lang} home.education.entries[${i}].institution`).toBe(
+          fact.institution
+        );
+        expect(entries[i]?.title, `${lang} home.education.entries[${i}].title`).toBeTruthy();
+      });
     }
   });
 
   it('has CV bullets, skill-group, language-name and level labels in every language', () => {
     for (const [lang, dict] of Object.entries(I18N)) {
-      for (const fact of PROFILE.experience) {
-        const bullets = dict.cv.experience[fact.id].bullets;
+      dict.cv.experience.forEach((entry, i) => {
         expect(
-          Array.isArray(bullets) && bullets.length > 0,
-          `${lang} cv.experience.${fact.id}`
+          Array.isArray(entry.bullets) && entry.bullets.length > 0,
+          `${lang} cv.experience[${i}].bullets`
         ).toBe(true);
-      }
+      });
       for (const group of PROFILE.skills) {
         expect(dict.cv.skillGroups[group.id], `${lang} cv.skillGroups.${group.id}`).toBeTruthy();
       }

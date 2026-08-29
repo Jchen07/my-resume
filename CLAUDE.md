@@ -134,9 +134,12 @@ lists.
   `toSignal(langChanges$)`) and persists the choice to `localStorage['lang']`. Initial language:
   stored value, else browser (`zh` → `zh-CN`), restricted to `getAvailableLangs()`.
 - Résumé section components (`experience-section`, `education-section`) build their `timeLines`
-  with a `computed` over `toSignal(translocoService.selectTranslateObject('home.experience'))`
-  (keyed `first` / `second`), merged with structured data (company/school name, logo, link, tech
-  tags) hard-coded in the component `.ts`.
+  with a `computed` over `toSignal(translocoService.selectTranslateObject('home.experience'))`,
+  zipping by index with `PROFILE` (`src/app/core/shared/data/profile.data.ts`): translatable
+  prose is the `home.experience.roles[]` / `home.education.entries[]` arrays in the i18n JSON
+  (reverse-chronological), structured facts (company/school, logo, link, tech tags, dates) come
+  from `PROFILE`. Order must match; `profile.data.spec.ts` asserts alignment via a `company` /
+  `institution` anchor in each i18n entry.
 - Tech-tag chips: to add one, extend `TagNameEnum`, add a color entry in `default-tag-color.ts`
   (its `Record<TagNameEnum, …>` type forces this), add a `@case` in `tag.component.html`, and
   register the icon component in `tag.component.ts`.

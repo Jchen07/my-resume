@@ -18,11 +18,17 @@ section components, and several CV fields had no source at all. Consolidated int
   (`Intl.DateTimeFormat`), `end: null` → localized "Present". Shared by the (future) site use
   and the generator.
 - **`cv.*` namespace** added to `public/i18n/{es,en,zh-CN}.json`: headline, section headings,
-  contact labels, `present`, a tightened `summary`, `experience.{dxc,indra}.bullets` (one
-  phrase per bullet — the DXC set is the 6 from the old PDF), skill-group labels, spoken
+  contact labels, `present`, a tightened `summary`, `cv.experience[]` (an array, one entry per
+  role, each `{ company, bullets[] }` — one phrase per bullet), skill-group labels, spoken
   language names + levels. Experience/education **titles** and education **descriptions** are
-  reused from the existing `home.*` keys — not duplicated. All three languages are complete;
-  `zh-CN` is hand-written and should get a native review.
+  reused from `home.experience.roles[]` / `home.education.entries[]` — not duplicated. All
+  three languages are complete; `zh-CN` is hand-written and should get a native review.
+- **i18n role/entry arrays.** `home.experience` and `home.education` were reshaped from the
+  legacy `{ first, second }` keys to `{ title, roles: [...] }` / `{ title, entries: [...] }`
+  arrays, reverse-chronological, aligned by index with `PROFILE.experience` / `.education`.
+  Each entry carries a `company` / `institution` anchor; `profile.data.spec.ts` fails if any
+  language's array length or anchor order drifts from `PROFILE`. The section components and the
+  CV template zip by index — no id/slot lookup.
 
 `experience-section.component.ts` / `education-section.component.ts` were refactored to read
 the structured facts from `PROFILE` (prose still via `selectTranslateObject`). Rendered output
@@ -33,8 +39,10 @@ deleted): phone `+34 651 68 36 55` (digits recovered from a corrupted font map �
 the full skills list, spoken-language levels, and `Institut Montilivi`. `location` =
 `Barcelona, Spain` per the owner. `Projects` section intentionally omitted.
 
-Still open for the owner: exact months in each `DateRange`; the phone digits; `native` vs
-`bilingual` for Spanish; final skills wording; a native `zh-CN` pass.
+Experience `DateRange` months set from LinkedIn (Indra 2025-08–present; DXC 2021-11–2025-08,
+covering the Junior → Business Applications Engineer span as one entry). Still open for the
+owner: education months; the phone digits; `native` vs `bilingual` for Spanish; final skills
+wording; a native `zh-CN` pass.
 
 ## 2. Approach & rationale
 
