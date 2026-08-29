@@ -3,6 +3,7 @@ import { DateRange } from './models/profile.interface';
 
 const LOCALE_BY_LANG: Record<AppLang, string> = {
   es: 'es-ES',
+  ca: 'ca-ES',
   en: 'en-GB',
   'zh-CN': 'zh-CN',
 };
