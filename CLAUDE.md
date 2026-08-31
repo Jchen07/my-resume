@@ -12,6 +12,14 @@ base href. The routed **`home`** page is the actual résumé; the `login`, `cont
 `minLength`/`validate`/`validateAsync`, `submit()`); `aria-demo` uses `@angular/aria` (headless
 Listbox); `resource-demo` uses `resource()` / `httpResource()`.
 
+## Specs
+
+Feature design specs live in **`.claude/specs/<feature-name>/<feature-name>.md`** — one folder
+per feature, with an optional `<feature-name>.notes.md` alongside. Write (or update) the spec
+there **before** implementing any non-trivial feature; it is the design of record, kept current
+as the design evolves. Existing: `cv-pdf-generation/` (shipped), `cover-letter-generator/`
+(planned — a Claude-API cover-letter generator, not yet built).
+
 ## Commands
 
 Package manager is **pnpm** (pinned via `packageManager`). The dev server runs on **port 4202**,
