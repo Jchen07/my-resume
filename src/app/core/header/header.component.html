@@ -1,12 +1,10 @@
-<header class="fixed z-50 h-12 w-full">
-  <div class="grid h-full grid-cols-5">
-    <div class="h-full"></div>
-    <div class="col-span-3 h-full w-full">
-      <div class="hidden h-full w-full md:block">
-        <jc-navbar />
-      </div>
-    </div>
-    <div class="relative mt-1 mr-4 flex h-full w-auto items-center justify-end gap-2.5">
+<header class="fixed inset-x-0 top-0 z-50 px-4 pt-3 md:px-8">
+  <div
+    class="border-term-border bg-term-panel/95 mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-lg border px-4 py-2.5 backdrop-blur">
+    <span class="text-term-accent font-mono text-[13px] whitespace-nowrap">~/jie-chen</span>
+    <div class="flex items-center gap-3">
+      <jc-navbar class="order-last md:order-none" />
+      <div class="bg-term-border hidden h-4 w-px md:block"></div>
       <jc-theme-button />
       <jc-translate-button />
     </div>

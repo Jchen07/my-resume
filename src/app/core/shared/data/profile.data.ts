@@ -94,8 +94,8 @@ export const PROFILE: Profile = {
   ],
 
   languages: [
-    { id: 'es', level: 'bilingual' },
-    { id: 'ca', level: 'bilingual' },
+    { id: 'es', level: 'native' },
+    { id: 'ca', level: 'native' },
     { id: 'en', level: 'b2' },
     { id: 'zh', level: 'advanced' },
   ],

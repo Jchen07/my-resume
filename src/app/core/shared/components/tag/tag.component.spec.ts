@@ -23,16 +23,16 @@ describe('TagComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return default background color if name is unknow tag', async () => {
+  it('renders the terminal chip for any tag, known or not', async () => {
     const fixture = TestBed.createComponent(TagComponent);
     fixture.componentRef.setInput('name', 'unknown-tag' as TagNameEnum);
     const nativeElement = fixture.nativeElement;
 
     await fixture.whenStable();
 
-    expect(nativeElement.querySelector('#tag-container').classList).toContain('bg-neutral-800');
-    expect(nativeElement.querySelector('#tag-container').classList).toContain(
-      'dark:bg-neutral-200'
-    );
+    const container = nativeElement.querySelector('#tag-container');
+    expect(container.classList).toContain('bg-term-tag-bg');
+    expect(container.classList).toContain('border-term-tag-border');
+    expect(container.textContent.trim()).toBe('unknown-tag');
   });
 });

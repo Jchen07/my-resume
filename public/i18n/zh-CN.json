@@ -9,7 +9,8 @@
       "projects": "项目",
       "about-me": "关于我",
       "contact": "联系方式",
-      "copyEmailToClipboard": "复制邮箱地址"
+      "copyEmailToClipboard": "复制邮箱地址",
+      "menu": "打开菜单"
     }
   },
   "home": {
@@ -17,14 +18,12 @@
       "title": "简介",
       "name": "嗨，我是陈杰",
       "description": "一名全栈开发工程师，拥有 5 年在 DXC Technology 和 Indra（Minsait）从事企业级 Web 应用开发的经验。",
-
       "button-bar": {
         "contact": "联系我",
         "downloadCV": "下载简历"
       }
     },
-
-    "experience":  {
+    "experience": {
       "title": "工作经历",
       "roles": [
         {
