@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateButtonComponent } from './translate-button.component';
-import { KeyValuePipe } from '@angular/common';
-import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outside.directive';
-import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 import { TranslocoService } from '@jsverse/transloco';
 import { getTranslocoModule } from '@/app/core/shared/functions/transloco-testing.function';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('TranslateButtonComponent', () => {
   let component: TranslateButtonComponent;
@@ -13,24 +11,18 @@ describe('TranslateButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        TranslateButtonComponent,
-        KeyValuePipe,
-        ClickOutsideDirective,
-        ClickEnterSpacebarDirective,
-        getTranslocoModule(),
-      ],
+      imports: [TranslateButtonComponent, getTranslocoModule()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TranslateButtonComponent);
     component = fixture.componentInstance;
     translocoService = TestBed.inject(TranslocoService);
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   afterEach(() => {
-    // Reset all Jasmine spies after each test to avoid side effects
-    jasmine.getEnv().allowRespy(true);
+    vi.restoreAllMocks();
   });
 
   it('should create', () => {
@@ -38,24 +30,34 @@ describe('TranslateButtonComponent', () => {
   });
 
   it('should toggle menuVisible when openDialog is called', () => {
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
     component.openDialog();
-    expect(component.menuVisible()).toBeTrue();
+    expect(component.menuVisible()).toBe(true);
     component.openDialog();
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
   });
 
   it('should hide menu when hideMenu is called', () => {
     component.menuVisible.set(true);
     component.hideMenu();
-    expect(component.menuVisible()).toBeFalse();
+    expect(component.menuVisible()).toBe(false);
   });
 
   it('should call setActiveLang and hideMenu when changeLanguage is called', () => {
-    spyOn(component, 'hideMenu').and.stub();
-    spyOn(translocoService, 'setActiveLang').and.stub();
+    vi.spyOn(component, 'hideMenu').mockReturnValue(undefined);
+    vi.spyOn(translocoService, 'setActiveLang').mockReturnValue(translocoService);
+
     component.changeLanguage('en');
+
     expect(translocoService.setActiveLang).toHaveBeenCalledWith('en');
     expect(component.hideMenu).toHaveBeenCalled();
+  });
+
+  // just a test to try spyOn with throwError
+  it('should throw an error', () => {
+    vi.spyOn(translocoService, 'setActiveLang').mockImplementation(() => {
+      throw new Error('Test error');
+    });
+    expect(() => component.changeLanguage('en')).toThrowError('Test error');
   });
 });

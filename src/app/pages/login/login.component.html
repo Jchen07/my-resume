@@ -1,5 +1,5 @@
 <h2 class="mb-6 text-xl font-bold dark:text-gray-100">Authenticate to access all resources</h2>
-<form (ngSubmit)="onSubmit()" class="flex items-end gap-8">
+<form novalidate (submit)="$event.preventDefault(); onSubmit()" class="flex items-end gap-8">
   <p class="flex-1">
     <label for="email" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
       E-Mail
@@ -7,20 +7,18 @@
     <input
       id="email"
       type="email"
-      name="email"
-      [(ngModel)]="email"
+      [formField]="loginForm.email"
       class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
   </p>
 
   <p class="flex-1">
-    <label for="passowrd" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
+    <label for="password" class="mb-1 block text-xs font-bold text-gray-900 dark:text-gray-200">
       Password
     </label>
     <input
-      id="passowrd"
+      id="password"
       type="password"
-      name="password"
-      [(ngModel)]="password"
+      [formField]="loginForm.password"
       class="w-full rounded border border-gray-400 bg-gray-100 px-2 py-1 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-400 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-blue-300" />
   </p>
 
@@ -33,8 +31,35 @@
   </p>
 </form>
 
+<ng-container>
+  @if (loginForm.email().touched()) {
+    @for (error of loginForm.email().errors(); track error.kind) {
+      <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ error.message }}</p>
+    }
+  }
+  @if (loginForm.password().touched()) {
+    @for (error of loginForm.password().errors(); track error.kind) {
+      <p class="mt-1 text-xs text-red-600 dark:text-red-400">{{ error.message }}</p>
+    }
+  }
+</ng-container>
+
 @if (isAdmin()) {
   <p class="mt-4 font-semibold text-green-700 dark:text-green-400">
     Only admins should see this paragraph
   </p>
 }
+
+<ng-template [jcAuth]="Permission.ADMIN" let-variable let-test="test">
+  <p class="mt-4 font-semibold text-red-700 dark:text-red-400">
+    Only admins should see this paragraph with auth directive
+  </p>
+  <p
+    class="mt-2 rounded-lg border border-blue-200 bg-blue-50 p-3 text-blue-800 dark:border-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
+    {{ variable }} {{ test }}
+  </p>
+</ng-template>
+
+<p *jcAuth="Permission.GUEST" class="mt-4 font-semibold text-orange-700 dark:text-orange-400">
+  Right now you are a guest, so you should see this paragraph with sintax sugar *jcAuth
+</p>

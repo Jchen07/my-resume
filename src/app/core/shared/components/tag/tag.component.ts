@@ -4,13 +4,14 @@ import { TagNameEnum } from '@/app/core/shared/components/tag/models/tag-name.en
 import { JavaIconComponent } from '@/app/core/shared/icons/java-icon.component';
 import { SpringIconComponent } from '@/app/core/shared/icons/spring-icon.component';
 import { TypescriptIconComponent } from '@/app/core/shared/icons/typescript-icon.component';
-import { PostgresqlIconComponent } from '@/app/core/shared/icons/postgresql.icon.component';
+import { PostgresqlIconComponent } from '@/app/core/shared/icons/postgresql-icon.component';
 import { VueIconComponent } from '@/app/core/shared/icons/vue-icon.component';
 import { PhpIconComponent } from '@/app/core/shared/icons/php-icon.component';
 import { CSharpIconComponent } from '@/app/core/shared/icons/csharp-icon.component';
 import { JavascriptIconComponent } from '@/app/core/shared/icons/javascript-icon.component';
 import { MariaDBIconComponent } from '@/app/core/shared/icons/mariadb-icon.component';
-import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-color.enum';
+import { OracleIconComponent } from '@/app/core/shared/icons/oracle-icon.component';
+import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-color';
 
 @Component({
   selector: 'jc-tag',
@@ -25,21 +26,24 @@ import { tagColors } from '@/app/core/shared/components/tag/models/default-tag-c
     CSharpIconComponent,
     JavascriptIconComponent,
     MariaDBIconComponent,
+    OracleIconComponent,
   ],
   templateUrl: './tag.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent {
+  static readonly DEFAULT_BACKGROUND_COLOR = 'bg-neutral-800 dark:bg-neutral-200';
+
   readonly name = input.required<TagNameEnum>();
   readonly size = input<string>('22');
   readonly backgroundColorInput = input<string>();
 
   protected readonly backgroundColor = computed<string>(
-    () => this.backgroundColorInput() || this.getDefaultBackgroundColor()
+    () => this.backgroundColorInput() || this.getBackgroundColor()
   );
   protected readonly TAG_NAME = TagNameEnum;
 
-  private getDefaultBackgroundColor(): string {
-    return tagColors[this.name()] || 'bg-neutral-800 dark:bg-neutral-200';
+  private getBackgroundColor(): string {
+    return tagColors[this.name()] || TagComponent.DEFAULT_BACKGROUND_COLOR;
   }
 }

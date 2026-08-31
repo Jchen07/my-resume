@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
   },
@@ -10,9 +15,30 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'resource-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/resource-demo/resource-demo.component').then(m => m.ResourceDemoComponent),
+  },
+  {
+    path: 'content-child-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/content-child-demo/content-child-demo.component').then(
+        m => m.ContentChildDemo
+      ),
+  },
+  {
+    path: 'contact', // TODO: This page is for learning purposes.
+    loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
+  },
+  {
+    path: 'aria-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/aria-demo/aria-demo.component').then(m => m.AriaDemoComponent),
+  },
+  {
+    path: 'state-demo', // TODO: This page is for learning purposes.
+    loadComponent: () =>
+      import('./pages/state-demo/state-demo.component').then(m => m.StateDemoComponent),
   },
   {
     path: '**',

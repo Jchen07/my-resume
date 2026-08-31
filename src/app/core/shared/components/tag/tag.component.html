@@ -1,6 +1,6 @@
 <div
-  class="inline-flex w-auto py-0.5 items-center justify-center gap-1 rounded-3xl px-2 text-neutral-900
-  {{ backgroundColor() }}">
+  id="tag-container"
+  class="border-term-tag-border bg-term-tag-bg text-term-tag-fg inline-flex w-auto items-center justify-center gap-1.5 rounded border px-2 py-0.5 font-mono">
   @switch (name()) {
     @case (TAG_NAME.ANGULAR) {
       <jc-angular-icon [size]="size()" />
@@ -32,6 +32,9 @@
     @case (TAG_NAME.MARIA_DB) {
       <jc-mariadb-icon [size]="size()" />
     }
+    @case (TAG_NAME.ORACLE) {
+      <jc-oracle-icon [size]="size()" />
+    }
   }
-  <p class="text-sm">{{ name() }}</p>
+  <p class="text-xs lowercase">{{ name() }}</p>
 </div>

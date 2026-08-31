@@ -2,10 +2,19 @@
   *transloco="let t; prefix: 'home.presentation'"
   id="presentation"
   [attr.aria-label]="t('title')"
-  class="h-auto w-4/5 md:w-2/3">
-  <div class="w-full md:w-3/4">
-    <h1 class="text-5xl">{{ t('name') }}</h1>
-    <p class="pt-2 text-balance">
+  class="w-full">
+  <div class="w-full">
+    <p class="text-term-muted flex font-mono text-[13px]">
+      <span class="text-term-accent">jie&#64;portfolio</span>
+      <span>:</span>
+      <span class="text-term-blue">~</span>
+      <span>$&nbsp;whoami</span>
+    </p>
+    <h1
+      class="term-name text-term-strong mt-3 font-mono text-4xl font-bold tracking-tight md:text-5xl">
+      {{ t('name') }}
+    </h1>
+    <p class="text-term-muted mt-4 max-w-xl leading-relaxed">
       {{ t('description') }}
     </p>
   </div>

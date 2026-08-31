@@ -6,5 +6,6 @@ export interface TimeLine {
   title: string;
   subtitle?: string;
   icon?: string;
+  link?: string;
   description: string;
 }

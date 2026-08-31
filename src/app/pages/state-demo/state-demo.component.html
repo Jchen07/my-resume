@@ -1,0 +1,76 @@
+<h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+  NgRx: classic Store vs SignalStore
+</h1>
+<p class="text-sm text-gray-600 dark:text-gray-400">
+  Both panels hold the same
+  <code>test</code>
+  state and call the same
+  <code>HomeService.testResponse()</code>
+  (1.5&nbsp;s fake request).
+</p>
+
+<div class="grid gap-6 md:grid-cols-2">
+  <section class="rounded-lg border border-gray-300 p-4 dark:border-gray-700">
+    <h2 class="mb-2 font-semibold text-blue-700 dark:text-blue-400">Classic Store</h2>
+    <p class="text-xs text-gray-500 dark:text-gray-400">
+      <code>createFeature</code>
+      +
+      <code>createReducer</code>
+      + effect +
+      <code>selectSignal</code>
+    </p>
+    <button
+      type="button"
+      (click)="loadClassic()"
+      [disabled]="classicLoading()"
+      class="my-3 rounded bg-blue-700 px-3 py-1 text-sm font-medium text-white hover:bg-blue-800 disabled:opacity-50">
+      {{ classicLoading() ? 'Loading…' : 'Dispatch changeTitle()' }}
+    </button>
+    <dl class="text-sm text-gray-800 dark:text-gray-200">
+      <div class="flex gap-2">
+        <dt class="font-medium">title:</dt>
+        <dd>{{ classicModel().title || '—' }}</dd>
+      </div>
+      <div class="flex gap-2">
+        <dt class="font-medium">backgroundColor:</dt>
+        <dd>{{ classicModel().backgroundColor || '—' }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="rounded-lg border border-gray-300 p-4 dark:border-gray-700">
+    <h2 class="mb-2 font-semibold text-purple-700 dark:text-purple-400">SignalStore</h2>
+    <p class="text-xs text-gray-500 dark:text-gray-400">
+      <code>signalStore</code>
+      +
+      <code>withState/withComputed/withMethods</code>
+      +
+      <code>rxMethod</code>
+    </p>
+    <div class="my-3 flex gap-2">
+      <button
+        type="button"
+        (click)="loadSignal()"
+        [disabled]="signalStore.loading()"
+        class="rounded bg-purple-700 px-3 py-1 text-sm font-medium text-white hover:bg-purple-800 disabled:opacity-50">
+        {{ signalStore.loading() ? 'Loading…' : 'store.loadTitle()' }}
+      </button>
+      <button
+        type="button"
+        (click)="signalStore.reset()"
+        class="rounded border border-gray-400 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800">
+        reset()
+      </button>
+    </div>
+    <dl class="text-sm text-gray-800 dark:text-gray-200">
+      <div class="flex gap-2">
+        <dt class="font-medium">title:</dt>
+        <dd>{{ signalStore.title() || '—' }}</dd>
+      </div>
+      <div class="flex gap-2">
+        <dt class="font-medium">backgroundColor:</dt>
+        <dd>{{ signalStore.testModels().backgroundColor || '—' }}</dd>
+      </div>
+    </dl>
+  </section>
+</div>

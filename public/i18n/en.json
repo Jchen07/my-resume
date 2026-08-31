@@ -9,46 +9,123 @@
       "projects": "Projects",
       "about-me": "About me",
       "contact": "Contact",
-      "copyEmailToClipboard": "Copy email to clipboard"
+      "copyEmailToClipboard": "Copy email to clipboard",
+      "menu": "Open menu"
     }
   },
   "home": {
     "presentation": {
       "title": "Presentation",
       "name": "Hey, I'm Jie Chen",
-      "description": "A Full-Stack developer with +3 years of experience in enterprise web application development at DXC Technology.",
-
+      "description": "A Full-Stack developer with 5 years of experience building enterprise web applications at DXC Technology and Indra (Minsait).",
       "button-bar": {
         "contact": "Contact",
         "downloadCV": "Download CV"
       }
     },
-
-    "experience":  {
+    "experience": {
       "title": "Experience",
-      "first": {
-        "time": "November 2021 - Present",
-        "title": "Business Applications Engineer",
-        "description": "Develop scalable back-ends with Java Spring Boot and dynamic front-end components using Angular. Occasionally lead small teams to develop new features, such as multilingual support, update front-end stack, and provide support to team members."
-      }
+      "roles": [
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 - Present",
+          "title": "Software Engineer 3",
+          "description": "Contributing to a Mapfre insurance project built on a micro-frontend and micro-services architecture."
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "Business Applications Engineer",
+          "description": "Led small teams to build new features such as multilingual support and migrated the entire front-end stack to the latest technologies. Developed and maintained scalable back-ends with Java Spring Boot and reusable front-end components with Angular. Helped define task estimates, select technologies and libraries, and onboard new team members."
+        }
+      ]
     },
     "education": {
       "title": "Education",
-      "first": {
-        "time": "September 2020 - June 2022",
-        "title": "Development of web applications",
-        "subtitle": "Advanced Technician Diploma",
-        "description": "In the Higher Vocational Training in Web Development, I gained hands-on experience in creating and managing dynamic websites and applications. I mastered technologies like HTML, CSS, JavaScript, Vue, etc. while also learning to design responsive, user-friendly interfaces. I further enhanced my skills through practical experience in projects and internships."
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 - Present",
+          "title": "Computer Engineering",
+          "subtitle": "Open University of Catalonia",
+          "description": "Bachelor’s Degree in Computer Engineering"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Development of web applications",
+          "subtitle": "Advanced Technician Diploma",
+          "description": "In the Higher Vocational Training in Web Development, I gained hands-on experience in creating and managing dynamic websites and applications. I mastered technologies like HTML, CSS, JavaScript, Vue, etc. while also learning to design responsive, user-friendly interfaces. I further enhanced my skills through practical experience in projects and internships."
+        }
+      ]
+    }
+  },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Full-Stack Developer",
+    "present": "Present",
+    "location": "Barcelona, Spain",
+    "contact": {
+      "email": "Email:",
+      "phone": "Phone:",
+      "location": "Location:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Professional Summary",
+      "experience": "Experience",
+      "skills": "Skills",
+      "education": "Education",
+      "languages": "Languages"
+    },
+    "summary": "Full-Stack Developer with 5 years of experience building enterprise web applications at DXC Technology and Indra (Minsait). Led small teams to deliver features like multilingual support and to modernize front-end stacks. Works across the stack: scalable back-ends with Java and Spring Boot, dynamic reusable front-ends with Angular and TypeScript.",
+    "experience": [
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "Contributing to a Mapfre insurance platform built on a micro-frontend and micro-services architecture.",
+          "Developing Angular micro-frontends and Java Spring Boot services as part of a distributed team."
+        ]
       },
-      "second": {
-        "time": "September 2024 - Present",
-        "title": "Computer Engineering",
-        "subtitle": "Open University of Catalonia",
-        "description": "Bachelor’s Degree in Computer Engineering"
+      {
+        "company": "DXC Technology",
+        "bullets": [
+          "Led small teams to develop new features, such as multilingual support.",
+          "Upgraded the entire front-end stack to the latest technologies.",
+          "Contributed to task estimation and played a key role in selecting technologies and libraries.",
+          "Worked closely with designers and analysts to turn business requirements into robust technical solutions.",
+          "Built and maintained scalable back-end features with Java Spring Boot and dynamic, reusable front-end components with Angular.",
+          "Supported and mentored new team members, helping them integrate into the team."
+        ]
       }
+    ],
+    "skillGroups": {
+      "languages": "Programming languages",
+      "frameworks": "Frameworks",
+      "databases": "Databases",
+      "tools": "Tools",
+      "testing": "Testing",
+      "methods": "Practices"
+    },
+    "languageNames": {
+      "es": "Spanish",
+      "ca": "Catalan",
+      "en": "English",
+      "zh": "Chinese"
+    },
+    "languageLevels": {
+      "native": "Native",
+      "bilingual": "Bilingual",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Advanced"
     }
   },
   "open-link-confirmation": {
-    "message": "Do you really want to open this link?"
+    "message": "You are about to open an external link. Would you like to continue?",
+    "download-message": "Do you want to download this file?"
   }
 }
