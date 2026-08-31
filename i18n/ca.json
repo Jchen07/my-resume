@@ -1,0 +1,131 @@
+{
+  "header": {
+    "theme-button": "Canvia a mode fosc/clar",
+    "translate-button": "Canvia d'idioma",
+    "navbar": {
+      "home": "Inici",
+      "experience": "Experiència",
+      "education": "Educació",
+      "projects": "Projectes",
+      "about-me": "Sobre mi",
+      "contact": "Contacte",
+      "copyEmailToClipboard": "Copia el correu al porta-retalls",
+      "menu": "Obre el menú"
+    }
+  },
+  "home": {
+    "presentation": {
+      "title": "Presentació",
+      "name": "Hola, sóc en Jie Chen",
+      "description": "Un desenvolupador Full-Stack amb 5 anys d'experiència desenvolupant aplicacions web empresarials a DXC Technology i Indra (Minsait).",
+      "button-bar": {
+        "contact": "Contacte",
+        "downloadCV": "Descarrega el CV"
+      }
+    },
+    "experience": {
+      "title": "Experiència",
+      "roles": [
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 - Actualment",
+          "title": "Software Engineer 3",
+          "description": "Contribueixo a un projecte d'assegurances de Mapfre basat en una arquitectura de micro-frontend i microserveis."
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "Business Applications Engineer",
+          "description": "Vaig liderar equips petits per desenvolupar noves funcionalitats, com el suport multilingüe, i vaig actualitzar tot l'stack de front-end a les últimes tecnologies. Vaig desenvolupar i mantenir back-ends escalables amb Java Spring Boot i components de front-end reutilitzables amb Angular. Vaig col·laborar en l'estimació de tasques, la selecció de tecnologies i llibreries, i en la incorporació de nous membres a l'equip."
+        }
+      ]
+    },
+    "education": {
+      "title": "Educació",
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 - Actualment",
+          "title": "Enginyer Informàtic",
+          "subtitle": "Universitat Oberta de Catalunya",
+          "description": "Grau en enginyeria informàtica"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Desenvolupament d'aplicacions web",
+          "subtitle": "Cicle formatiu de grau superior",
+          "description": "Al Grau Superior de Desenvolupament Web vaig adquirir experiència pràctica en la creació i gestió de llocs web i aplicacions dinàmiques. Vaig dominar tecnologies com HTML, CSS, JavaScript, Vue, etc., alhora que vaig aprendre a dissenyar interfícies responsives i fàcils d'utilitzar. A més, vaig perfeccionar les meves habilitats mitjançant l'experiència pràctica en projectes i pràctiques en empreses."
+        }
+      ]
+    }
+  },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Desenvolupador Full-Stack",
+    "present": "Actualitat",
+    "location": "Barcelona, Espanya",
+    "contact": {
+      "email": "Correu:",
+      "phone": "Telèfon:",
+      "location": "Ubicació:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Perfil professional",
+      "experience": "Experiència",
+      "skills": "Competències",
+      "education": "Educació",
+      "languages": "Idiomes"
+    },
+    "summary": "Desenvolupador Full-Stack amb 5 anys d'experiència en aplicacions web empresarials a DXC Technology i Indra (Minsait). Vaig liderar equips petits per lliurar funcionalitats com el suport multilingüe i modernitzar l'stack de front-end. Treballo a tota la pila: back-ends escalables amb Java i Spring Boot, i front-ends dinàmics i reutilitzables amb Angular i TypeScript.",
+    "experience": [
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "Contribueixo a una plataforma d'assegurances de Mapfre basada en una arquitectura de micro-frontend i microserveis.",
+          "Desenvolupo micro-frontends amb Angular i serveis amb Java Spring Boot dins d'un equip distribuït."
+        ]
+      },
+      {
+        "company": "DXC Technology",
+        "bullets": [
+          "Vaig liderar equips petits per desenvolupar noves funcionalitats, com el suport multilingüe.",
+          "Vaig actualitzar tot l'stack de front-end a les últimes tecnologies.",
+          "Vaig contribuir a l'estimació de tasques i vaig tenir un paper clau en la selecció de tecnologies i llibreries.",
+          "Vaig col·laborar estretament amb dissenyadors i analistes per convertir els requisits de negoci en solucions tècniques sòlides.",
+          "Vaig desenvolupar i mantenir funcionalitats de back-end escalables amb Java Spring Boot i components de front-end dinàmics i reutilitzables amb Angular.",
+          "Vaig donar suport i mentoria a nous membres de l'equip, ajudant-los a integrar-se."
+        ]
+      }
+    ],
+    "skillGroups": {
+      "languages": "Llenguatges de programació",
+      "frameworks": "Frameworks",
+      "databases": "Bases de dades",
+      "tools": "Eines",
+      "testing": "Testing",
+      "methods": "Pràctiques"
+    },
+    "languageNames": {
+      "es": "Espanyol",
+      "ca": "Català",
+      "en": "Anglès",
+      "zh": "Xinès"
+    },
+    "languageLevels": {
+      "native": "Nadiu",
+      "bilingual": "Bilingüe",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Avançat"
+    }
+  },
+  "open-link-confirmation": {
+    "message": "Estàs a punt d'obrir un enllaç extern. Vols continuar?",
+    "download-message": "Vols descarregar aquest fitxer?"
+  }
+}

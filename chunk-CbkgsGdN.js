@@ -1,0 +1,1 @@
+import{Jn as lE,Lr as yD,Rt as Uc,Wt as Wc}from"./chunk-CIPg4Vb2.js";var d=(()=>{class e{static ɵfac=function(t){return new(t||e)};static ɵcmp=lE({type:e,selectors:[[`jc-page-not-found`]],decls:2,vars:0,template:function(t,p){t&1&&(Uc(0,`p`),yD(1,`Page not found`),Wc())},encapsulation:2})}return e})();export{d as PageNotFoundComponent};
