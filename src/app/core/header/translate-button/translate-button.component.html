@@ -1,9 +1,12 @@
 <div class="relative">
   <button
     type="button"
-    class="border-term-border text-term-fg hover:border-term-faint flex cursor-pointer items-center gap-1.5 rounded border px-2 py-1.5 font-mono text-xs transition"
+    class="border-term-border text-term-fg hover:border-term-faint flex min-h-9 cursor-pointer items-center justify-center gap-1.5 rounded border px-2.5 py-2 font-mono text-xs transition"
     [attr.aria-label]="'header.translate-button' | transloco"
-    (click)="openDialog()">
+    [attr.aria-expanded]="menuVisible()"
+    aria-haspopup="true"
+    (click)="openDialog()"
+    (keydown.escape)="hideMenu()">
     {{ activeLabel() }}
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,26 +17,25 @@
       stroke="currentColor"
       stroke-width="1.6"
       stroke-linecap="round"
-      class="text-term-muted">
+      class="text-term-muted"
+      aria-hidden="true">
       <path d="m4 6 4 4 4-4" />
     </svg>
   </button>
   @if (menuVisible()) {
     <div
-      class="border-term-border bg-term-panel absolute top-9 right-0 z-50 mt-1 origin-top-right rounded-md border p-1 font-mono text-xs shadow-lg"
+      class="border-term-border bg-term-panel absolute top-9 right-0 z-50 mt-1 flex origin-top-right flex-col rounded-md border p-1 font-mono text-xs shadow-lg"
       jcClickOutside
       (clickedOutside)="hideMenu()">
-      <ul>
-        @for (language of languages | keyvalue; track language.key) {
-          <li
-            class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex w-28 cursor-pointer items-center rounded px-2.5 py-1.5 transition"
-            tabindex="0"
-            jcClickEnterSpacebar
-            (clickedOrEnterOrSpaceBar)="changeLanguage(language.key)">
-            {{ language.value }}
-          </li>
-        }
-      </ul>
+      @for (language of languages | keyvalue; track language.key) {
+        <button
+          type="button"
+          class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex w-28 cursor-pointer items-center rounded px-2.5 py-1.5 text-left transition"
+          [attr.aria-current]="language.key === activeLang() ? 'true' : null"
+          (click)="changeLanguage(language.key)">
+          {{ language.value }}
+        </button>
+      }
     </div>
   }
 </div>

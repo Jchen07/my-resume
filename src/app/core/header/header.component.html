@@ -2,10 +2,9 @@
   <div
     class="border-term-border bg-term-panel/95 mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-lg border px-4 py-2.5 backdrop-blur">
     <span class="text-term-accent font-mono text-[13px] whitespace-nowrap">~/jie-chen</span>
-    <div class="hidden md:block">
-      <jc-navbar />
-    </div>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-3">
+      <jc-navbar class="order-last md:order-none" />
+      <div class="bg-term-border hidden h-4 w-px md:block"></div>
       <jc-theme-button />
       <jc-translate-button />
     </div>

@@ -1,38 +1,40 @@
 <nav *transloco="let t; prefix: 'header.navbar'" class="flex items-center">
-  <ul class="flex flex-row items-center gap-5 font-mono text-[12.5px] lowercase">
+  <!-- Desktop: inline row -->
+  <ul class="hidden flex-row items-center gap-4 font-mono text-[12.5px] lowercase md:flex">
     <li>
       <a
         jcOpenLinkConfirmation
-        class="text-term-muted hover:text-term-fg flex cursor-pointer items-center transition"
+        class="text-term-muted hover:text-term-fg flex min-h-8 min-w-8 cursor-pointer items-center justify-center transition"
         target="_blank"
-        role="link"
         rel="noopener noreferrer"
-        aria-label="Open Github"
+        aria-label="Open GitHub profile"
         href="https://github.com/Jchen07">
-        <fa-icon [icon]="['fab', 'github']" class="select-none" />
+        <fa-icon [icon]="['fab', 'github']" class="select-none" aria-hidden="true" />
       </a>
     </li>
     @for (option of options; track option.labelkey) {
-      <li tabindex="0" [attr.aria-label]="t(option.labelkey)">
+      <li class="flex items-center">
         @if (option.extern) {
-          <a
-            jcOpenLinkConfirmation
-            class="text-term-muted hover:text-term-fg cursor-pointer transition"
-            role="link"
-            rel="noopener noreferrer"
-            [href]="option.href">
-            {{ t(option.labelkey) }}
-          </a>
-          <fa-icon
-            class="text-term-muted hover:text-term-fg ml-1 cursor-pointer transition"
-            [icon]="['fas', 'copy']"
-            [title]="t('copyEmailToClipboard')"
-            [attr.aria-label]="t('copyEmailToClipboard')"
-            (click)="copyEmailToClipboard()" />
+          <span class="border-term-border inline-flex items-center overflow-hidden rounded border">
+            <a
+              jcOpenLinkConfirmation
+              class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg inline-flex min-h-8 cursor-pointer items-center px-2 transition"
+              rel="noopener noreferrer"
+              [href]="option.href">
+              {{ t(option.labelkey) }}
+            </a>
+            <button
+              type="button"
+              class="border-term-border text-term-muted hover:bg-term-tag-bg hover:text-term-fg inline-flex min-h-8 min-w-8 cursor-pointer items-center justify-center border-l px-1.5 transition"
+              [attr.aria-label]="t('copyEmailToClipboard')"
+              [title]="t('copyEmailToClipboard')"
+              (click)="copyEmailToClipboard()">
+              <fa-icon [icon]="['fas', 'copy']" class="select-none" aria-hidden="true" />
+            </button>
+          </span>
         } @else {
           <a
-            role="link"
-            class="text-term-muted hover:text-term-fg cursor-pointer transition"
+            class="text-term-muted hover:text-term-fg inline-flex min-h-8 cursor-pointer items-center px-1 transition"
             [href]="option.href">
             {{ t(option.labelkey) }}
           </a>
@@ -40,4 +42,73 @@
       </li>
     }
   </ul>
+
+  <!-- Mobile: menu button + dropdown -->
+  <div class="relative md:hidden" [jcClickOutside]="menuOpen()" (clickedOutside)="closeMenu()">
+    <button
+      #menuTrigger
+      type="button"
+      class="border-term-border text-term-muted hover:text-term-fg flex min-h-9 min-w-9 cursor-pointer items-center justify-center rounded border transition"
+      [attr.aria-label]="t('menu')"
+      [attr.aria-expanded]="menuOpen()"
+      aria-haspopup="true"
+      (click)="toggleMenu()"
+      (keydown.escape)="closeMenu()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        aria-hidden="true">
+        <path d="M2.5 4h11M2.5 8h11M2.5 12h11" />
+      </svg>
+    </button>
+    @if (menuOpen()) {
+      <div
+        class="border-term-border bg-term-panel absolute top-11 right-0 z-50 flex w-44 flex-col rounded-md border p-1 font-mono text-xs lowercase shadow-lg">
+        @for (option of options; track option.labelkey) {
+          @if (option.extern) {
+            <a
+              jcOpenLinkConfirmation
+              class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex min-h-9 items-center rounded px-2.5 py-1.5 transition"
+              rel="noopener noreferrer"
+              [href]="option.href"
+              (click)="closeMenu()">
+              {{ t(option.labelkey) }}
+            </a>
+          } @else {
+            <a
+              class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex min-h-9 items-center rounded px-2.5 py-1.5 transition"
+              [href]="option.href"
+              (click)="closeMenu()">
+              {{ t(option.labelkey) }}
+            </a>
+          }
+        }
+        <div class="bg-term-border my-1 h-px"></div>
+        <a
+          jcOpenLinkConfirmation
+          class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex min-h-9 items-center gap-2 rounded px-2.5 py-1.5 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/Jchen07"
+          (click)="closeMenu()">
+          <fa-icon [icon]="['fab', 'github']" class="select-none" aria-hidden="true" />
+          github
+        </a>
+        <button
+          type="button"
+          class="text-term-muted hover:bg-term-tag-bg hover:text-term-fg flex min-h-9 items-center gap-2 rounded px-2.5 py-1.5 text-left transition"
+          [attr.aria-label]="t('copyEmailToClipboard')"
+          (click)="copyEmailToClipboard(); closeMenu()">
+          <fa-icon [icon]="['fas', 'copy']" class="select-none" aria-hidden="true" />
+          {{ t('copyEmailToClipboard') }}
+        </button>
+      </div>
+    }
+  </div>
 </nav>

@@ -1,11 +1,13 @@
 <ol class="flex flex-col gap-4">
   @for (timeLine of timeLines(); track timeLine.title) {
     <li class="border-term-border bg-term-panel rounded-md border p-5 md:p-6">
-      <div class="flex items-baseline justify-between gap-4">
+      <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-4">
         <h3 class="text-term-strong font-mono text-base font-medium md:text-lg">
           {{ timeLine.title }}
         </h3>
-        <time class="text-term-muted font-mono text-xs whitespace-nowrap">{{ timeLine.time }}</time>
+        <time class="text-term-muted font-mono text-xs whitespace-nowrap">
+          {{ timeLine.time }}
+        </time>
       </div>
 
       @if (timeLine.subtitle) {
@@ -14,7 +16,7 @@
             jcOpenLinkConfirmation
             [href]="timeLine.link"
             target="_blank"
-            class="text-term-accent mt-1.5 flex items-center gap-2 font-mono text-xs hover:underline">
+            class="text-term-accent mt-1.5 flex min-h-6 w-fit items-center gap-2 py-0.5 font-mono text-xs hover:underline">
             <ng-container [ngTemplateOutlet]="subtitleContent" />
           </a>
         } @else {

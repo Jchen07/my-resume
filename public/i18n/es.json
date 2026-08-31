@@ -9,7 +9,8 @@
       "projects": "Proyectos",
       "about-me": "Sobre mí",
       "contact": "Contacto",
-      "copyEmailToClipboard": "Copiar correo al portapapeles"
+      "copyEmailToClipboard": "Copiar correo al portapapeles",
+      "menu": "Abrir menú"
     }
   },
   "home": {
@@ -17,14 +18,12 @@
       "title": "Presentación",
       "name": "Hey, soy Jie Chen",
       "description": "Un desarrollador Full-Stack con 5 años de experiencia desarrollando aplicaciones web empresariales en DXC Technology e Indra (Minsait).",
-
       "button-bar": {
         "contact": "Contacto",
         "downloadCV": "Descargar CV"
       }
     },
-
-    "experience":  {
+    "experience": {
       "title": "Experiencia",
       "roles": [
         {

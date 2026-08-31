@@ -4,7 +4,6 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LANGUAGES } from '@/app/core/shared/constants/languages.constants';
 import { KeyValuePipe } from '@angular/common';
 import { ClickOutsideDirective } from '@/app/core/shared/directives/click-outside.directive';
-import { ClickEnterSpacebarDirective } from '@/app/core/shared/directives/click-enter-spacebar.directive';
 
 const LANG_SHORT: Record<string, string> = { es: 'ES', ca: 'CA', en: 'EN', 'zh-CN': '中' };
 
@@ -12,7 +11,7 @@ const LANG_SHORT: Record<string, string> = { es: 'ES', ca: 'CA', en: 'EN', 'zh-C
   selector: 'jc-translate-button',
   templateUrl: 'translate-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective, ClickEnterSpacebarDirective],
+  imports: [TranslocoPipe, KeyValuePipe, ClickOutsideDirective],
 })
 export class TranslateButtonComponent {
   menuVisible = signal<boolean>(false);
@@ -21,7 +20,7 @@ export class TranslateButtonComponent {
 
   private translocoService = inject(TranslocoService);
 
-  private readonly activeLang = toSignal(this.translocoService.langChanges$, {
+  protected readonly activeLang = toSignal(this.translocoService.langChanges$, {
     initialValue: this.translocoService.getActiveLang(),
   });
 

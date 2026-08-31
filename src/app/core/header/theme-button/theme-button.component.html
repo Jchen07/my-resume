@@ -1,7 +1,7 @@
 @if (rendered()) {
   <button
     type="button"
-    class="border-term-border hover:border-term-faint flex cursor-pointer items-center rounded border px-2 py-1.5 transition"
+    class="border-term-border hover:border-term-faint flex min-h-9 min-w-9 cursor-pointer items-center justify-center rounded border px-2 py-2 transition"
     [attr.aria-label]="'header.theme-button' | transloco"
     [attr.aria-pressed]="isDarkMode()"
     (click)="toggle()">

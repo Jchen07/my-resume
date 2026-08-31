@@ -52,10 +52,10 @@
   --term-border: #e4ddce;
   --term-fg: #2b2620;
   --term-strong: #211d18;
-  --term-muted: #7c7364;
-  --term-faint: #948a79;
-  --term-accent: #2f8f61;
-  --term-accent2: #a9791f;
+  --term-muted: #6b6353;
+  --term-faint: #655d4e;
+  --term-accent: #237a4f;
+  --term-accent2: #875f14;
   --term-blue: #3f6f9e;
   --term-tag-fg: #2f7a52;
   --term-tag-bg: #eaf3ec;
@@ -73,7 +73,7 @@
   --term-fg: #e9e5dd;
   --term-strong: #f3efe6;
   --term-muted: #9a9384;
-  --term-faint: #7a7365;
+  --term-faint: #9a917f;
   --term-accent: #74c99a;
   --term-accent2: #e0b15f;
   --term-blue: #7ba7d6;
@@ -139,4 +139,13 @@ html {
 
 .ng-invalid.ng-touched {
   border-color: var(--term-accent2);
+}
+
+/* Consistent keyboard-focus ring across every interactive element.
+   `outline` follows each element's own border-radius in modern browsers. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--term-accent);
+  outline-offset: 2px;
 }

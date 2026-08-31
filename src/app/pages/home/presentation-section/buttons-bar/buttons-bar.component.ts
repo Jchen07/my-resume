@@ -23,7 +23,7 @@ export class ButtonsBarComponent {
   protected readonly cvDownloadName = computed(() => `CV_Jie_Chen_${this.activeLang()}.pdf`);
 
   protected basicButtonStyles =
-    'inline-flex items-center gap-2 rounded border fill-current px-3 py-2 font-mono text-[12.5px] transition cursor-pointer';
+    'inline-flex min-h-9 items-center justify-center gap-2 rounded border fill-current px-3 py-2 font-mono text-[12.5px] transition cursor-pointer';
   protected primaryButtonStyles =
     'border-term-primary-border bg-term-primary-bg text-term-primary-fg hover:border-term-accent';
   protected secondaryButtonStyles =
