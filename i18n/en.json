@@ -1,0 +1,139 @@
+{
+  "header": {
+    "theme-button": "Switch to dark/light mode",
+    "translate-button": "Change language",
+    "navbar": {
+      "home": "Home",
+      "experience": "Experience",
+      "education": "Education",
+      "contact": "Contact",
+      "menu": "Open menu"
+    }
+  },
+  "home": {
+    "presentation": {
+      "title": "Presentation",
+      "name": "Hey, I'm Jie Chen",
+      "description": "A Full-Stack developer with 5 years of experience building enterprise web applications at DXC Technology, Indra (Minsait) and Allianz.",
+      "button-bar": {
+        "downloadCV": "Download CV"
+      }
+    },
+    "experience": {
+      "title": "Experience",
+      "roles": [
+        {
+          "company": "Allianz",
+          "time": "2026 - Present",
+          "title": "Senior Full-Stack Engineer",
+          "description": "Developing core functionality for Allianz's global products and platforms, used across multiple markets."
+        },
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 - 2026",
+          "title": "Software Engineer 3",
+          "description": "Contributed to a Mapfre insurance project built on a micro-frontend and micro-services architecture."
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "Business Applications Engineer",
+          "description": "Led small teams to build new features such as multilingual support and migrated the entire front-end stack to the latest technologies. Developed and maintained scalable back-ends with Java Spring Boot and reusable front-end components with Angular. Helped define task estimates, select technologies and libraries, and onboard new team members."
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 - Present",
+          "title": "Computer Engineering",
+          "subtitle": "Open University of Catalonia",
+          "description": "Bachelor’s Degree in Computer Engineering"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Development of web applications",
+          "subtitle": "Advanced Technician Diploma",
+          "description": "In the Higher Vocational Training in Web Development, I gained hands-on experience in creating and managing dynamic websites and applications. I mastered technologies like HTML, CSS, JavaScript, Vue, etc. while also learning to design responsive, user-friendly interfaces. I further enhanced my skills through practical experience in projects and internships."
+        }
+      ]
+    }
+  },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Full-Stack Developer",
+    "present": "Present",
+    "location": "Barcelona, Spain",
+    "contact": {
+      "email": "Email:",
+      "phone": "Phone:",
+      "location": "Location:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Professional Summary",
+      "experience": "Experience",
+      "skills": "Skills",
+      "education": "Education",
+      "languages": "Languages"
+    },
+    "summary": "Full-Stack Developer with 5 years of experience building enterprise web applications at DXC Technology, Indra (Minsait) and Allianz. Led small teams to deliver features like multilingual support and to modernize front-end stacks. Works across the stack: scalable back-ends with Java and Spring Boot, dynamic reusable front-ends with Angular and TypeScript.",
+    "experience": [
+      {
+        "company": "Allianz",
+        "bullets": [
+          "Developing core functionality for Allianz's global products and platforms, used across multiple markets.",
+          "Angular and TypeScript front-ends; Spring Boot, Kafka and MongoDB on AWS (EKS, S3, Cognito)."
+        ]
+      },
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "Built Angular micro-frontends and Spring Boot services for a Mapfre insurance platform."
+        ]
+      },
+      {
+        "company": "DXC Technology",
+        "bullets": [
+          "Led small teams to develop new features, such as multilingual support.",
+          "Upgraded the entire front-end stack to the latest technologies.",
+          "Contributed to task estimation and played a key role in selecting technologies and libraries.",
+          "Worked closely with designers and analysts to turn business requirements into robust technical solutions.",
+          "Built scalable Java Spring Boot back-ends and reusable Angular front-end components.",
+          "Supported and mentored new team members, helping them integrate into the team."
+        ]
+      }
+    ],
+    "skillGroups": {
+      "languages": "Programming languages",
+      "frameworks": "Frameworks",
+      "databases": "Databases",
+      "tools": "Tools",
+      "testing": "Testing",
+      "methods": "Practices"
+    },
+    "languageNames": {
+      "es": "Spanish",
+      "ca": "Catalan",
+      "en": "English",
+      "zh": "Chinese"
+    },
+    "languageLevels": {
+      "native": "Native",
+      "bilingual": "Bilingual",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Advanced"
+    }
+  },
+  "open-link-confirmation": {
+    "message": "You are about to open an external link. Would you like to continue?",
+    "download-message": "Do you want to download this file?"
+  }
+}

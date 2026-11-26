@@ -1,0 +1,139 @@
+{
+  "header": {
+    "theme-button": "Cambiar a modo oscuro/claro",
+    "translate-button": "Cambiar idioma",
+    "navbar": {
+      "home": "Inicio",
+      "experience": "Experiencia",
+      "education": "Educación",
+      "contact": "Contacto",
+      "menu": "Abrir menú"
+    }
+  },
+  "home": {
+    "presentation": {
+      "title": "Presentación",
+      "name": "Hey, soy Jie Chen",
+      "description": "Un desarrollador Full-Stack con 5 años de experiencia desarrollando aplicaciones web empresariales en DXC Technology, Indra (Minsait) y Allianz.",
+      "button-bar": {
+        "downloadCV": "Descargar CV"
+      }
+    },
+    "experience": {
+      "title": "Experiencia",
+      "roles": [
+        {
+          "company": "Allianz",
+          "time": "2026 - Actualmente",
+          "title": "Senior Full-Stack Engineer",
+          "description": "Desarrollo funcionalidades clave para los productos y plataformas globales de Allianz, utilizados en múltiples mercados."
+        },
+        {
+          "company": "Indra (Minsait)",
+          "time": "2025 - 2026",
+          "title": "Software Engineer 3",
+          "description": "Contribuí a un proyecto de seguros de Mapfre basado en una arquitectura de micro-frontend y microservicios."
+        },
+        {
+          "company": "DXC Technology",
+          "time": "2021 - 2025",
+          "title": "Business Applications Engineer",
+          "description": "Lideré equipos pequeños para desarrollar nuevas funcionalidades, como el soporte multilingüe, y actualicé todo el stack de front-end a las últimas tecnologías. Desarrollé y mantuve back-ends escalables con Java Spring Boot y componentes de front-end reutilizables con Angular. Colaboré en la estimación de tareas, la selección de tecnologías y librerías, y en la incorporación de nuevos miembros al equipo."
+        }
+      ]
+    },
+    "education": {
+      "title": "Educación",
+      "entries": [
+        {
+          "institution": "Open University of Catalonia (UOC)",
+          "time": "2024 - Actualmente",
+          "title": "Ingeniero Informático",
+          "subtitle": "Universidad Abierta de Cataluña",
+          "description": "Grado en ingeniería informática"
+        },
+        {
+          "institution": "Institut Montilivi",
+          "time": "2020 - 2022",
+          "title": "Desarrollo de aplicaciones web",
+          "subtitle": "Ciclo formativo de grado superior",
+          "description": "En el Grado Superior de Desarrollo Web adquirí experiencia práctica en la creación y gestión de sitios web y aplicaciones dinámicas. Dominé tecnologías como HTML, CSS, JavaScript, Vue, etc., a la vez que aprendí a diseñar interfaces responsivas y fáciles de usar. Además, perfeccioné mis habilidades mediante la experiencia práctica en proyectos y prácticas en empresas."
+        }
+      ]
+    }
+  },
+  "cv": {
+    "title": "CV — Jie Chen",
+    "displayName": "Jie Chen",
+    "headline": "Desarrollador Full-Stack",
+    "present": "Actualidad",
+    "location": "Barcelona, España",
+    "contact": {
+      "email": "Correo:",
+      "phone": "Teléfono:",
+      "location": "Ubicación:",
+      "linkedin": "LinkedIn:",
+      "github": "GitHub:"
+    },
+    "sections": {
+      "summary": "Perfil profesional",
+      "experience": "Experiencia",
+      "skills": "Competencias",
+      "education": "Educación",
+      "languages": "Idiomas"
+    },
+    "summary": "Desarrollador Full-Stack con 5 años de experiencia en aplicaciones web empresariales en DXC Technology, Indra (Minsait) y Allianz. Lideré equipos pequeños para entregar funcionalidades como el soporte multilingüe y modernizar el stack de front-end. Trabajo en toda la pila: back-ends escalables con Java y Spring Boot, y front-ends dinámicos y reutilizables con Angular y TypeScript.",
+    "experience": [
+      {
+        "company": "Allianz",
+        "bullets": [
+          "Desarrollo funcionalidades clave para los productos y plataformas globales de Allianz, utilizados en múltiples mercados.",
+          "Front-ends con Angular y TypeScript; Spring Boot, Kafka y MongoDB en AWS (EKS, S3, Cognito)."
+        ]
+      },
+      {
+        "company": "Indra (Minsait)",
+        "bullets": [
+          "Desarrollé micro-frontends con Angular y servicios Spring Boot para una plataforma de seguros de Mapfre."
+        ]
+      },
+      {
+        "company": "DXC Technology",
+        "bullets": [
+          "Lideré equipos pequeños para desarrollar nuevas funcionalidades, como el soporte multilingüe.",
+          "Actualicé todo el stack de front-end a las últimas tecnologías.",
+          "Contribuí a la estimación de tareas y tuve un papel clave en la selección de tecnologías y librerías.",
+          "Colaboré estrechamente con diseñadores y analistas para convertir los requisitos de negocio en soluciones técnicas sólidas.",
+          "Desarrollé back-ends escalables con Java Spring Boot y componentes reutilizables con Angular.",
+          "Di soporte y mentoría a nuevos miembros del equipo, ayudándoles a integrarse."
+        ]
+      }
+    ],
+    "skillGroups": {
+      "languages": "Lenguajes de programación",
+      "frameworks": "Frameworks",
+      "databases": "Bases de datos",
+      "tools": "Herramientas",
+      "testing": "Testing",
+      "methods": "Prácticas"
+    },
+    "languageNames": {
+      "es": "Español",
+      "ca": "Catalán",
+      "en": "Inglés",
+      "zh": "Chino"
+    },
+    "languageLevels": {
+      "native": "Nativo",
+      "bilingual": "Bilingüe",
+      "c2": "C2",
+      "c1": "C1",
+      "b2": "B2",
+      "advanced": "Avanzado"
+    }
+  },
+  "open-link-confirmation": {
+    "message": "Estás a punto de abrir un enlace externo. ¿Te gustaría continuar?",
+    "download-message": "¿Quieres descargar este archivo?"
+  }
+}
